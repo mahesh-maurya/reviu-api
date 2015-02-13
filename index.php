@@ -10,6 +10,8 @@
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
@@ -24,19 +26,20 @@
                 height: 310px;
             }
             canvas {
-                width: 499px;
-                height: 310px;
+                width: 499px !important;
+                height: 310px !important;
             }
         </style>
 
-        <script src="https://www.webrtc-experiment.com/RecordRTC.js">
+        <script src="js/RecordRTC.js">
         </script>
+<title>Reviu API</title>
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 
-    <section class="hidden-xs hidden-sm">
+    <div class="section">
         <div class="main-box">
             <div class="head-top">
                 <img src="images/redbtn.png">
@@ -125,13 +128,13 @@
                             <input class="ratingclass" type="range" min="0" max="5" value="0" step="0.1" onchange="rangevalue1.value=value" />
                             <output id="rangevalue1"></output>
                             <div class="bottom">
- <h3>Share</h3>
+
                                 <i class="fa fa-facebook"></i>
 
                                 <i class="fa fa-google-plus"></i>
                                 <i class="fa fa-linkedin"></i>
-                                <i class="fa fa-instagram"></i>
-                               
+                                <i class="fa fa-instagram"></i><br>
+                                <p classs="text-center">Share</p>
                                 <a class="stop" id="stop" href="#" disabled>publish</a>
                             </div>
 
@@ -141,91 +144,8 @@
             </div>
 
         </div>
-    </section>
-    <headers class="hidden-md hidden-lg">
-        <div class="sections ">
-            <div class="head-tops">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-4 col-md-2 mob-img">
-
-                            <p class="visible-xs visible-sm pos-img"><a href="#" class="col"> login </a><i class="fa fa-caret-right"></i>
-                        </div>
-                        <div class="col-xs-5 col-md-4 text-center">
-                            <a href="index.html" class="hidden-md hidden-lg text-center ">
-                                <img class="text-center img-log" src="images/logo.png">
-                            </a>
-
-                        </div>
-                        <div class="col-xs-2 col-md-2 hidden-xs hidden-sm"></div>
-
-                        <div class="col-xs-3 col-md-1">
-
-
-                            <form class="mob-search hidden-md hidden-lg" id="demo-2">
-                                <input type="search" placeholder="">
-                            </form>
-
-                        </div>
-                        <div class="col-xs-4 col-md-3">
-
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="bg-mob hidden-md hidden-lg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12" style="text-align: center;
-margin: auto;">
-
-                            <ul>
-                                <a href="main.html">
-                                    <li style="list-style:none;padding-left:0px">feed</li>
-                                </a>
-                                <a href="#">
-                                    <li>Preview</li>
-                                </a>
-                                <a href="category.html">
-                                    <li>Explore</li>
-                                </a>
-                                <a href="#">
-                                    <li>Blog</li>
-                                </a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="feed-head">
-                              <div class="drop-down">
-
-                        <select name="Icecream Flavours">
-                            <option value="double chocolate">category</option>
-                            <option value="vanilla">Vanilla</option>
-                            <option value="strawberry">Strawberry</option>
-                            <option value="caramel">Caramel</option>
-                        </select>
-                    </div>
-                    <div class="content-box">
-                        <div class="content-text">
-
-                            <input class="textbox" type="text" value="title/product">
-                            <input class="textbox" type="text" value="location">
-                            <p>Powered by Foursquar</p>
-                            <input class="textbox" type="text" value="tags">
-                            <h5>ratings</h5>
-                            <input type="range" min="0" max="5" value="2.5" step="0.1" onchange="rangevalue.value=value" />
-                            <output id="rangevalue"></output>
-                            
-
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </headers>
+    </div>
+   
 
     <script>
         $( document ).ready(function() {
@@ -378,6 +298,14 @@ margin: auto;">
             request.open('POST', url);
             request.send(data);
         }
+    </script>
+    <script>
+    $(document).ready(function(){
+    $(".section").css("min-height",$(window).height());
+    $( window ).resize(function() {
+        $(".section").css("min-height",$(window).height());
+    });
+});
     </script>
 </body>
 
