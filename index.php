@@ -6,12 +6,12 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/mobile.css" rel="stylesheet" type="text/css">
-    
+
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
@@ -21,19 +21,20 @@
 
 
         <style>
-            video {
+            <style> video {
                 width: 499px;
                 height: 310px;
             }
+            
             canvas {
                 width: 499px !important;
                 height: 310px !important;
             }
         </style>
 
-        <script src="js/RecordRTC.js">
+        <script src="https://www.webrtc-experiment.com/RecordRTC.js">
         </script>
-<title>Reviu API</title>
+        <title>Reviu API</title>
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
 </head>
 
@@ -70,7 +71,7 @@
                         <video id="preview" controls style=" height: 300px; max-width: 100%; vertical-align: top; width: 498px;"></video>
 
 
-<!--                        <button id="" class="record-button" ></button>-->
+                        <!--                        <button id="" class="record-button" ></button>-->
 
 
 
@@ -89,7 +90,7 @@
                     </div>
                     <div class="slider scroll">
                         <div class="img-content addvideos">
-<!--
+                            <!--
                             <img src="images/dp.jpg">
                             <img src="images/dp.jpg">
                             <img src="images/dp.jpg">
@@ -114,6 +115,7 @@
                             <option value="5">Vanilla</option>
                             <option value="6">Strawberry</option>
                             <option value="8">Caramel</option>
+                            <option value="product">Product</option>
                         </select>
                     </div>
                     <div class="content-box">
@@ -121,10 +123,11 @@
 
                             <input class="textbox titleclass" type="text" value="" placeholder="Title">
                             <input class="textbox locationclass" type="text" value="" placeholder="Location">
+                            <input class="textbox productlinkclass" style="display:none;" type="text" value="" placeholder="Product Link">
                             <p>Powered by Foursquar</p>
                             <input class="textbox tagsclass" type="text" value="" placeholder="Tag">
                             <h5>ratings</h5>
-                            
+
                             <input class="ratingclass" type="range" min="0" max="5" value="0" step="0.1" onchange="rangevalue1.value=value" />
                             <output id="rangevalue1"></output>
                             <div class="bottom">
@@ -133,7 +136,8 @@
 
                                 <i class="fa fa-google-plus"></i>
                                 <i class="fa fa-linkedin"></i>
-                                <i class="fa fa-instagram"></i><br>
+                                <i class="fa fa-instagram"></i>
+                                <br>
                                 <p classs="text-center">Share</p>
                                 <a class="stop" id="stop" href="#" disabled>publish</a>
                             </div>
@@ -145,44 +149,57 @@
 
         </div>
     </div>
-   
+
 
     <script>
-        $( document ).ready(function() {
-//        console.log('hiiiii');
-//        alert("hiii");
+        $(document).ready(function () {
+            //        console.log('hiiiii');
+            //        alert("hiii");
 
-        $.getJSON(
-            "http://wohlig.biz/ReviuBackend/index.php/json/getvideosbyuser/1", {
-//                id: "123"
-            },
-            function (data) {
-                console.log(data);
-                nodata=data;
-                videosliders(data);
-                    }
-
-            
-                );
-            function videosliders(data) {
-                        $(".addvideos").html("");
-                        for(var i=0;i<data.length;i++)
-                        {
-                            $(".addvideos").append("<img src='images/dp.jpg' data-video="+data[i].videourl+">");
-                        }
-                        $(".addvideos img").click(function() {
-//                            console.log($(this).attr("data-video")); 
-                            preview.src = "http://mafiawarloots.com/reviu-api/uploads/"+$(this).attr("data-video");
-                            preview.play();
-                            preview.muted = false;
-                        });
-
-                    };
-            
+            $(".categoryclass").change(function () {
+                var catval = $(".categoryclass").val();
+                if (catval == "product") {
+                    $(".locationclass").hide();
+                    $(".productlinkclass").show();
+                    
+                }
+                else
+                {
+                    $(".locationclass").show();
+                    $(".productlinkclass").hide();
+                }
             });
-        
+            $.getJSON(
+                "http://wohlig.biz/ReviuBackend/index.php/json/getvideosbyuser/1", {
+                    //                id: "123"
+                },
+                function (data) {
+                    console.log(data);
+                    nodata = data;
+                    videosliders(data);
+                }
+
+
+            );
+
+            function videosliders(data) {
+                $(".addvideos").html("");
+                for (var i = 0; i < data.length; i++) {
+                    $(".addvideos").append("<img src='images/dp.jpg' data-video=" + data[i].videourl + ">");
+                }
+                $(".addvideos img").click(function () {
+                    //                            console.log($(this).attr("data-video")); 
+                    preview.src = "http://mafiawarloots.com/reviu-api/uploads/" + $(this).attr("data-video");
+                    preview.play();
+                    preview.muted = false;
+                });
+
+            };
+
+        });
+
         // todo: this demo need to be updated for Firefox.
-         // it currently focuses only chrome.
+        // it currently focuses only chrome.
         function PostBlob(audioBlob, videoBlob, fileName) {
             var formData = new FormData();
             formData.append('filename', fileName);
@@ -190,37 +207,37 @@
             formData.append('video-blob', videoBlob);
             xhr('save.php', formData, function (ffmpeg_output) {
                 console.log(ffmpeg_output);
-                var category=$(".categoryclass option:selected").attr("value");
-//                console.log(category);
-                var title=$(".titleclass").val();
-//                console.log(title);
-                var location=$(".locationclass").val();
-                var tags=$(".tagsclass").val();
-                var ratingclass=$(".ratingclass").val();
-//                console.log(ratingclass);
-                var video=ffmpeg_output;
-                
-                $.getJSON(
-            "http://wohlig.biz/ReviuBackend/index.php/json/postVideo?title="+$(".titleclass").val()+"&useremail=wohlig@wohlig.com&location="+$(".locationclass").val()+"&rating="+$(".ratingclass").val()+"&category="+$(".categoryclass option:selected").attr("value")+"&video="+video+"", {
-//                id:1234
-            },
-            function (data) {
-                console.log(data);
-//                console.log(data.results[0].geometry.location.lat);
-//                console.log(data.results[0].geometry.location.lng);
-//                $('.latitudeclass').val(data.results[0].geometry.location.lat);
-//                $('.longitudeclass').val(data.results[0].geometry.location.lng);
-////                console.log(parsxed.results[0].geometry);
-//                nodata = data;
-                // $("#store").html(data);
-//                allenquiries(data);
-//                userdetails(data);
+                var category = $(".categoryclass option:selected").attr("value");
+                //                console.log(category);
+                var title = $(".titleclass").val();
+                //                console.log(title);
+                var location = $(".locationclass").val();
+                var tags = $(".tagsclass").val();
+                var ratingclass = $(".ratingclass").val();
+                //                console.log(ratingclass);
+                var video = ffmpeg_output;
 
-            }
-        );
-                
-                
-//                console.log(tags);
+                $.getJSON(
+                    "http://wohlig.biz/ReviuBackend/index.php/json/postVideo?title=" + $(".titleclass").val() + "&useremail=wohlig@wohlig.com&location=" + $(".locationclass").val() + "&rating=" + $(".ratingclass").val() + "&category=" + $(".categoryclass option:selected").attr("value") + "&video=" + video + "", {
+                        //                id:1234
+                    },
+                    function (data) {
+                        console.log(data);
+                        //                console.log(data.results[0].geometry.location.lat);
+                        //                console.log(data.results[0].geometry.location.lng);
+                        //                $('.latitudeclass').val(data.results[0].geometry.location.lat);
+                        //                $('.longitudeclass').val(data.results[0].geometry.location.lng);
+                        ////                console.log(parsxed.results[0].geometry);
+                        //                nodata = data;
+                        // $("#store").html(data);
+                        //                allenquiries(data);
+                        //                userdetails(data);
+
+                    }
+                );
+
+
+                //                console.log(tags);
                 document.querySelector('h1').innerHTML = ffmpeg_output.replace(/\\n/g, '<br />');
                 preview.src = ffmpeg_output;
                 preview.play();
@@ -235,7 +252,35 @@
         var container = document.getElementById('container');
         var isFirefox = !!navigator.mozGetUserMedia;
         var recordAudio, recordVideo;
+        var shouldstop = true;
+        //        var pausestop=10;
+        var stopafter = 10;
+        //        var pausenum=1;
         record.onclick = function () {
+            shouldstop = true;
+            //            pausenum=1;
+            $("#preview").get(0).ontimeupdate = function () {
+
+                //                var pausetime=pausenum*pausestop;
+                var curtime = $("#preview").get(0).currentTime;
+                console.log(curtime);
+                if (shouldstop) {
+                    if (curtime > stopafter) {
+                        shouldstop = true;
+                        $("#stop").click();
+                    }
+                    //                    else if(curtime>pausetime)
+                    //                    {
+                    //                        console.log("Its Just Paused");
+                    //                        pausenum++;
+                    //                        $("#preview").get(0).pause();
+                    //                    }
+
+                }
+            };
+
+
+            $("#record").hide();
             record.disabled = true;
             !window.stream && navigator.getUserMedia({
                 audio: true,
@@ -268,8 +313,10 @@
             }
         };
         var fileName;
-//        $("publish").click
+
+        //        $("publish").click
         stop.onclick = function () {
+            shouldstop = false;
             document.querySelector('h1').innerHTML = 'Getting Blobs...';
             record.disabled = false;
             stop.disabled = true;
@@ -300,12 +347,12 @@
         }
     </script>
     <script>
-    $(document).ready(function(){
-    $(".section").css("min-height",$(window).height());
-    $( window ).resize(function() {
-        $(".section").css("min-height",$(window).height());
-    });
-});
+        $(document).ready(function () {
+            $(".section").css("min-height", $(window).height());
+            $(window).resize(function () {
+                $(".section").css("min-height", $(window).height());
+            });
+        });
     </script>
 </body>
 
