@@ -218,7 +218,7 @@
                 var video = ffmpeg_output;
 
                 $.getJSON(
-                    "http://wohlig.biz/ReviuBackend/index.php/json/postVideo?title=" + $(".titleclass").val() + "&useremail=wohlig@wohlig.com&location=" + $(".locationclass").val() + "&rating=" + $(".ratingclass").val() + "&category=" + $(".categoryclass option:selected").attr("value") + "&video=" + video + "", {
+                    "http://wohlig.biz/ReviuBackend/index.php/json/postVideoforapi?title=" + $(".titleclass").val() + "&useremail=wohlig@wohlig.com&location=" + $(".locationclass").val() + "&rating=" + $(".ratingclass").val() + "&category=" + $(".categoryclass option:selected").attr("value") + "&video=" + video + "", {
                         //                id:1234
                     },
                     function (data) {
@@ -254,7 +254,7 @@
         var recordAudio, recordVideo;
         var shouldstop = true;
         //        var pausestop=10;
-        var stopafter = 10;
+        var stopafter = 29;
         //        var pausenum=1;
         record.onclick = function () {
             shouldstop = true;
