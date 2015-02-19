@@ -103,14 +103,14 @@ width: 1000px;
 overflow-x: hidden;
 }
 .left-back{
-height: 96%;
+height: 10px;
     
 background: transparent;
 text-align: center;
 margin: 15px auto;
 }
 .left-box {
-    height: 494px;
+    /* height: 494px; */
     background: transparent;
     width: 293px;
     /* margin: -18px; */
@@ -396,11 +396,11 @@ padding: 10px;
     background: #f3334f;
     text-transform: uppercase;
     font-size: 16px;
-    padding: 5px 80px 5px  80px;
+    padding: 10px 80px 10px  80px;
     font-family: lato;
     border-radius: 5px;
     position: relative;
-    top: 40px;
+    top: 60px;
     border: 1px;
 }
 .bottom p {
@@ -411,7 +411,9 @@ padding: 10px;
     /* border-top: 2px solid; */
 }
 .bottom a:hover {
-    background: #FFFFFF;  text-transform: uppercase;  font-size: 16px;  padding: 5px 80px 5px 80px;  font-family: lato;  border-radius: 5px;  position: relative;  top: 40px;  
+    background: #FFFFFF;  text-transform: uppercase;  font-size: 16px;  
+    padding: 10px 80px 10px 80px;  font-family: lato;  border-radius: 5px;  position: relative;  
+    top: 60px;  
     border: 1px solid #f3334f;  
     -webkit-transition: ease 1s;
     -moz-transition: ease 1s;
@@ -424,6 +426,20 @@ padding: 10px;
     opacity: 0.4;
     -webkit-transition: all 1s;
     -moz-transition: all 1s;
+    -o-transition: all 1s;
+     -ms-transition: all 1s;
+    transition: all 1s;
+}
+button.btn-defaultp:hover {
+    background: #adafb2;  
+    color: #24282B;  /* box-shadow: 2px 3px 1px #1c1f24; */  border: 1px solid rgb(29, 27, 27);  /* width: 96px; */  /* height: 30px; */  border-radius: 0px;  /* margin-left: 135px; */  vertical-align: bottom;  float: right;  font-size: 15px;  text-transform: uppercase;  margin: 12px;  -webkit-transition: all 1s; -moz-transition: all 1s;
+    -o-transition: all 1s;
+     -ms-transition: all 1s;
+    transition: all 1s;
+}
+button.btn-defaults:hover {
+    background: #adafb2;  
+    color: #24282B;  /* box-shadow: 2px 3px 1px -3px #1c1f24; */  border: 1px solid rgb(23, 23, 23);  /* width: 96px; */  /* height: 30px; */  border-radius: 0px;  font-size: 15px;  text-transform: uppercase;  /* vertical-align: bottom; */  float: left;  margin: 12px;  -webkit-transition: all 1s;-moz-transition: all 1s;
     -o-transition: all 1s;
      -ms-transition: all 1s;
     transition: all 1s;

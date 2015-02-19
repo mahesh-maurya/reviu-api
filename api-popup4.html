@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/remodal.css" rel="stylesheet" type="text/css">
+    <link href="css/mobile.css" rel="stylesheet" type="text/css">
+
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+    </script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
+
+
+
+    <script src="js/jquery.remodal.js">
+    </script>
+    <title>Reviu API</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="container">
+        <div class="remodal-bg">
+            <a href="#modal">Click</a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="container">
+        <div class="remodal" data-remodal-id="modal" style="max-width: 600px;">
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="head-log">
+                        <img src="images/logo2.png"><span>Share your review</span>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <h3>login with social media</h3>
+                    <img src="images/facebook.png">
+                    <img src="images/googleplus.png">
+                    <img src="images/link.png">
+                    <img src="images/insta.png">
+                    <img src="images/twitter.png">
+                    <p>Login with one of the above to share your reviews</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!--
+    <a class="remodal-cancel" href="#">Cancel</a>
+    <a class="remodal-confirm" href="#">OK</a>
+-->
+    </div>
+
+    <script>
+        $(document).on("open", ".remodal", function () {
+            console.log("open");
+        });
+
+        $(document).on("opened", ".remodal", function () {
+            console.log("opened");
+        });
+
+        $(document).on("close", ".remodal", function (e) {
+            console.log('close' + (e.reason ? ", reason: " + e.reason : ''));
+        });
+
+        $(document).on("closed", ".remodal", function (e) {
+            console.log('closed' + (e.reason ? ', reason: ' + e.reason : ''));
+        });
+
+        $(document).on("confirm", ".remodal", function () {
+            console.log("confirm");
+        });
+
+        $(document).on("cancel", ".remodal", function () {
+            console.log("cancel");
+        });
+
+        //    You can open or close it like this:
+        //    $(function () {
+        //        var inst = $.remodal.lookup[$("[data-remodal-id=modal]"").data("remodal")];
+        //        inst.open();
+        //        inst.close();
+        //    });
+
+        //  Or init in this way:
+        var inst = $("[data-remodal-id=modal2]").remodal();
+        //  inst.open();
+    </script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 
 <head>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style2.css" rel="stylesheet" type="text/css">
     <link href="css/mobile.css" rel="stylesheet" type="text/css">
 
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
     <scirpt src="https://cdn.webrtc-experiment.com/ffmpeg_asm.js">
@@ -39,13 +39,17 @@
 </head>
 
 <body>
-
+<div class="container">
     <div class="section">
         <div class="main-box">
+           <div class="row">
+           <div class="col-md-12">
             <div class="head-top">
                 <img src="images/redbtn.png">
                 <img src="images/yellowbtn.png">
                 <img src="images/greenbtn.png">
+            </div>
+            </div>
             </div>
             <div class="pro-logo">
                 <div class="row">
@@ -58,6 +62,8 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+            <div class="col-md-8">
             <div class="right-box">
                 <div class="vid-box">
                     <div class="image-box">
@@ -90,21 +96,14 @@
                     </div>
                     <div class="slider scroll">
                         <div class="img-content addvideos">
-                            <!--
-                            <img src="images/dp.jpg">
-                            <img src="images/dp.jpg">
-                            <img src="images/dp.jpg">
-                            <img src="images/dp.jpg">
-                            <img src="images/dp.jpg">
-                            <img src="images/dp.jpg">
-                            <img src="images/dp.jpg">
--->
-                            <!--            <i class="fa fa-th"></i>-->
+
                         </div>
                     </div>
                 </div>
 
             </div>
+            </div>
+            <div class="col-md-4">
             <div class="left-box pull-right">
                 <div class="left-back">
 
@@ -132,6 +131,7 @@
                             <output id="rangevalue1"></output>
                             <div class="bottom">
 
+<!--
                                 <i class="fa fa-facebook"></i>
 
                                 <i class="fa fa-google-plus"></i>
@@ -139,6 +139,7 @@
                                 <i class="fa fa-instagram"></i>
                                 <br>
                                 <p classs="text-center">Share</p>
+-->
                                 <a class="stop" id="stop" href="#" disabled>publish</a>
                             </div>
 
@@ -146,11 +147,12 @@
                     </div>
                 </div>
             </div>
-
+            </div>
+</div>
         </div>
     </div>
 
-
+</div>
     <script>
         $(document).ready(function () {
             //        console.log('hiiiii');
