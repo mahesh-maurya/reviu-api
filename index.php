@@ -21,7 +21,7 @@
 
 
         <style>
-            <style> video {
+            video {
                 width: 499px;
                 height: 310px;
             }
@@ -67,6 +67,9 @@
             <div class="right-box">
                 <div class="vid-box">
                     <div class="image-box">
+                       <div class="number">
+                           <p><span class="remainingsec">30</span> sec</p>
+                       </div>
                         <h1 style="display:none;">
 <!--
         <a href="https://github.com/muaz-khan/WebRTC-Experiment/tree/master/RecordRTC">RecordRTC</a>
@@ -74,6 +77,7 @@
         <a href="https://github.com/muaz-khan/WebRTC-Experiment/tree/master/ffmpeg">FFmpeg</a>
 -->
     </h1>
+                       
                         <video id="preview" controls style=" height: 300px; max-width: 100%; vertical-align: top; width: 498px;"></video>
 
 
@@ -150,9 +154,9 @@
             </div>
 </div>
         </div>
-    </div>
-
 </div>
+  </div>
+   
     <script>
         $(document).ready(function () {
             //        console.log('hiiiii');
@@ -267,6 +271,8 @@
                 var curtime = $("#preview").get(0).currentTime;
                 console.log(curtime);
                 if (shouldstop) {
+                    
+                    $(".remainingsec").text(parseInt(stopafter-curtime));
                     if (curtime > stopafter) {
                         shouldstop = true;
                         $("#stop").click();

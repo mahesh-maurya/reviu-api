@@ -88,7 +88,7 @@ html.remodal-is-locked {
 .remodal select:focus,
 .remodal textarea:focus,
 .remodal input:focus {
-    font-size: 16px;
+    font-size: 12px;
 }
 
 /* ==========================================================================
@@ -286,8 +286,8 @@ body.remodal-is-active .remodal {
         min-height: 0;
         margin: 20px auto;
 
-        -webkit-border-radius: 6px;
-        border-radius: 6px;
+        -webkit-border-radius: 0px;
+        border-radius: 0px;
     }
 }
 
@@ -467,4 +467,91 @@ p.fa.fa-map-marker {
     border-radius: 5px;
     height: auto;
     width: 100%;
+}
+
+.number p {
+    font-size: 35px;
+    background: transparent;
+    border-radius: 50px;
+    border: 3px solid rgb(57, 62, 73);
+    height: 65px;
+    width: 65px;
+    padding: 3px 0px 0px 2px;
+    color: rgb(243, 51, 79);
+}
+.feed-video {
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 50px;
+    background: #fff;
+}
+
+.feed-img {
+    overflow: hidden;
+    height: auto;
+    display: block;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.feed-video img:hover {
+    opacity: 0.4;
+    -webkit-transition: all 1s;
+    -moz-transition: ease 1s;
+    cursor: pointer;
+}
+
+.play {
+    position: absolute;
+    /* right: 140px; */
+    
+    top: 103px;
+    left: 0px;
+    width: 100%;
+}
+.feed-det .rating{
+        padding: 10px;
+float: left;
+background: #ef4d64;
+font-size: 20px;
+  margin: 0px;
+        }
+.det h5{
+          font-size: 16px;
+          color:#515151;
+          text-transform: uppercase;
+          float: left;
+          padding-left: 22px;
+
+          line-height: 14px;
+          font-family: lato;
+}
+.feed-det span{
+color:#ef4d64;
+              font-size: 10px;
+text-transform: capitalize;
+float: left;
+}
+.map-feed i{
+color:#7c7c7c;
+        font-size: 15px;
+vertical-align: middle;
+}
+.map-feed span{
+
+       text-transform: capitalize;
+padding-left: 5px;
+font-size: 12px;
+font-family: lato;
+vertical-align: middle;
+
+}
+.video-play {
+    background: #ededed;
+    height: 280px;
+    border-radius: 7px;
+    margin: 40px auto;
 }

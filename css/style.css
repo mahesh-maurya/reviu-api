@@ -444,3 +444,27 @@ button.btn-defaults:hover {
      -ms-transition: all 1s;
     transition: all 1s;
 }
+.number {
+    position: absolute;
+    top: 118px;
+    left: 367px;
+    font-size: 10px;
+    background: #323640;
+    border-radius: 0 0 4px 4px;
+    width: 100px;
+    opacity: 0.4;
+}
+
+.number p {
+    font-size: 13px;
+    background: transparent;
+    /* background: #323640; */
+    
+    height: 15px;
+    /* width: 65px; */
+    padding: 3px -4px 0px 2px;
+    
+    color: white;
+    text-align: center;
+}
+
