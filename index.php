@@ -39,11 +39,11 @@
 </head>
 
 <body>
-<div class="container">
+<div class="container2" style="max-width:840px;">
     <div class="section">
         <div class="main-box">
            <div class="row">
-           <div class="col-md-12">
+           <div class=" col-md-12">
             <div class="head-top">
                 <img src="images/redbtn.png">
                 <img src="images/yellowbtn.png">
@@ -53,17 +53,17 @@
             </div>
             <div class="pro-logo">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class=" col-md-6">
                         <img src="images/snap.png">
                     </div>
-                    <div class="col-md-6">
+                    <div class=" col-md-6">
 
                         <p class="name-tx">Powered by Reviu</p>
                     </div>
                 </div>
             </div>
-            <div class="row">
-            <div class="col-md-8">
+            <div class="row" style="margin-left:0px;margin-right:0px;">
+            <div class=" col-md-8">
             <div class="right-box">
                 <div class="vid-box">
                     <div class="image-box">
@@ -78,7 +78,7 @@
 -->
     </h1>
                        
-                        <video id="preview" controls style=" height: 300px; max-width: 100%; vertical-align: top; width: 498px;"></video>
+                        <video id="preview" controls style=" height: 300px; max-width: 100%; vertical-align: top; width: 100%;"></video>
 
 
                         <!--                        <button id="" class="record-button" ></button>-->
@@ -87,16 +87,21 @@
 
                     </div>
                     <div class="buttons">
+                      <div class="row">
+                       <div class="col-xs-3">
                         <a href="#">
                             <button type="button" class="btn-defaults">Edit</button>
                         </a>
-
+</div>
+                       <div class="col-xs-6">
                         <span class="position"><img src="images/camera.png" id="record"></span>
-                        </a>
-
+                        </div>
+<div class="col-xs-3">
                         <a href="#">
                             <button type="button" class="btn-defaultp">Preview</button>
                         </a>
+                        </div>
+                    </div>
                     </div>
                     <div class="slider scroll">
                         <div class="img-content addvideos">

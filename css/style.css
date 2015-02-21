@@ -3,7 +3,7 @@
    font-family: 'Lato', sans-serif;
 }
 .main-box {
-    width: 760px;
+/*    width: 760px;*/
     height: auto;
     /* border: 2px solid #255e83; */
     margin: 2% auto;
@@ -115,7 +115,7 @@ margin: 15px auto;
     width: 293px;
     /* margin: -18px; */
     position: relative;
-    bottom: 480px;
+/*    bottom: 480px;*/
     right: 1px;
 }
 

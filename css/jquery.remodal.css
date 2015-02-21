@@ -61,8 +61,10 @@ padding-top: 25px;
     /* width: 100%; */
 }
 .pro-text {
-    float: left;
-    padding-top: 36px;
+    /* float: left; */
+    padding-top: 70px;
+    /* width: 76%; */
+    padding-right: 60px;
 }
 
 .pro-text p {
@@ -74,7 +76,7 @@ padding-top: 25px;
 }
 
 .pro-text p span {
-    padding-left: 25px;
+    padding-left: 22px;
 }
 .pro-text p a {
     background: transparent;
@@ -119,10 +121,10 @@ font-style: normal;
     height: 37px;
     padding: 5px;
     /* margin-top: 56px; */
-    width: 100%;
-    margin-left: -6px;
-    position: relative;
-    top: 40px;
+    /* width: 100%; */
+    margin-left: 0px;
+    position: absolute;
+    bottom: -53px;
 }
 
 .follow a {
@@ -257,7 +259,7 @@ vertical-align: middle;
 }
 .vide-box {
     background: #ededed;
-    margin: 20px auto;
+    margin: 0;
     padding: 15px;
 }
 .panel-default > .panel-heading {
@@ -295,4 +297,20 @@ height: 89px;
 .panel-body img {
     padding: 0px 0px 0px 20px;
     margin: 30px auto;
+}
+.follow a:hover {
+    text-decoration: none;
+}
+
+}
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+
+}
+@media only screen and (min-width: 469px)and (max-width: 949px) 
+ {
+
+}
+@media only screen 
+and (min-width : 1224px) {
+
 }
