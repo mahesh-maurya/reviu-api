@@ -1,37 +1,45 @@
-
 .vide-box * {
     font-family: "lato", sans-serif;
 }
 
+.rating {
+    padding: 10px;
+    float: left;
+    background: #ef4d64;
+    font-size: 25px;
+    margin: 0px;
+    color: #fff;
+}
 
-.rating{
- padding: 10px;
-float: left;
-background: #ef4d64;
-font-size: 25px;
-  margin: 0px;
- color: #fff;
-}
 .video-descs h5 {
-   font-size: 22px;
-          color:#515151;
-          text-transform: uppercase;
-          float: left;
-        padding-left: 15px;
-line-height: 0;
+    font-size: 22px;
+    color: #515151;
+    text-transform: uppercase;
+    float: left;
+    padding-left: 15px;
+    line-height: 0;
 }
-.video-descs span{
-color: #ef4d64;
-font-size: 15px;
-text-transform: capitalize;
-float: left;
-padding-top: 25px;
+
+.video-descs span {
+    color: #ef4d64;
+    font-size: 15px;
+    text-transform: capitalize;
+    float: left;
+    padding-top: 25px;
 }
+
 .video-descs p.pull-right {
     text-transform: uppercase;
     font-size: 10px;
     color: #4e4e4e;
 }
+
+.icon-fon {
+    text-align: center;
+    margin: 0px auto;
+    width: 100%;
+}
+
 .icon-fon.pull-left i {
     color: #ededed;
     background: #40444a;
@@ -40,17 +48,24 @@ padding-top: 25px;
     width: 42px;
     font-size: 22px;
     padding: 10px 0px 0px 0px;
-    margin: 0px 27px 0px 0px;
     text-align: center;
+    margin: 0px 15px;
 }
+
 .icon-fon.pull-left i:hover {
-    color: #ededed;  
-    background: #EF4D64;  border-radius: 50px;  height: 42px;  width: 42px;  
-    font-size: 22px;      
-    -webkit-transition: all 0.5s;  -moz-transition: all 1s;
-    cursor: pointer;    text-align: center;
-    padding: 10px 0px 0px 0px;  margin: 0px 27px 0px 0px;
+    color: #ededed;
+    background: #EF4D64;
+    border-radius: 50px;
+    height: 42px;
+    width: 42px;
+    font-size: 22px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 1s;
+    cursor: pointer;
+    text-align: center;
+    font-size: 22px;  padding: 10px 0px 0px 0px;  text-align: center;  margin: 0px 15px;
 }
+
 .icon-fon.pull-left span {
     font-size: 13px;
     color: black;
@@ -60,11 +75,15 @@ padding-top: 25px;
     left: 10px;
     /* width: 100%; */
 }
+
 .pro-text {
     /* float: left; */
-    padding-top: 70px;
-    /* width: 76%; */
-    padding-right: 60px;
+    
+    padding-top: 15px;
+    width: 100%;
+    
+    /* padding-right: 60px; */
+    text-align: center;
 }
 
 .pro-text p {
@@ -73,11 +92,15 @@ padding-top: 25px;
     padding-top: 15px;
     border-bottom: 1px solid grey;
     padding-bottom: 15px;
+    width: 100%;
+    position: relative;
+    padding-right: 15px;
 }
 
 .pro-text p span {
-    padding-left: 22px;
+    padding-left: 15px;
 }
+
 .pro-text p a {
     background: transparent;
     border-radius: 3px;
@@ -86,34 +109,40 @@ padding-top: 25px;
     border: 1px solid black;
     text-transform: uppercase;
     color: rgb(64, 68, 74);
-    margin-left: 10px;
+    /* margin-left: 10px; */
     padding: 1px 7px 1px 7px;
     font-size: 10px;
     text-decoration: none;
+    margin-left: 28px;
 }
-.tag-desc{
-padding: 10px 0px;
-}
-.tag-desc span{
-        font-size: 12px;
-text-transform: uppercase;
-font-weight: bold;
-        float: left;
-        /* position: absolute; */
-        /* top: 129px; */
-}
-.tag-desc  i{
-            color: #818181;
-font-size: 11px;
-background: #e1e1e1;
-font-style: normal;
 
-            padding: 5px;
-
-            margin: 6px 1px 0px 10px;
-            position: relative;
-            left: 30px;
+.tag-desc {
+    /* padding: 10px 0px; */
+    text-align: center;
 }
+
+.tag-desc span {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    /* position: absolute; */
+    /* top: 129px; */
+    /* left: 34px; */
+    /* float: left; */
+    padding-right: 55px;
+}
+
+.tag-desc i {
+    color: #818181;
+    font-size: 11px;
+    background: #e1e1e1;
+    font-style: normal;
+    padding: 5px;
+    margin: 0px 6px 0px 5px;
+    position: relative;
+    left: -12px;
+}
+
 .follow {
     background: transparent;
     border-radius: 20px;
@@ -122,9 +151,11 @@ font-style: normal;
     padding: 5px;
     /* margin-top: 56px; */
     /* width: 100%; */
-    margin-left: 0px;
-    position: absolute;
-    bottom: -53px;
+    
+    /* margin-left: 0px; */
+    /* position: absolute; */
+    /* bottom: -53px; */
+    margin: 60px auto;
 }
 
 .follow a {
@@ -137,6 +168,7 @@ font-style: normal;
     height: 25px;
     width: 25px;
 }
+
 .follow a span {
     color: rgb(239, 77, 100);
     font-size: 14px;
@@ -148,9 +180,11 @@ font-style: normal;
     padding-left: 18px;
     font-style: normal;
 }
+
 p.fa.fa-map-marker {
     font-size: 16px;
     /* float: left; */
+    
     padding-right: -1px;
     text-indent: 0px;
     display: inline-flex;
@@ -160,10 +194,12 @@ p.fa.fa-map-marker {
     font-size: 13px;
     padding-left: 15px;
     /* text-indent: 5px !important; */
+    
     font-style: normal;
     display: block;
     line-height: 18px;
 }
+
 .share-box {
     background: #ede;
     border-radius: 5px;
@@ -181,6 +217,7 @@ p.fa.fa-map-marker {
     padding: 3px 0px 0px 2px;
     color: rgb(243, 51, 79);
 }
+
 .feed-video {
     overflow: hidden;
     width: 100%;
@@ -214,66 +251,73 @@ p.fa.fa-map-marker {
     left: 0px;
     width: 100%;
 }
-.feed-det .rating{
-        padding: 10px;
-float: left;
-background: #ef4d64;
-font-size: 20px;
-  margin: 0px;
-        }
-.det h5{
-          font-size: 16px;
-          color:#515151;
-          text-transform: uppercase;
-          float: left;
-          padding-left: 22px;
 
-          line-height: 14px;
-          font-family: lato;
+.feed-det .rating {
+    padding: 10px;
+    float: left;
+    background: #ef4d64;
+    font-size: 20px;
+    margin: 0px;
 }
-.feed-det span{
-color:#ef4d64;
-              font-size: 10px;
-text-transform: capitalize;
-float: left;
-}
-.map-feed i{
-color:#7c7c7c;
-        font-size: 15px;
-vertical-align: middle;
-}
-.map-feed span{
 
-       text-transform: capitalize;
-padding-left: 5px;
-font-size: 12px;
-font-family: lato;
-vertical-align: middle;
-
+.det h5 {
+    font-size: 16px;
+    color: #515151;
+    text-transform: uppercase;
+    float: left;
+    padding-left: 22px;
+    line-height: 14px;
+    font-family: lato;
 }
+
+.feed-det span {
+    color: #ef4d64;
+    font-size: 10px;
+    text-transform: capitalize;
+    float: left;
+}
+
+.map-feed i {
+    color: #7c7c7c;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.map-feed span {
+    text-transform: capitalize;
+    padding-left: 5px;
+    font-size: 12px;
+    font-family: lato;
+    vertical-align: middle;
+}
+
 .video-play {
     background: #ededed;
     height: 280px;
     border-radius: 7px;
     margin: 40px auto;
 }
+
 .vide-box {
     background: #ededed;
     margin: 0;
     padding: 15px;
 }
+
 .panel-default > .panel-heading {
-color: #FFF;
-background-color: #e24a72;
-border-color: #ddd;
-padding: 0px;
-height: 89px;
+    color: #FFF;
+    background-color: #e24a72;
+    border-color: #ddd;
+    padding: 0px;
+    height: 89px;
     font-family: lato;
 }
+
 .head-log span {
     font-size: 30px;
     font-weight: 100;
 }
+
 .head-log {
     float: left;
     padding-left: 60px;
@@ -282,6 +326,7 @@ height: 89px;
 .head-log img {
     padding-right: 20px;
 }
+
 .panel-body h3 {
     color: #515151;
     text-transform: uppercase;
@@ -293,24 +338,141 @@ height: 89px;
     font-family: lato;
 }
 
-
 .panel-body img {
     padding: 0px 0px 0px 20px;
     margin: 30px auto;
 }
+
 .follow a:hover {
     text-decoration: none;
 }
-
+.det-share span {
+    width: 100%;
+    text-align: center;
+    margin: 0px 25px 0px 8px;
 }
-@media only screen and (min-width : 320px) and (max-width : 480px) {
 
+.det-share {
+    text-align: center;  margin: 0px auto;  width: 100%;
 }
-@media only screen and (min-width: 469px)and (max-width: 949px) 
- {
+.follow {
+    margin: 60px auto;
+    display: inline-block;
+    transform: translateX(-50%);
+    position: relative;
+    left: 48%;
+}
+.fa-map-marker:before {
 
-}
-@media only screen 
-and (min-width : 1224px) {
+position: absolute;
 
+
+left: 12px;
 }
+@media only screen and (min-width: 320px)and (max-width: 468px) {
+    .video-descs h5 {
+        font-size: 17px;
+        color: #515151;
+        text-transform: uppercase;
+        float: left;
+        padding-left: 14px;
+        line-height: 0;
+    }
+    .fa-map-marker:before {
+
+position: relative !important;
+left: 0px !important;
+}
+    .video-descs p.pull-right {
+        text-transform: uppercase;
+        font-size: 10px;
+        color: #4e4e4e;
+        position: absolute;
+        right: 0px;
+        top: 30px;
+    }
+    .icon-fon{
+    margin: 8px auto;
+    }
+     .pro-text{
+    padding-top: 10px;
+    }
+    .follow {
+background: transparent;
+border-radius: 20px;
+border: 1px solid #7c7c7c;
+height: 37px;
+padding: 5px;
+/* margin-top: 56px; */
+/* width: 100%; */
+/* margin-left: 0px; */
+/* position: absolute; */
+/* bottom: -53px; */
+/*margin: 20px;*/
+}
+    p.fa.fa-map-marker {
+font-size: 16px;
+/* float: left; */
+padding-right: -1px;
+text-indent: 0px;
+display: block !important;
+position: relative;
+/* transform: translateX(-50%); */
+/* left: 50%; */
+}
+    .fa-map-marker:before {
+
+position: relative !important;
+left: 0px !important;
+}
+}
+@media only screen and (min-width: 469px)and (max-width: 949px) {
+    .video-descs h5 {
+        font-size: 17px;
+        color: #515151;
+        text-transform: uppercase;
+        float: left;
+        padding-left: 14px;
+        line-height: 0;
+    }
+    
+    .video-descs p.pull-right {
+        text-transform: uppercase;
+        font-size: 10px;
+        color: #4e4e4e;
+        position: absolute;
+        right: 0px;
+        top: 30px;
+    }
+       .icon-fon{
+    margin: 8px auto;
+    }
+    .pro-text{
+    padding-top: 10px;
+    }
+    
+    .follow {
+background: transparent;
+border-radius: 20px;
+border: 1px solid #7c7c7c;
+height: 37px;
+padding: 5px;
+/* margin-top: 56px; */
+/* width: 100%; */
+/* margin-left: 0px; */
+/* position: absolute; */
+/* bottom: -53px; */
+margin: 20px auto !important;
+}
+p.fa.fa-map-marker {
+font-size: 16px;
+/* float: left; */
+padding-right: -1px;
+text-indent: 0px;
+display: block !important;
+position: relative;
+/* transform: translateX(-50%); */
+/* left: 50%; */
+}
+}
+@media only screen and (min-width: 1224px) {}
