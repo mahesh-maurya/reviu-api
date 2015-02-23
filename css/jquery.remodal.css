@@ -1,3 +1,11 @@
+a:focus, a:hover {
+color: #23527c;
+text-decoration: underline;
+text-decoration: none;
+}
+.tag-desc a:hover {
+    text-decoration: none;
+}
 .vide-box * {
     font-family: "lato", sans-serif;
 }
