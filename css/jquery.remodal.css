@@ -433,6 +433,37 @@ position: relative;
 position: relative !important;
 left: 0px !important;
 }
+    .panel-default > .panel-heading {
+color: #FFF;
+background-color: #e24a72;
+border-color: #ddd;
+padding: 0px;
+height: 53px;
+font-family: lato;
+/* zoom: 0.5; */
+margin: auto;
+}
+    .head-log {
+float: left;
+padding-left: 16px;
+margin: auto;
+}
+    .head-log img {
+padding-right: 20px;
+zoom: 0.6;
+margin: auto;
+}
+    .head-log span {
+font-size: 17px;
+font-weight: 100;
+margin: auto;
+}
+    .panel-body {
+background: #ededed;
+text-align: center;
+font-family: lato;
+zoom: 0.8;
+}
 }
 @media only screen and (min-width: 469px)and (max-width: 949px) {
     .video-descs h5 {
@@ -482,5 +513,6 @@ position: relative;
 /* transform: translateX(-50%); */
 /* left: 50%; */
 }
+    
 }
 @media only screen and (min-width: 1224px) {}
