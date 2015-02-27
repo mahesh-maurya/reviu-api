@@ -19,7 +19,10 @@
         </script>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
 
-
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
         <style>
             video {
                 width: 499px;
@@ -196,7 +199,10 @@
             function videosliders(data) {
                 $(".addvideos").html("");
                 for (var i = 0; i < data.length; i++) {
-                    $(".addvideos").append("<img src='images/dp.jpg' data-video=" + data[i].videourl + ">");
+                    var lastindex=data[i].videourl.lastIndexOf("-merged.webm")
+                    var imagename="http://wohlig.biz/reviu-api/thumbnails/"+data[i].videourl.slice(0,lastindex)+".png";
+                    
+                    $(".addvideos").append("<img src='"+imagename+"' style='height: 85px;vertical-align: top;' data-video=" + data[i].videourl + ">");
                 }
                 $(".addvideos img").click(function () {
                     //                            console.log($(this).attr("data-video")); 
