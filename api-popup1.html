@@ -5,9 +5,10 @@
 <head>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/remodal.css" rel="stylesheet" type="text/css">
-<!--    <link href="css/jquery.remodal.css" rel="stylesheet" type="text/css">-->
+    <link href="css/owl.carousel.css" rel="stylesheet" type="text/css">
+    <!--    <link href="css/jquery.remodal.css" rel="stylesheet" type="text/css">-->
 
-<!--    <link href="css/style.css" rel="stylesheet" type="text/css">-->
+    <!--    <link href="css/style.css" rel="stylesheet" type="text/css">-->
     <link href="css/mobile.css" rel="stylesheet" type="text/css">
 
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -19,6 +20,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="fancy/jquery.fancybox.pack.js"></script>
     <script src="fancy/jquery.fancybox.js"></script>
+
+    <script src="js/owl.carousel.js"></script>
     <link href="fancy/jquery.fancybox.css" rel="stylesheet" type="text/css">
 
     </script>
@@ -34,6 +37,11 @@
 
     <title>Reviu API</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel();
+        });
+    </script>
 </head>
 
 <body>
@@ -46,10 +54,10 @@
         </div>
 -->
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="video-play">
-                    <div class="col-md-3">
+        <div class="row clearfix">
+            <div class="col-md-9 clearfix">
+                <div class="video-play owl-carousel">
+                    <div class="">
                         <a class="various1 " href="api1.html">
                             <div class="feed-video text-center">
                                 <img class="feed-img img-responsive" src="images/video-img/first.png">
@@ -68,7 +76,7 @@
 
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="">
                         <a class="various2 " href="api1.html">
                             <div class="feed-video text-center">
                                 <img class="feed-img img-responsive" src="images/video-img/first.png">
@@ -87,8 +95,8 @@
 
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <a class="various3 " href="api2.html" >
+                    <div class="">
+                        <a class="various3 " href="api2.html">
                             <div class="feed-video text-center">
                                 <img class="feed-img img-responsive" src="images/video-img/first.png">
 
@@ -107,21 +115,63 @@
 
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <a href="index.php" class="various4 fancybox">
-                            <div class="feed-video text-center" style="background:transparent;">
-                                <img src="images/video-img/video-p.png">
+                    <div class="">
+                        <a class="various3 " href="api2.html">
+                            <div class="feed-video text-center">
+                                <img class="feed-img img-responsive" src="images/video-img/first.png">
+
+
+                                <div class="play"><img class="" src="images/video-img/play.png">
+                                </div>
+
+                                <div class="feed-det">
+                                    <p class="rating">4.5</p>
+                                    <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                </div>
                             </div>
                         </a>
+                        <div class="map-feed">
+                            <i class="fa fa-heart"><span>400 likes</span></i>
+
+                        </div>
+                    </div>
+                    <div class="">
+                        <a class="various3 " href="api2.html">
+                            <div class="feed-video text-center">
+                                <img class="feed-img img-responsive" src="images/video-img/first.png">
+
+
+                                <div class="play"><img class="" src="images/video-img/play.png">
+                                </div>
+
+                                <div class="feed-det">
+                                    <p class="rating">4.5</p>
+                                    <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="map-feed">
+                            <i class="fa fa-heart"><span>400 likes</span></i>
+
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-3">
+                <a href="index.php" class="various4 fancybox">
+                    <div class="feed-video text-center" style="background:rgb(237, 237, 237);height: 278px;
+border-radius: 7px;">
+                        <img src="images/video-img/video-p.png" style="margin-top: 46px;">
+                    </div>
+                </a>
+            </div>
+
         </div>
     </div>
 
 
+
     <script type="text/javascript">
-        
     </script>
     <script>
         $(document).ready(function () {
@@ -137,12 +187,12 @@
                 closeClick: true,
                 openEffect: 'elastic',
                 closeEffect: 'elastic',
-                type:"ajax"
-                
+                type: "ajax"
+
             });
-            
-             $(".various2").fancybox({
-                 maxWidth: 840,
+
+            $(".various2").fancybox({
+                maxWidth: 840,
                 maxHeight: 381,
                 padding: 0,
                 scrolling: 'visible',
@@ -153,10 +203,10 @@
                 closeClick: true,
                 openEffect: 'elastic',
                 closeEffect: 'elastic',
-                type:"ajax"
+                type: "ajax"
             });
-            
-             $(".various3").fancybox({
+
+            $(".various3").fancybox({
                 maxWidth: 840,
                 maxHeight: 381,
                 padding: 0,
@@ -168,9 +218,9 @@
                 closeClick: false,
                 openEffect: 'elastic',
                 closeEffect: 'elastic',
-                type:"ajax"
+                type: "ajax"
             });
-            
+
             $(".various4").fancybox({
                 maxWidth: 900,
                 maxHeight: 600,
@@ -183,10 +233,11 @@
                 closeClick: false,
                 openEffect: 'elastic',
                 closeEffect: 'elastic',
-                type:"ajax"
+                type: "ajax"
             });
         });
     </script>
+    <script src="js/owl.carousel.min.js"></script>
 </body>
 
 </html>

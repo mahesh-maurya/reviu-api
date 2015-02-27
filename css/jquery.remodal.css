@@ -377,6 +377,20 @@ position: absolute;
 
 left: 12px;
 }
+.tag-descs i {
+color: #40444A;
+font-size: 11px;
+background: transparent;
+font-style: normal;
+padding: 6px;
+margin: 0px 18px 0px 10px;
+position: relative;
+left: 0px;
+border-radius: 50px;
+border: 1px solid;
+height: 24px;
+width: 24px;
+}
 @media only screen and (min-width: 320px)and (max-width: 468px) {
     .video-descs h5 {
         font-size: 17px;
