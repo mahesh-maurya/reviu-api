@@ -90,6 +90,10 @@
                     } else {
                         echo "$mergedFile";
                         
+                        
+                        exec("ffmpeg -i $mergedFile -ss 00:00:2.435 -vframes 1 thumbnails/$filename.png");
+                        
+                        
                         unlink($audioFile);
                         unlink($videoFile);
                     }
