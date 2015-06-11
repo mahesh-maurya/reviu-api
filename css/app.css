@@ -72,9 +72,6 @@ code {
     width: 320px;
     margin: 0 auto 40px;
     -khtml-user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 }
 
@@ -98,10 +95,8 @@ code {
 
 .sli-sets {
     background: rgb(237, 237, 237);
-    height: 133px;
+    height: 86px;
     text-align: center;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
     border-radius: 6px;
     padding-right: 40px;
     margin-top: 20px;
@@ -109,7 +104,7 @@ code {
 
 .slides {
     display: inline-block;
-    height: 130px;
+    height: 78px;
     background: rgb(237, 237, 237);
     padding: 15px;
     margin-left: -7px;
@@ -145,12 +140,13 @@ code {
     position: absolute;
     top: 50%;
     margin-top: -25px;
-    display: block;
+    /* display: block; */
     cursor: pointer;
 }
 
 .next {
     right: 0;
+    z-index: 999;
 }
 
 .prev {
@@ -236,7 +232,7 @@ code {
 }
 
 .frames {
-    width: 420px;
+    width: 166px;
 }
 
 a.various4.popup3-fancybtn img {
@@ -244,7 +240,7 @@ a.various4.popup3-fancybtn img {
 }
 
 .sliders {
-    width: 475px;
+    width: 194px;
     margin: 0 auto 0px;
 }
 
@@ -319,8 +315,6 @@ a.various4.popup3-fancybtn img {
 
 .video-feed3 {
     overflow: hidden;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
     border-radius: 0px;
     background: #fff;
 }
@@ -328,4 +322,90 @@ a.various4.popup3-fancybtn img {
 .map-feeds3 {
     float: left;
     padding-top: 9px;
+}
+
+.name-set4 {
+  background: rgba(255, 255, 255, 0.92);
+  font-family: sans-serif;
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 0px;
+  padding: 28px 10px 8px 2px;
+  top: 0px;
+  height: 76px;
+  opacity: 0;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+}
+.name-set4 h5 {
+  text-align: center;
+  font-size: 8px;
+  line-height: 100%;
+  color: rgba(74, 78, 95, 0.74);
+}
+.name-set4 span {
+  color: rgb(240, 81, 86);
+  font-size: 5px;
+}
+/*
+.js_slide:hover .name-set4 {
+    opacity: 1;
+}
+*/
+.plays4 {
+  position: absolute;
+  top: 9px;
+  left: 0px;
+  width: 100%;
+}
+.feed-dets4 .rating4 {
+  padding: 6px 3px;
+  background: #ef4d64;
+  font-size: 6px;
+  margin: 0px;
+  color: #fff;
+  float: left;
+}
+.feed-dets4 h5 {
+  font-size: 5px;
+  color: #515151;
+  text-transform: uppercase;
+  float: left;
+  line-height: 100%;
+  font-family: lato;
+  margin: 0px;
+  padding: 1px 5px;
+}
+.feed-dets4 span {
+  color: #ef4d64;
+  font-size: 4px;
+  text-transform: capitalize;
+  float: left;
+}
+.plays4 img {
+    height: 20px;
+    width: 20px;
+}
+.map-feedss {
+  float: left;
+  padding-top: 6px;
+}
+.map-feedss i {
+  color: #7c7c7c;
+  font-size: 6px;
+  vertical-align: middle;
+}
+.map-feedss span {
+  text-transform: capitalize;
+  padding-left: 5px;
+  font-size: 7px;
+  font-family: lato;
+  vertical-align: middle;
+}
+img.box {
+  height: 60px;
+  margin-top: 13px;
+  width: 60px !important;
 }
