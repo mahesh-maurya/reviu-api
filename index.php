@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <scirpt src="https://cdn.webrtc-experiment.com/ffmpeg_asm.js">
         </script>
@@ -119,14 +119,16 @@
             <div class="left-box pull-right">
                 <div class="left-back">
 
-                    <div class="drop-down">
+                    <div class="drop-down categorydropdown">
 
                         <select name="Icecream Flavours" placeholder="Category" class="categoryclass">
+<!--
                             <option value="">Category</option>
                             <option value="5">Vanilla</option>
                             <option value="6">Strawberry</option>
                             <option value="8">Caramel</option>
                             <option value="product">Product</option>
+-->
                         </select>
                     </div>
                     <div class="content-box">
@@ -183,8 +185,36 @@
                     $(".productlinkclass").hide();
                 }
             });
+            
             $.getJSON(
-                "http://wohlig.biz/ReviuBackend/index.php/json/getvideosbyuser/1", {
+                "http://localhost/reviu-api/ReviuBackend/index.php/json/getcategorydropdownfront", {
+                    //                id: "123"
+                },
+                function (data) {
+                    console.log(data);
+                    nodata = data;
+                    categorydropdown(data);
+                }
+
+
+            );
+            
+            function categorydropdown(data) {
+                console.log(data);
+                $('.categorydropdown select').html('');
+                for(var i=0;i<data.length;i++)
+                {
+                    $(".categorydropdown select").append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
+
+                }
+                
+                $(".categorydropdown select").append("<option value='product'>Product</option>");
+
+
+            };
+            
+            $.getJSON(
+                "http://localhost/reviu-api/ReviuBackend/index.php/json/getvideosbyuser/10", {
                     //                id: "123"
                 },
                 function (data) {
@@ -200,13 +230,13 @@
                 $(".addvideos").html("");
                 for (var i = 0; i < data.length; i++) {
                     var lastindex=data[i].videourl.lastIndexOf("-merged.webm")
-                    var imagename="http://wohlig.biz/reviu-api/thumbnails/"+data[i].videourl.slice(0,lastindex)+".png";
+                    var imagename="http://localhost/reviu-api/thumbnails/"+data[i].videourl.slice(0,lastindex)+".png";
                     
                     $(".addvideos").append("<img src='"+imagename+"' style='height: 85px;vertical-align: top;' data-video=" + data[i].videourl + ">");
                 }
                 $(".addvideos img").click(function () {
                     //                            console.log($(this).attr("data-video")); 
-                    preview.src = "http://mafiawarloots.com/reviu-api/uploads/" + $(this).attr("data-video");
+                    preview.src = "http://localhost/reviu-api/uploads/" + $(this).attr("data-video");
                     preview.play();
                     preview.muted = false;
                 });
@@ -233,9 +263,17 @@
                 var ratingclass = $(".ratingclass").val();
                 //                console.log(ratingclass);
                 var video = ffmpeg_output;
-
+                var video2=video;
+                var videolength = video2.length;
+                var value=videolength-12;
+                var value=value-8;
+                var imagename = video2.substr(8, value);
+                var image=imagename+".png";
+                var siteurl=window.location.href;
+                var siteuser=10;
+                console.log(siteuser);
                 $.getJSON(
-                    "http://wohlig.biz/ReviuBackend/index.php/json/postVideoforapi?title=" + $(".titleclass").val() + "&useremail=wohlig@wohlig.com&location=" + $(".locationclass").val() + "&rating=" + $(".ratingclass").val() + "&category=" + $(".categoryclass option:selected").attr("value") + "&video=" + video + "", {
+                    "http://localhost/reviu-api/ReviuBackend/index.php/json/postVideoforapi?title=" + $(".titleclass").val() + "&useremail=wohlig@wohlig.com&location=" + $(".locationclass").val() + "&rating=" + $(".ratingclass").val() + "&siteuser=" + siteuser + "&category=" + $(".categoryclass option:selected").attr("value") + "&video=" + video + "&image=" + image + "&siteurl=" + siteurl + "", {
                         //                id:1234
                     },
                     function (data) {
