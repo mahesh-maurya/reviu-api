@@ -228,12 +228,28 @@ LEFT OUTER JOIN `category` ON `video`.`category`=`category`.`name` WHERE `video`
     
     function getvideosbysiteurl($siteurl)
 	{
-		$query=$this->db->query("SELECT `video`.`id`, `video`.`user`, `video`.`title`, `video`.`description`,`video`. `location`,`video`. `lat`,`video`. `long`, `video`.`timestamp`, `video`.`rating`, `video`.`videourl`, `video`.`status`, `video`.`category`,`user`.`firstname`,`user`.`lastname` 
+        $q="SELECT `video`.`id`, `video`.`user`, `video`.`title`, `video`.`description`,`video`. `location`,`video`. `lat`,`video`. `long`, `video`.`timestamp`, `video`.`rating`, `video`.`videourl`, `video`.`status`, `video`.`category`,`user`.`firstname`,`user`.`lastname` 
 FROM `video`
 LEFT OUTER JOIN `user` ON `video`.`user`=`user`.`id` 
-WHERE `video`.`siturl`='$siteurl'
-		ORDER BY `video`.`id`")->result();
+WHERE `video`. `siteurl`='$siteurl'
+		ORDER BY `video`.`id`";
+//        echo $q;
+		$query=$this->db->query("SELECT `video`.`id`,`video`. `user`,`video`. `title`,`video`. `description`,`video`. `location`,`video`. `lat`,`video`. `long`,`video`. `timestamp`,`video`. `rating`,`video`. `videourl`,`video`. `status`,`video`. `category`,`video`. `image`,`video`. `likes`,`video`. `views`,`video`. `siteuser`,`video`. `siteurl` ,`user`.`firstname`,`user`.`lastname`
+FROM `video`  LEFT OUTER JOIN `user` ON `video`.`user`=`user`.`id` 
+WHERE `video`.`siteurl`='$siteurl'
+ORDER BY `video`.`id`")->result();
         
+		return $query;
+	}
+    function getvideobyidforpopup($id)
+	{
+		$query=$this->db->query("SELECT `video`.`id`,`video`. `user`,`video`. `title`,`video`. `description`,`video`. `location`,`video`. `lat`,`video`. `long`,`video`. `timestamp`,`video`. `rating`,`video`. `videourl`,`video`. `status`,`video`. `category`,`video`. `image`,`video`. `likes`,`video`. `views`,`video`. `siteuser`,`video`. `id` ,`user`.`firstname`,`user`.`lastname`
+FROM `video`  LEFT OUTER JOIN `user` ON `video`.`user`=`user`.`id` 
+WHERE `video`.`id`='$id'
+ORDER BY `video`.`id`")->row();
+        $query->tag=$this->db->query("SELECT `videotags`.`id`, `videotags`.`video`, `videotags`.`tag`, `videotags`.`timestamp`,`video`.`title` AS `videotitle` 
+FROM `videotags`
+INNER JOIN `video` ON `videotags`.`video`=`video`.`id` WHERE `videotags`.`video`='$id'")->result();
 		return $query;
 	}
 }

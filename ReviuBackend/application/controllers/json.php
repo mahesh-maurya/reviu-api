@@ -128,8 +128,16 @@ $video=substr($video, 8);
     public function getvideosbysiteurl()
     {
         $siteurl=$this->input->get_post('siteurl');
+//        echo $siteurl;
         $data['message']=$this->video_model->getvideosbysiteurl($siteurl);
 		$this->load->view('json',$data);
+    } 
+    public function getvideobyidforpopup()
+    {
+        $id=$this->input->get_post('id');
+//        echo $id;
+        $data['message']=$this->video_model->getvideobyidforpopup($id);
+		$this->load->view('api1',$data);
     }
 }
 ?>

@@ -38,11 +38,13 @@
 
     <title>Reviu API</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <!--
     <script>
         $(document).ready(function () {
             $(".owl-carousel").owlCarousel();
         });
     </script>
+-->
 </head>
 
 <body>
@@ -51,11 +53,12 @@
         <div class="row clearfix">
             <div>
                 <div class="col-md-8 col-md-offset-2">
-                   <div class="sli-set">
-                    <div class="col-md-10">
+                    <div class="sli-set">
+                        <div class="col-md-10">
                             <div class="slider js_variablewlidth variablewidth">
                                 <div class="frame js_frame">
-                                    <ul class="slides js_slides" style="  height: 140px;">
+                                    <ul class="slides js_slides allvideos" style="  height: 140px;">
+                                        <!--
                                         <li class="js_slide" style="text-align:center;width: 160px;height: 100px;">
                                            
                                                 <div class="video-feed">
@@ -76,6 +79,8 @@
                                                <h5>disney's frozen <br><span> by shalini mehta</span></h5>
                                                   </div></a>
                                         </li>
+-->
+                                        <!--
                                         <li class="js_slide" style="text-align:center;width: 160px;height: 100px;">
                                            
                                                 <div class="video-feed">
@@ -96,6 +101,8 @@
                                                <h5>disney's frozen <br><span> by shalini mehta</span></h5>
                                                 </div></a>
                                         </li>
+-->
+                                        <!--
                                         <li class="js_slide" style="text-align:center;width: 160px;height: 100px;">
                                             <a class="various2 " href="api3.html">
                                                 <div class="video-feed">
@@ -116,6 +123,8 @@
                                                <h5>disney's frozen <br><span> by shalini mehta</span></h5>
                                             </div>
                                         </li>
+-->
+                                        <!--
                                         <li class="js_slide" style="text-align:center;width: 160px;height: 100px;">
                                             <a class="various2 " href="api1.html">
                                                 <div class="video-feed">
@@ -136,6 +145,8 @@
                                                <h5>disney's frozen <br><span> by shalini mehta</span></h5>
                                             </div>
                                         </li>
+-->
+                                        <!--
                                         <li class="js_slide" style="text-align:center;width: 160px;height: 100px;">
                                             <a class="various2 " href="api1.html">
                                                 <div class="video-feed">
@@ -152,20 +163,7 @@
                                                 <i class="fa fa-heart"><span>400 likes</span></i>
 
                                             </div>
-                                            <div class="name-set">
-                                               <h5>disney's frozen <br><span> by shalini mehta</span></h5>
-                                            </div>
-                                        </li>
-                                        <li class="js_slide" style="text-align:center;width: 160px;height: 100px;">
-                                            <a class="various2 " href="api1.html">
-                                                <div class="video-feed">
-                                                    <img class="img-responsive" src="images/video-img/first.png">
-                                                    <div class="plays"><img class="" src="images/video-img/play.png">
-                                                    </div>
-                                                    <div class="feed-dets">
-                                                        <p class="rating">4.5</p>
-                                                        <h5>disney's frozen <br><span> by shalini mehta</span></h5>
-                                                    </div>
+                           
                                                 </div>
                                             </a>
                                             <div class="map-feeds">
@@ -176,6 +174,7 @@
                                                <h5>disney's frozen <br><span> by shalini mehta</span></h5>
                                             </div>
                                         </li>
+-->
                                     </ul>
                                 </div>
 
@@ -188,9 +187,10 @@
                 </span>
                             </div>
                         </div>
-                                            <div class="col-md-2">
-                                                <a href="index.php" class="various4 fancybox">  <img src="images/video-img/video-p2.png" style="  margin-top: 13px;"></a>
-                    </div>
+                        <div class="col-md-2">
+                            <a href="index.php" class="various4 fancybox"> <img src="images/video-img/video-p2.png" style="  margin-top: 13px;">
+                            </a>
+                        </div>
                     </div>
 
                 </div>
@@ -201,12 +201,18 @@
 
 
 
-    <script type="text/javascript">
-    </script>
-    <script src="js/lory.min.js"></script>
-    <script src="js/jquery.lory.min.js"></script>
+
     <script>
-         var $elements = $('.js_variablewlidth');
+        //        'use strict';
+        //
+        //        document.addEventListener('DOMContentLoaded', function () {
+        //            var variableWidth = document.querySelector('.js_variablewlidth');
+        //
+        //            lory(variableWidth, {
+        //                rewind: true
+        //            });
+        //        });
+    </script>
     </script>
     <script>
         $(document).ready(function () {
@@ -270,9 +276,82 @@
                 closeEffect: 'elastic',
                 type: "ajax"
             });
+
+
+            var siteurl = window.location.href;
+            //            var siteurl=encodeURI(siteurl);
+            console.log(siteurl);
+            var siteurl = "http://localhost/demo";
+            $.getJSON(
+                "http://localhost/reviu-api/ReviuBackend/index.php/json/getvideosbysiteurl?siteurl=" + siteurl, {
+                    //                id: "123"
+                },
+                function (data) {
+                    console.log(data);
+                    nodata = data;
+                    allvideos(data);
+                }
+
+
+            );
+
+            function allvideos(data) {
+                $(".allvideos").html("");
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    console.log(data[i]);
+                    var details = data[i];
+                    var name = data[i].firstname + " " + data[i].lastname;
+                    var lastindex = data[i].videourl.lastIndexOf("-merged.webm")
+                    var imagename = "http://localhost/reviu-api/thumbnails/" + data[i].videourl.slice(0, lastindex) + ".png";
+                    //                    console.log(data[i].id);
+                    var valueofvarious = i + 1;
+                    var rating=data[i].rating;
+                    var roundvalue=Math.round(data[i].rating);
+                    if(roundvalue == data[i].rating)
+                    {
+                        var rating=roundvalue+".0";
+                    }
+
+
+
+                    //                    $(".allvideos").append("<div class=''><a class='various"+valueofvarious+" ' href='http://localhost/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id="+data[i].id+"'><div class='feed-video text-center'><img class='feed-img img-responsive' src='"+imagename+"'><div class='play'><img class='' src='images/video-img/play.png'></div><div class='feed-det det'><p class='rating'>"+data[i].rating+"</p><h5>"+data[i].title+"<br><span> by "+name+"</span></h5></div></div></a><div class='map-feed'><i class='fa fa-heart'><span>"+data[i].likes+" likes</span></i></div></div>");
+
+                    $(".allvideos").append("<li class='js_slide' style='text-align:center;width: 160px;height: 100px;'><a class='various1 various" + valueofvarious + " ' href='http://localhost/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id=" + data[i].id + "'><div class='video-feed'><img class='img-responsive' src='" + imagename + "'><div class='plays'><img class='' src='images/video-img/play.png'></div><div class='feed-dets'><p class='rating'>" + rating + "</p><h5>"+data[i].title+" <br><span> by " + name + "</span></h5></div></div></a><div class='map-feeds'><i class='fa fa-heart'><span>" + data[i].likes + " likes</span></i></div><div class='name-set'><h5>" + data[i].title + " <br><span> by " + name + "</span></h5></div></li>");
+                    var imagecount = 0;
+                    var imageslength = $(".allvideos li").length;
+//                    console.log(imageslength);
+                    $(".allvideos li img").load(function () {
+                        imagecount++;
+                        if (imagecount == imageslength) {
+                            $elements.lory({
+                                infinite: 1
+                            });
+
+                            $elements.data().lory.slideTo(0);
+                        }
+                    });
+
+                    //                                           <img src='"+imagename+"' style='height: 85px;vertical-align: top;' data-video=" + data[i].videourl + ">");
+                }
+
+                //                $(".owl-carousel").owlCarousel();
+                //                var mvar = $('.allvideos').html();
+                //                console.log(mvar);
+                //document.write(mvar);
+
+            };
+
         });
     </script>
-    <script src="js/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+    </script>
+    <script src="js/lory.min.js"></script>
+    <script src="js/jquery.lory.min.js"></script>
+    <script>
+        var $elements = $('.js_variablewlidth');
+    </script>
+    <!--    <script src="js/owl.carousel.min.js"></script>-->
 </body>
 
 </html>

@@ -39,7 +39,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <script>
         $(document).ready(function () {
-            $(".owl-carousel").owlCarousel();
+//            $(".owl-carousel").owlCarousel();
         });
     </script>
 </head>
@@ -58,7 +58,10 @@
 <!--           <div class="col-md-2"></div>-->
        
             <div class="col-md-9 clearfix">
+               
                 <div class="video-play owl-carousel allvideos">
+<!--                   <div class="allvideos">-->
+<!--
                     <div class="">
                         <a class="various1 " href="api1.html">
                             <div class="feed-video text-center">
@@ -157,6 +160,8 @@
 
                         </div>
                     </div>
+-->
+<!--                </div>-->
                 </div>
             </div>
             <div class="col-md-3">
@@ -241,8 +246,9 @@ border-radius: 7px;">
             
             
             var siteurl=window.location.href;
-            var siteurl=encodeURI(siteurl);
+//            var siteurl=encodeURI(siteurl);
             console.log(siteurl);
+            var siteurl="http://localhost/demo";
             $.getJSON(
                 "http://localhost/reviu-api/ReviuBackend/index.php/json/getvideosbysiteurl?siteurl="+siteurl, {
                     //                id: "123"
@@ -256,14 +262,23 @@ border-radius: 7px;">
 
             );    
             function allvideos(data) {
-                $(".addvideos").html("");
+//                $(".allvideos").html("");
+                console.log(data);
                 for (var i = 0; i < data.length; i++) {
-//                    var lastindex=data[i].videourl.lastIndexOf("-merged.webm")
-//                    var imagename="http://localhost/reviu-api/thumbnails/"+data[i].videourl.slice(0,lastindex)+".png";
-                    
-                    $(".addvideos").append("<div class=''><a class='various1 ' href='api1.html'><div class='feed-video text-center'><img class='feed-img img-responsive' src='images/video-img/first.png'><div class='play'><img class='' src='images/video-img/play.png'></div><div class='feed-det det'><p class='rating'>4.5</p><h5>disney's frozen <br><span> by shalini mehta</span></h5></div></div></a><div class='map-feed'><i class='fa fa-heart'><span>400 likes</span></i></div></div>");
+                    console.log(data[i]);
+                    var details=data[i];
+                    var name=data[i].firstname+" "+data[i].lastname;
+                    var lastindex=data[i].videourl.lastIndexOf("-merged.webm")
+                    var imagename="http://localhost/reviu-api/thumbnails/"+data[i].videourl.slice(0,lastindex)+".png";
+//                    console.log(data[i].id);
+                    var valueofvarious=i+1;
+                    $(".allvideos").append("<div class=''><a class='various"+valueofvarious+" ' href='http://localhost/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id="+data[i].id+"'><div class='feed-video text-center'><img class='feed-img img-responsive' src='"+imagename+"'><div class='play'><img class='' src='images/video-img/play.png'></div><div class='feed-det det'><p class='rating'>"+data[i].rating+"</p><h5>"+data[i].title+"<br><span> by "+name+"</span></h5></div></div></a><div class='map-feed'><i class='fa fa-heart'><span>"+data[i].likes+" likes</span></i></div></div>");
 //                                           <img src='"+imagename+"' style='height: 85px;vertical-align: top;' data-video=" + data[i].videourl + ">");
                 }
+                $(".owl-carousel").owlCarousel();
+//                var mvar = $('.allvideos').html();
+//                console.log(mvar);
+//document.write(mvar);
 
             };
         });

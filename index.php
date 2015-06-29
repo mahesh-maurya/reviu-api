@@ -228,6 +228,7 @@
 
             function videosliders(data) {
                 $(".addvideos").html("");
+                    console.log(data);
                 for (var i = 0; i < data.length; i++) {
                     var lastindex=data[i].videourl.lastIndexOf("-merged.webm")
                     var imagename="http://localhost/reviu-api/thumbnails/"+data[i].videourl.slice(0,lastindex)+".png";
