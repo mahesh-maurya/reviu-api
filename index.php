@@ -43,7 +43,7 @@
 
 <body>
 <div class="container2" style="max-width:840px;">
-    <div class="section">
+    <div class="" style="min-height: 577px;">
         <div class="main-box">
            <div class="row">
            <div class=" col-md-12">

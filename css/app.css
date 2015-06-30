@@ -409,3 +409,13 @@ img.box {
   margin-top: 13px;
   width: 60px !important;
 }
+
+
+img.img-responsive.slide2img {
+    height: 90px;
+    width: 100%;
+}
+.fancybox-inner {
+	overflow: hidden;
+	height: auto !important;
+}

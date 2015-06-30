@@ -1,4 +1,3 @@
-
 .feed-video {
     overflow: hidden;
     width: 98%;
@@ -32,116 +31,128 @@
     left: 0px;
     width: 100%;
 }
-.feed-det .rating{
-        padding: 10px;
-float: left;
-background: #ef4d64;
-font-size: 20px;
-  margin: 0px;
-        color: #fff;
-}
-.feed-det h5{
-          font-size: 16px;
-          color:#515151;
-          text-transform: uppercase;
-          float: left;
-          padding-left: 22px;
-line-height: 14px;
-          font-family: lato;
-}
-.feed-det span{
-color:#ef4d64;
-              font-size: 10px;
-text-transform: capitalize;
-float: left;
-}
-.map-feed i{
-color:#7c7c7c;
-        font-size: 15px;
-vertical-align: middle;
-}
-.map-feed span{
 
-       text-transform: capitalize;
-padding-left: 5px;
-font-size: 12px;
-font-family: lato;
-vertical-align: middle;
-
+.feed-det .rating {
+    padding: 10px;
+    float: left;
+    background: #ef4d64;
+    font-size: 20px;
+    margin: 0px;
+    color: #fff;
 }
+
+.feed-det h5 {
+    font-size: 16px;
+    color: #515151;
+    text-transform: uppercase;
+    float: left;
+    padding-left: 22px;
+    line-height: 14px;
+    font-family: lato;
+}
+
+.feed-det span {
+    color: #ef4d64;
+    font-size: 10px;
+    text-transform: capitalize;
+    float: left;
+}
+
+.map-feed i {
+    color: #7c7c7c;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.map-feed span {
+    text-transform: capitalize;
+    padding-left: 5px;
+    font-size: 12px;
+    font-family: lato;
+    vertical-align: middle;
+}
+
 .video-play {
-background: #ededed;
-height: 280px;
-border-radius: 7px;
-margin: 40px auto;
+    background: #ededed;
+    height: 280px;
+    border-radius: 7px;
+    margin: 40px auto;
 }
+
 .plays {
-  position: absolute;
-  /* right: 140px; */
-  top: 22px;
-  left: 0px;
-  width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    width: 100%;
+    transform: translateY(-50%);
 }
+
 .plays img {
-  height: 40px;
-  width: 40px;
+    height: 40px;
+    width: 40px;
 }
+
 .feed-dets .rating {
-  padding: 15px 8px;
-  background: #ef4d64;
-  font-size: 12px;
-  margin: 0px;
-  color: #fff;
-  float: left;
+    padding: 15px 8px;
+    background: #ef4d64;
+    font-size: 12px;
+    margin: 0px;
+    color: #fff;
+    float: left;
 }
+
 .feed-dets h5 {
-  font-size: 10px;
-  color: #515151;
-  text-transform: uppercase;
-  float: left;
-  line-height: 100%;
-  font-family: lato;
-  margin: 0px;
-  padding: 5px;
+    font-size: 10px;
+    color: #515151;
+    text-transform: uppercase;
+    float: left;
+    line-height: 100%;
+    font-family: lato;
+    margin: 0px;
+    padding: 5px;
 }
+
 .feed-dets span {
-  color: #ef4d64;
-  font-size: 10px;
-  text-transform: capitalize;
-  float: left;
+    color: #ef4d64;
+    font-size: 10px;
+    text-transform: capitalize;
+    float: left;
 }
+
 .video-feed {
-  overflow: hidden;
-
- 
-  border-radius: 0px;
-
-  background: #fff;
+    overflow: hidden;
+    border-radius: 0px;
+    background: #fff;
 }
+
 .map-feeds {
-  float: left;
-  padding-top: 9px;
+    float: left;
+    padding-top: 9px;
 }
+
 .map-feeds i {
-  color: #7c7c7c;
-  font-size: 10px;
-  vertical-align: middle;
+    color: #7c7c7c;
+    font-size: 10px;
+    vertical-align: middle;
 }
+
 .map-feeds span {
-  text-transform: capitalize;
-  padding-left: 5px;
-  font-size: 12px;
-  font-family: lato;
-  vertical-align: middle;
+    text-transform: capitalize;
+    padding-left: 5px;
+    font-size: 12px;
+    font-family: lato;
+    vertical-align: middle;
 }
-.sli-set{
-  background: rgb(237, 237, 237);
-  height: 163px;
-  text-align: center;
-  border-radius: 6px;
-      padding-right: 40px;
-  margin-top: 20px;
+
+.sli-set {
+    background: rgb(237, 237, 237);
+    height: 163px;
+    text-align: center;
+    border-radius: 6px;
+    padding-right: 40px;
+    margin-top: 20px;
 }
+
 .name-set {
     background: rgba(255, 255, 255, 0.92);
     font-family: sans-serif;
@@ -150,7 +161,8 @@ margin: 40px auto;
     bottom: 0px;
     padding: 27px 5px 16px 7px;
     top: 0px;
-    height: 114px;
+    height: 120px;
+    width: 100%;
     opacity: 0;
     transition: all 1s ease;
     -webkit-transition: all 1s ease;
@@ -169,11 +181,13 @@ margin: 40px auto;
 
 .name-set span {
     color: rgb(240, 81, 86);
-    font-size: 15px;
+    font-size: 12px;
 }
-.js_slide:hover .name-set{
-opacity: 1;
+
+.js_slide:hover .name-set {
+    opacity: 1;
 }
-.js_slide{
-cursor: pointer;
+
+.js_slide {
+    cursor: pointer;
 }

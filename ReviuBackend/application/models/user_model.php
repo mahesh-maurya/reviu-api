@@ -292,10 +292,7 @@ class User_model extends CI_Model
 	{
 		$status= array(
 			 "1" => "Enabled",
-			 "2" => "Disabled",
-			 "3" => "3",
-			 "4" => "4",
-			 "5" => "5"
+			 "2" => "Disabled"
 			);
 		return $status;
 	}
