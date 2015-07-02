@@ -27,7 +27,22 @@ text-decoration: none;
     padding-left: 15px;
     line-height: 0;
 }
-
+    .link-act{
+  color: #ededed;
+  background: #EF4D64;
+  border-radius: 50px;
+  height: 42px;
+  width: 42px;
+  font-size: 22px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 1s;
+  cursor: pointer;
+  text-align: center;
+  font-size: 22px;
+  padding: 10px 0px 0px 0px;
+  text-align: center;
+  margin: 0px 15px;
+}
 .video-descs span {
     color: #ef4d64;
     font-size: 15px;
@@ -527,6 +542,7 @@ position: relative;
 /* transform: translateX(-50%); */
 /* left: 50%; */
 }
+
     
 }
 @media only screen and (min-width: 1224px) {}

@@ -49,6 +49,35 @@ class Video_model extends CI_Model
 		else
 			return  $videoid;
 	}
+	public function postvideoforapi($title,$userid,$latitude,$longitude,$location,$rating,$video,$category,$image,$siteurl,$siteuser,$tag)
+	{
+		$data  = array(
+			'user' => $userid,
+			'title' => $title,
+			'location' => $location,
+			'lat' => $latitude,
+			'long' => $longitude,
+			'rating' => $rating,
+			'status' => 1,
+			'category' => $category,
+			'image' => $image,
+			'siteurl' => $siteurl,
+			'siteuser' => $siteuser,
+			'videourl' => $video
+		);
+		$query=$this->db->insert( 'video', $data );
+		$videoid=$this->db->insert_id();
+        $alltag = explode(",", $tag);
+        $tag1=$alltag[0];
+        $tag2=$alltag[1]; 
+        $this->db->query("INSERT INTO `videotags`(`video`, `tag`) VALUES ('$videoid','$tag1')");
+        $this->db->query("INSERT INTO `videotags`(`video`, `tag`) VALUES ('$videoid','$tag2')");
+        
+		if(!$query)
+			return  0;
+		else
+			return  $videoid;
+	}
     function viewvideo($startfrom,$totallength)
 	{
 		$query=$this->db->query("SELECT `video`.`id`, `video`.`user`, `video`.`title`, `video`.`description`,`video`. `location`,`video`. `lat`,`video`. `long`, `video`.`timestamp`, `video`.`rating`, `video`.`videourl`, `video`.`status`,`user`.`firstname`,`user`.`lastname` 
@@ -62,6 +91,37 @@ INNER JOIN `user` ON `video`.`user`=`user`.`id` ")->row();
         $return->totalcount=$return->totalcount->totalcount;
 		return $return;
 //		return $query;
+	}
+    
+    function adduserlikes($videoid,$user)
+	{
+        if($user==0 || $user=="")
+        {
+            return 0;
+        }
+        else
+        {
+            $query=$this->db->query("SELECT  `video`.`likes` AS `videolikes` FROM `uservideolikes`
+    INNER JOIN `user` ON `uservideolikes`.`user`=`user`.`id`
+    INNER JOIN `video` ON `uservideolikes`.`video`=`video`.`id`
+    WHERE `uservideolikes`.`user`='$user' AND `uservideolikes`.`video`='$videoid'")->row();
+            if(empty($query))
+            {
+                $likes=$query->videolikes;
+                $insertlikes=$likes+1;
+                $this->db->query("INSERT INTO `uservideolikes`(`user`, `video`) VALUES ('$user','$videoid')");
+                $this->db->query("UPDATE `video` SET `likes`='$insertlikes' WHERE `id`='$videoid'");
+                return 1;
+            }
+            else
+            {
+                $this->db->query("DELETE FROM `uservideolikes` WHERE `user`='$user' AND `video`='$videoid'");
+                $likes=$query->videolikes;
+                $insertlikes=$likes-1;
+                $this->db->query("UPDATE `video` SET `likes`='$insertlikes' WHERE `id`='$videoid'");
+                return -1;
+            }
+        }
 	}
     
     function getvideosforuser($userid,$category)
@@ -250,6 +310,16 @@ ORDER BY `video`.`id`")->row();
         $query->tag=$this->db->query("SELECT `videotags`.`id`, `videotags`.`video`, `videotags`.`tag`, `videotags`.`timestamp`,`video`.`title` AS `videotitle` 
 FROM `videotags`
 INNER JOIN `video` ON `videotags`.`video`=`video`.`id` WHERE `videotags`.`video`='$id'")->result();
+        $querycheck=$this->db->query("SELECT  * FROM `uservideolikes`
+    WHERE `uservideolikes`.`video`='$id' AND `uservideolikes`.`user`='1'")->row();
+        if(empty($querycheck))
+        {
+            $query->like=0;
+        }
+        else
+        {
+            $query->like=1;
+        }
 		return $query;
 	}
 }

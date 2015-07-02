@@ -52,8 +52,8 @@ class Json extends CI_Controller
 		$title=$this->input->get_post('title');
 		$useremail=$this->input->get_post('useremail');
 		$userid=$this->user_model->getuseridbyemail($useremail);
-		$latitude=$this->input->get_post('latitude');
-		$longitude=$this->input->get_post('longitude');
+		$latitude=$this->input->get_post('lat');
+		$longitude=$this->input->get_post('long');
 		$location=$this->input->get_post('location');
 		$rating=$this->input->get_post('rating');
 		$category=$this->input->get_post('category');
@@ -61,8 +61,9 @@ class Json extends CI_Controller
 		$video=$this->input->get_post('video');
 		$siteurl=$this->input->get_post('siteurl');
 		$siteuser=$this->input->get_post('siteuser');
+		$tag=$this->input->get_post('tag');
 $video=substr($video, 8);
-		$data["message"]=$this->video_model->postvideo($title,$userid,$latitude,$longitude,$location,$rating,$video,$category,$image,$siteurl,$siteuser);
+		$data["message"]=$this->video_model->postvideoforapi($title,$userid,$latitude,$longitude,$location,$rating,$video,$category,$image,$siteurl,$siteuser,$tag);
 		$this->load->view("json",$data);
 	}
     
@@ -137,6 +138,15 @@ $video=substr($video, 8);
         $id=$this->input->get_post('id');
 //        echo $id;
         $data['message']=$this->video_model->getvideobyidforpopup($id);
+		$this->load->view('api1',$data);
+    }
+    public function adduserlikes()
+    {
+        $videoid=$this->input->get_post('videoid');
+        $user=$this->input->get_post('user');
+//        echo $id;
+        $data['message']=$this->video_model->adduserlikes($videoid,$user);
+        $data['message']=$this->video_model->getvideobyidforpopup($videoid);
 		$this->load->view('api1',$data);
     }
 }

@@ -225,7 +225,7 @@
                 fitToView: false,
                 width: '100%',
                 autoSize: false,
-                closeClick: true,
+                closeClick: false,
                 openEffect: 'elastic',
                 closeEffect: 'elastic',
                 type: "ajax"
@@ -241,7 +241,7 @@
                 fitToView: false,
                 width: '100%',
                 autoSize: false,
-                closeClick: true,
+                closeClick: false,
                 openEffect: 'elastic',
                 closeEffect: 'elastic',
                 type: "ajax"

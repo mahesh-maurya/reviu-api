@@ -25,19 +25,30 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
+<style>
+       .link-act{
+  color: #ededed !important;
+  background: #EF4D64 !important;
+  border-radius: 50px !important;
+  height: 42px !important;
+  width: 42px !important;
+  font-size: 22px !important;
+  -webkit-transition: all 0.5s!important;
+  -moz-transition: all 1s!important;
+  cursor: pointer!important;
+  text-align: center!important;
+  font-size: 22px!important;
+  padding: 10px 0px 0px 0px!important;
+  text-align: center!important;
+  margin: 0px 15px!important;
+} 
+    </style>
 
     <title>Reviu API</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
 </head>
 <?php
 //print_r($message);
-//echo $message->id;
-//foreach($message->tag as $row)
-//{
-//$tag=$row->tag;
-//    echo $tag;
-//}
 $fullvideopath="http://localhost/reviu-api/uploads/".$message->videourl;
 $name=$message->firstname." ".$message->lastname;
 //$rating=(float)$message->rating;
@@ -78,10 +89,11 @@ if($roundvalue==$message->rating)
                     </div>
                 </div>
                 <div class="col-md-4">
-
+<input type="hidden" name="video" class="videoclass" value="<?php echo $message->id;?>">
+<input type="hidden" name="user" class="userclass" value="<?php echo $message->user;?>">
                     <div class="icon-fon pull-left">
                         <i class="fa fa-street-view"></i>
-                        <i class="fa fa-heart"></i>
+                        <a href="" class="heartclass"  onclick="userlikes()"><i class="fa fa-heart link-act" id="heartid"></i></a>
                         <i class="fa fa-share"></i>
 
                     </div>
@@ -129,5 +141,41 @@ if($roundvalue==$message->rating)
 
 
 </body>
+<script>
+    $( document ).ready(function() {
+    console.log( "ready!" );
+        var like=<?php echo $message->like;?>;
+        console.log(like);
+        if(like==0)
+        {
+            $( "#heartid" ).removeClass( "link-act" ).addClass( "" );
+        }
+});
+    function userlikes() {
+        var user=$('.userclass').val();
+        var user=1;
+//        $( "p" ).addClass( "myClass yourClass" );
+        $.getJSON(
+            "<?php echo base_url(); ?>index.php/json/adduserlikes?user="+user+"&videoid="+$('.videoclass').val(), {
+            },
+            function (data) {
+                console.log(data);
+                if(data == 1)
+                {
+                    $( "#heartid" ).addClass( "link-act" );
+                }
+                else if(data == -1)
+                {
+                    $( "#heartid" ).removeClass( "link-act" ).addClass( "" );
+                }
+//                $('.latclass').val(data.results[0].geometry.location.lat);
+//                $('.longclass').val(data.results[0].geometry.location.lng);
+//                nodata=data;
+//                changeareadropdown(data);
 
+            }
+
+        );
+    }
+</script>
 </html>

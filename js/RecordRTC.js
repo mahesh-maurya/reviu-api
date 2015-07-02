@@ -471,7 +471,7 @@ function RecordRTC(mediaStream, config) {
          *     var bufferSize = recordRTC.bufferSize;
          * });
          */
-        bufferSize: 0,
+        bufferSize: 1048,
 
         /**
          * @todo Add descriptions.
@@ -483,7 +483,7 @@ function RecordRTC(mediaStream, config) {
          *     var sampleRate = recordRTC.sampleRate;
          * });
          */
-        sampleRate: 0,
+        sampleRate: 24000,
 
         /**
          * @todo Add descriptions.
@@ -2188,7 +2188,7 @@ var Whammy = (function() {
     function WhammyVideo(duration) {
         this.frames = [];
         this.duration = duration || 1;
-        this.quality = 100;
+        this.quality = 40;
     }
 
     /**
