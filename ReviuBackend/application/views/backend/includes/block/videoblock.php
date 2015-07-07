@@ -6,8 +6,10 @@
             </li>
             <li><a href="<?php echo site_url('site/viewvideotag?id=').$before->id; ?>">Tags</a>
             </li>
+<!--
             <li><a href="<?php echo site_url('site/viewvideopart?id=').$before->id; ?>">Video Parts</a>
             </li>
+-->
         </ul>
     </div>
 </section>

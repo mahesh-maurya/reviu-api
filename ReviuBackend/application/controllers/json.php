@@ -120,6 +120,12 @@ $video=substr($video, 8);
         $data['message']=$this->video_model->getvideosbyuser($userid);
 		$this->load->view('json',$data);
     }
+    public function getimageofuser($userid)
+    {
+        //$userid=$this->input->get_post('userid');
+        $data['message']=$this->user_model->getuserimagebyid($userid);
+		$this->load->view('json',$data);
+    }
     public function getcategorydropdownfront() {
         $data1 = $this->video_model->getcategorydropdown();
         $data["message"] = $data1;
@@ -149,5 +155,6 @@ $video=substr($video, 8);
         $data['message']=$this->video_model->getvideobyidforpopup($videoid);
 		$this->load->view('api1',$data);
     }
+    
 }
 ?>

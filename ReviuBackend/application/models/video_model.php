@@ -172,7 +172,6 @@ WHERE `video`.`siteuser`='$userid'
 		$query=$this->db->get( 'video' )->row();
 		return $query;
 	}
-	
 	public function editvideo($id,$user,$title,$description,$location,$lat,$long,$rating,$videourl,$status,$category,$siteuser,$siteurl)
 	{
 		$data = array(
@@ -322,5 +321,14 @@ INNER JOIN `video` ON `videotags`.`video`=`video`.`id` WHERE `videotags`.`video`
         }
 		return $query;
 	}
+    
+	
+	public function gettotallikesofvideo( $id )
+	{
+		
+        $query=$this->db->query("SELECT COUNT(`id`) AS `likes` FROM `uservideolikes` WHERE `video`='$id'")->row();;
+		return $query;
+	}
+	
 }
 ?>

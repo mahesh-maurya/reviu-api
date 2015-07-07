@@ -32,7 +32,7 @@
 					<input type="text" id="normal-field" class="form-control" name="title" value="<?php echo set_value('title',$before->title);?>">
 				  </div>
 				</div>
-				<div class=" form-group">
+				<div class=" form-group" style="display:none;">
 				  <label class="col-sm-2 control-label" for="normal-field">Description</label>
 				  <div class="col-sm-4">
 				  <textarea name="description" id="" cols="20" rows="10" class="form-control tinymce"><?php echo set_value('description',$before->description);?></textarea>
@@ -46,13 +46,13 @@
 					<input type="text" id="normal-field" class="form-control" name="location" value="<?php echo set_value('location',$before->location);?>">
 				  </div>
 				</div>
-				<div class=" form-group">
+				<div class=" form-group" style="display:none;">
 				  <label class="col-sm-2 control-label" for="normal-field">Latitude</label>
 				  <div class="col-sm-4">
 					<input type="text" id="normal-field" class="form-control" name="lat" value="<?php echo set_value('lat',$before->lat);?>">
 				  </div>
 				</div>
-				<div class=" form-group">
+				<div class=" form-group" style="display:none;">
 				  <label class="col-sm-2 control-label" for="normal-field">longitude</label>
 				  <div class="col-sm-4">
 					<input type="text" id="normal-field" class="form-control" name="long" value="<?php echo set_value('long',$before->long);?>">
@@ -66,6 +66,12 @@
 				  </div>
 				</div>
 				<div class=" form-group">
+				  <label class="col-sm-2 control-label" for="normal-field">Total Likes</label>
+				  <div class="col-sm-4">
+					<?php echo $likes->likes;?>
+				  </div>
+				</div>
+				<div class=" form-group" style="display:none;">
 				  <label class="col-sm-2 control-label" for="normal-field">Video Url</label>
 				  <div class="col-sm-4">
 					<input type="text" id="normal-field" class="form-control" name="videourl" value="<?php echo set_value('videourl',$before->videourl);?>">
@@ -78,7 +84,7 @@
 					<input type="text" id="normal-field" class="form-control" name="siteurl" value="<?php echo set_value('siteurl',$before->siteurl);?>">
 				  </div>
 				</div>
-				<div class=" form-group">
+				<div class=" form-group" style="display:none;">
 				  <label class="col-sm-2 control-label">Category</label>
 				  <div class="col-sm-4">
 					<?php

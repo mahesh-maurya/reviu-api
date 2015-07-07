@@ -35,7 +35,7 @@ class User_model extends CI_Model
 		return $query;
 	}
 	
-	public function create($firstname,$lastname,$dob,$password,$accesslevel,$email,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country)
+	public function create($firstname,$lastname,$dob,$password,$accesslevel,$email,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image)
 	{
 		$data  = array(
 			'firstname' => $firstname,
@@ -54,6 +54,7 @@ class User_model extends CI_Model
             'phoneno' => $phoneno,
             'google' => $google,
             'state' => $state,
+            'image' => $image,
             'country' => $country
 		);
 		$query=$this->db->insert( 'user', $data );
@@ -100,7 +101,7 @@ class User_model extends CI_Model
 		return $query;
 	}
 	
-	public function edit($id,$fname,$lname,$dob,$password,$accesslevel,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country)
+	public function edit($id,$fname,$lname,$dob,$password,$accesslevel,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image)
 	{
 		$data  = array(
 			'firstname' => $fname,
@@ -117,6 +118,7 @@ class User_model extends CI_Model
             'phoneno' => $phoneno,
             'google' => $google,
             'state' => $state,
+            'image' => $image,
             'country' => $country
 		);
 		if($password != "")
@@ -490,5 +492,10 @@ $this->db->insert('user', $data);
 		$id=$query->id;
 		return $id;
     }
+    public function getuserimagebyid($id)
+{
+$query=$this->db->query("SELECT `image` FROM `user` WHERE `id`='$id'")->row();
+return $query;
+}
 }
 ?>

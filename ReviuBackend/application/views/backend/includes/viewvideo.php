@@ -20,11 +20,14 @@
                     <tr>
                         <th data-field="id">Id</th>
                         <th data-field="title">Title</th>
-                        <th data-field="description">Description</th>
+<!--                        <th data-field="description">Description</th>-->
                         <th data-field="username">User</th>
+<!--
                         <th data-field="lat">Latitude</th>
                         <th data-field="long">Longitude</th>
-                        <th data-field="url">URL</th>
+-->
+<!--                        <th data-field="url">URL</th>-->
+                        <th data-field="image">image</th>
 <!--					<td><i class=" icon-edit"></i>Status</td>-->
 					    <th data-field="action"> Actions </th>
                     </tr>
@@ -43,8 +46,10 @@
                 {
                     resultrow.address="";
                 }
+//                var url="<a target='_blank' href='<?php echo site_url('site/getvideobyidforpopupback?id='); ?>"+resultrow.id +"'>"+resultrow.url+"</a>";
+                var image="<a target='_blank' href='<?php echo site_url('site/getvideobyidforpopupback?id='); ?>"+resultrow.id +"'><img src='http://localhost/reviu-api/thumbnails/"+resultrow.image +"' style='height: 85px;vertical-align: top;'></a>";
                 var deletestring="";
-                return "<tr><td>" + resultrow.id + "</td><td>" + resultrow.title + "</td><td>" + resultrow.description + "</td><td>" + resultrow.username + "</td><td>" + resultrow.lat + "</td><td>" + resultrow.long + "</td><td>" + resultrow.url + "</td><td><a class='btn btn-primary btn-xs' href='<?php echo site_url('site/editvideo?id=');?>"+resultrow.id +"'><i class='icon-pencil'></i></a><a class='btn btn-danger btn-xs'  onclick=\"return confirm('Are you sure you want to delete?')\" href='<?php echo site_url('site/deletevideo?id='); ?>"+resultrow.id +"'><i class='icon-trash '></i></a></td><tr>";
+                return "<tr><td>" + resultrow.id + "</td><td>" + resultrow.title + "</td><td>" + resultrow.username + "</td><td>" + image + "</td><td><a class='btn btn-primary btn-xs' href='<?php echo site_url('site/editvideo?id=');?>"+resultrow.id +"'><i class='icon-pencil'></i></a><a class='btn btn-danger btn-xs'  onclick=\"return confirm('Are you sure you want to delete?')\" href='<?php echo site_url('site/deletevideo?id='); ?>"+resultrow.id +"'><i class='icon-trash '></i></a></td><tr>";
             }
             generatejquery('<?php echo $base_url;?>');
         </script>

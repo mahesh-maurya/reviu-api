@@ -15,6 +15,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     <scirpt src="https://cdn.webrtc-experiment.com/ffmpeg_asm.js">
         </script>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
@@ -58,7 +62,7 @@
                 <div class="pro-logo">
                     <div class="row">
                         <div class=" col-md-6">
-                            <img src="images/snap.png">
+                            <img src="images/snap.png" id="imageid">
                         </div>
                         <div class=" col-md-6">
 
@@ -93,7 +97,7 @@
                                 <div class="buttons">
                                     <div class="row">
                                         <div class="col-xs-3">
-                                                <button type="button" class="btn-defaults retake">Retake</button>
+                                            <button type="button" class="btn-defaults retake">Retake</button>
 
                                         </div>
                                         <div class="col-xs-6">
@@ -129,13 +133,16 @@
                                 <div class="content-box">
                                     <div class="content-text">
 
-                                        <input class="textbox titleclass" type="text" value="" placeholder="Title">
-                                        <input class="textbox locationclass" type="text" value="" placeholder="Location" onchange="changelatlong()">
+                                        <input class="textbox titleclass" type="text" value="" placeholder="Title" required>
+                                        <input class="textbox locationclass" type="text" value="" placeholder="Location" onkeydown="changelatlong()" id="location">
+
+                                        <p id="demo"></p>
+                                        
                                         <input class="textbox latclass" type="hidden" value="" placeholder="lat">
                                         <input class="textbox longclass" type="hidden" value="" placeholder="long">
-                                        <input class="textbox productlinkclass" style="display:none;" type="text" value="" placeholder="Product Link">
+                                        <input class="textbox productlinkclass" style="display:none;" type="text" value="" placeholder="Product Link" required>
                                         <p>Powered by Foursquar</p>
-                                        <input class="textbox tagsclass" type="text" value="" placeholder="Tag">
+                                        <input class="textbox tagsclass" type="text" value="" placeholder="Tag" required>
                                         <h5>ratings</h5>
 
                                         <input class="ratingclass" type="range" min="0" max="5" value="0" step="0.1" onchange="rangevalue1.value=value" />
@@ -154,12 +161,26 @@
             </div>
         </div>
     </div>
-
     <script>
         $(document).ready(function () {
-            //        console.log('hiiiii');
-            //        alert("hiii");
+            
+            var x = document.getElementById("demo");
+getLocation();
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else { 
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
 
+            function showPosition(position) {
+                $('.latclass').val(position.coords.latitude);
+                $('.longclass').val(position.coords.longitude);
+            }
+            
+            
+            
             $(".categoryclass").change(function () {
                 var catval = $(".categoryclass").val();
                 if (catval == "product") {
@@ -206,6 +227,22 @@
                     console.log(data);
                     nodata = data;
                     videosliders(data);
+                }
+
+
+            );
+            
+            $.getJSON(
+                "http://localhost/reviu-api/ReviuBackend/index.php/json/getimageofuser/10", {
+                    //                id: "123"
+                },
+                function (data) {
+                    console.log("userimage");
+                    console.log(data);
+                    nodata = data;
+                    console.log(data.image)
+                    var path="ReviuBackend/uploads/"+data.image;
+                    $("#imageid").attr('src', path);
                 }
 
 
@@ -258,21 +295,36 @@
         });
 
         function changelatlong() {
-            console.log($('.locationclass').val());
-            $.getJSON(
-                "https://maps.googleapis.com/maps/api/geocode/json?address=" + $('.locationclass').val() + "&key=AIzaSyAvqKowJmLC_xd0N-8e6BoCZf4-gWThOZQ", {
+            var the_url = "https://api.foursquare.com/v2/venues/search?client_id=VZ5O4RZK1NKQ5IEYKKKVMTK35INA2Y5XX5KXWDRKE1LP4TXP&client_secret=GXWL22UOOXPM5T2RHXNFZCNZKABZXN5OGW0E10GMIO5JTCPP&v=20130815%20&ll=" + $('.latclass').val() + "," + $('.longclass').val() + "&query=" + $('.locationclass').val() + "";
+//            console.log(the_url);
+//            var the_url = encodeURIComponent(the_url).replace(/'/g, "%27").replace(/"/g, "%22");
+//            var the_url = "http://wohlig.co.in/tumblr/?url=" + the_url;
+//            console.log(the_url);
+            
+            $.getJSON(the_url, {
                     //                address: $(".locationclass".val())
                 },
                 function (data) {
                     console.log(data);
-                    $('.latclass').val(data.results[0].geometry.location.lat);
-                    $('.longclass').val(data.results[0].geometry.location.lng);
-                    //                nodata=data;
-                    //                changeareadropdown(data);
+                var availablelocations=new Array();
+                var arrayLength = data.response.venues.length;
+//            //                    alert(data);
+                    console.log(arrayLength);
+//                    console.log(data.response.venues);
+                    for (var i = 0; i < arrayLength; i++) {
+                        var value2=data.response.venues[i].name;
+                        console.log(value2);
+                        availablelocations.push(value2);
+                    }
+                console.log(availablelocations);
+                   $( "#location" ).autocomplete({
+                  source: availablelocations
+                });
 
                 }
 
             );
+
         }
 
 
@@ -345,18 +397,18 @@
         var myVar = setInterval(function () {
             myTimer()
         }, 1000);
-        var timetobe=0;
-        var videostate="pause";
+        var timetobe = 0;
+        var videostate = "pause";
+
         function myTimer() {
-            if(videostate=="play")
-            {
+            if (videostate == "play") {
                 timetobe++;
             }
         }
 
         record.onclick = function () {
-            videostate="play";
-            timetobe=0;
+            videostate = "play";
+            timetobe = 0;
             shouldstop = true;
             //            pausenum=1;
             $("#preview").get(0).ontimeupdate = function () {
@@ -414,23 +466,40 @@
 
         //        $("publish").click
         stop.onclick = function () {
-            videostate="pause";
-            timetobe=0;
-            shouldstop = false;
-            document.querySelector('h1').innerHTML = 'Getting Blobs...';
-            record.disabled = false;
-            stop.disabled = true;
-            preview.src = '';
-            preview.poster = 'load.gif';
-            fileName = "videofile";
-            if (!isFirefox) {
-                recordAudio.stopRecording(function () {
-                    document.querySelector('h1').innerHTML = 'Got audio-blob. Getting video-blob...';
-                    recordVideo.stopRecording(function () {
-                        document.querySelector('h1').innerHTML = 'Uploading to server...';
-                        PostBlob(recordAudio.getBlob(), recordVideo.getBlob(), fileName);
+            var title = $(".titleclass").val();
+            var location = $(".locationclass").val();
+            var tag = $(".tagsclass").val();
+            var rating = $(".ratingclass").val();
+            if(rating==0 || rating=="")
+            {
+                alert("Please Enter Rating");
+            }
+            else if (title == "") {
+                alert("Please Enter Title");
+            } else if (location == "") {
+                alert("Please Enter Location");
+            } else if (tag == "") {
+                alert("Please Enter Tags With Comma Seperated Values");
+            } else {
+                videostate = "pause";
+                timetobe = 0;
+                shouldstop = false;
+                document.querySelector('h1').innerHTML = 'Getting Blobs...';
+                record.disabled = false;
+                stop.disabled = true;
+                preview.src = '';
+                preview.poster = 'load.gif';
+                fileName = "videofile";
+                if (!isFirefox) {
+                    recordAudio.stopRecording(function () {
+                        document.querySelector('h1').innerHTML = 'Got audio-blob. Getting video-blob...';
+                        recordVideo.stopRecording(function () {
+                            document.querySelector('h1').innerHTML = 'Uploading to server...';
+                            PostBlob(recordAudio.getBlob(), recordVideo.getBlob(), fileName);
+                            
+                        });
                     });
-                });
+                }
             }
         };
 
@@ -450,22 +519,21 @@
             console.log("Pause clicked");
             $(".nowresume").show();
             $("#pause").hide();
-            videostate="pause";
+            videostate = "pause";
             recordVideo.pauseRecording();
             recordAudio.pauseRecording();
-            
+
             preview.pause();
             $("#preview").get(0).pause();
         }
         var nowresume = function () {
-            videostate="play";
+            videostate = "play";
             $(".nowresume").hide();
             $("#pause").show();
             recordVideo.resumeRecording();
             recordAudio.resumeRecording();
             $("#preview").get(0).play();
         }
-        
     </script>
     <script>
         $(document).ready(function () {
@@ -473,7 +541,7 @@
             $(window).resize(function () {
                 $(".section").css("min-height", $(window).height());
             });
-            $(".retake").click(function() {
+            $(".retake").click(function () {
                 record.onclick();
             });
         });

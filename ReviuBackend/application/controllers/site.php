@@ -96,7 +96,19 @@ class Site extends CI_Controller
 			$facebookuserid=$this->input->post('facebookuserid');
 			$firstname=$this->input->post('firstname');
 			$lastname=$this->input->post('lastname');
-			if($this->user_model->create($firstname,$lastname,$dob,$password,$accesslevel,$email,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country)==0)
+            
+            $config['upload_path'] = './uploads/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $this->load->library('upload', $config);
+            $filename="image";
+            $image="";
+            if (  $this->upload->do_upload($filename))
+            {
+            $uploaddata = $this->upload->data();
+            $image=$uploaddata['file_name'];
+            }
+            
+			if($this->user_model->create($firstname,$lastname,$dob,$password,$accesslevel,$email,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image)==0)
 			$data['alerterror']="New user could not be created.";
 			else
 			$data['alertsuccess']="User created Successfully.";
@@ -313,7 +325,27 @@ class Site extends CI_Controller
 			$facebookuserid=$this->input->post('facebookuserid');
 			$fname=$this->input->post('fname');
 			$lname=$this->input->post('lname');
-			if($this->user_model->edit($id,$fname,$lname,$dob,$password,$accesslevel,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country)==0)
+            
+            $config['upload_path'] = './uploads/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $this->load->library('upload', $config);
+            $filename="image";
+            $image="";
+            if (  $this->upload->do_upload($filename))
+            {
+                $uploaddata = $this->upload->data();
+                $image=$uploaddata['file_name'];
+            }
+
+            if($image=="")
+            {
+            $image=$this->user_model->getuserimagebyid($id);
+               // print_r($image);
+                $image=$image->image;
+            }
+            
+            
+			if($this->user_model->edit($id,$fname,$lname,$dob,$password,$accesslevel,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image)==0)
 			$data['alerterror']="User Editing was unsuccesful";
 			else
 			$data['alertsuccess']="User edited Successfully.";
@@ -1014,7 +1046,6 @@ class Site extends CI_Controller
 		$this->checkaccess($access);
 		$data['page']='viewvideo';
         
-        
         $data['base_url'] = site_url("site/viewvideojson");
         
         
@@ -1077,6 +1108,12 @@ class Site extends CI_Controller
         $elements[7]->header="siteurl";
         $elements[7]->alias="siteurl";
         
+        $elements[8]=new stdClass();
+        $elements[8]->field="`video`.`image`";
+        $elements[8]->sort="1";
+        $elements[8]->header="image";
+        $elements[8]->alias="image";
+        
         $search=$this->input->get_post("search");
         $pageno=$this->input->get_post("pageno");
         $orderby=$this->input->get_post("orderby");
@@ -1090,7 +1127,7 @@ class Site extends CI_Controller
         if($orderby=="")
         {
             $orderby="id";
-            $orderorder="ASC";
+            $orderorder="DESC";
         }
        
         $data["message"]=$this->chintantable->query($pageno,$maxrow,$orderby,$orderorder,$search,$elements,"FROM `video` LEFT OUTER JOIN `user` ON `user`.`id`=`video`.`user`");
@@ -1177,6 +1214,7 @@ class Site extends CI_Controller
         $data[ 'siteuser' ] =$this->user_model->getsiteuserdropdown();
         $data[ 'category' ] =$this->category_model->getcategorydropdown();
 		$data['before']=$this->video_model->beforeedit($this->input->get('id'));
+		$data['likes']=$this->video_model->gettotallikesofvideo($this->input->get('id'));
 		$data['page']='editvideo';
 		$data['page2']='block/videoblock';
 		$data['title']='Edit video';
@@ -1753,6 +1791,12 @@ class Site extends CI_Controller
         $elements[7]->header="siteurl";
         $elements[7]->alias="siteurl";
         
+        $elements[8]=new stdClass();
+        $elements[8]->field="`video`.`image`";
+        $elements[8]->sort="1";
+        $elements[8]->header="image";
+        $elements[8]->alias="image";
+        
         $search=$this->input->get_post("search");
         $pageno=$this->input->get_post("pageno");
         $orderby=$this->input->get_post("orderby");
@@ -1766,7 +1810,7 @@ class Site extends CI_Controller
         if($orderby=="")
         {
             $orderby="id";
-            $orderorder="ASC";
+            $orderorder="DESC";
         }
        
         $data["message"]=$this->chintantable->query($pageno,$maxrow,$orderby,$orderorder,$search,$elements,"FROM `video` LEFT OUTER JOIN `user` ON `user`.`id`=`video`.`user`","WHERE `video`.`siteuser`='$userid'");
@@ -1853,6 +1897,7 @@ class Site extends CI_Controller
         $data[ 'siteuser' ] =$this->user_model->getsiteuserdropdown();
         $data[ 'category' ] =$this->category_model->getcategorydropdown();
 		$data['before']=$this->video_model->beforeedit($this->input->get('id'));
+		$data['likes']=$this->video_model->gettotallikesofvideo($this->input->get('id'));
 		$data['page']='editvideobyoperator';
 		$data['page2']='block/videobyoperatorblock';
 		$data['title']='Edit video';
@@ -2455,5 +2500,13 @@ class Site extends CI_Controller
 		}
 	}
 	
+    public function getvideobyidforpopupback()
+    {
+        $id=$this->input->get_post('id');
+//        echo $id;
+        $data['page']='api12';
+        $data['message']=$this->video_model->getvideobyidforpopup($id);
+		$this->load->view('fronttemplateforvideo',$data);
+    }
 }
 ?>

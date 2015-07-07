@@ -12,7 +12,7 @@
 				 User Details
 			</header>
 			<div class="panel-body">
-			  <form class="form-horizontal tasi-form" method="post" action="<?php echo site_url('site/createusersubmit');?>">
+			  <form class="form-horizontal tasi-form" method="post" action="<?php echo site_url('site/createusersubmit');?>" enctype="multipart/form-data">
 				<div class="form-group">
 				  <label class="col-sm-2 control-label" for="normal-field">First Name</label>
 				  <div class="col-sm-4">
@@ -164,6 +164,12 @@
 				  </div>
 				</div>
 				
+					<div class=" form-group">
+                      <label class="col-sm-2 control-label" for="normal-field">Image/Logo</label>
+                      <div class="col-sm-4">
+                    <input type="file" id="normal-field" class="form-control" name="image" value="<?php echo set_value('image');?>">
+                      </div>
+                    </div>
 				<div class=" form-group">
 				  <label class="col-sm-2 control-label">&nbsp;</label>
 				  <div class="col-sm-4">
