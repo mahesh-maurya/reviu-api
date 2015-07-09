@@ -195,7 +195,7 @@ getLocation();
             });
 
             $.getJSON(
-                "http://localhost/reviu-api/ReviuBackend/index.php/json/getcategorydropdownfront", {
+                "ReviuBackend/index.php/json/getcategorydropdownfront", {
                     //                id: "123"
                 },
                 function (data) {
@@ -221,7 +221,7 @@ getLocation();
             };
 
             $.getJSON(
-                "http://localhost/reviu-api/ReviuBackend/index.php/json/getvideosbyuser/10", {
+                "ReviuBackend/index.php/json/getvideosbyuser/10", {
                     //                id: "123"
                 },
                 function (data) {
@@ -234,7 +234,7 @@ getLocation();
             );
             
             $.getJSON(
-                "http://localhost/reviu-api/ReviuBackend/index.php/json/getimageofuser/10", {
+                "ReviuBackend/index.php/json/getimageofuser/10", {
                     //                id: "123"
                 },
                 function (data) {
@@ -263,7 +263,7 @@ getLocation();
             };
 
             $.getJSON(
-                "http://localhost/reviu-api/ReviuBackend/index.php/json/getvideosbyuser/10", {
+                "ReviuBackend/index.php/json/getvideosbyuser/10", {
                     //                id: "123"
                 },
                 function (data) {
@@ -280,13 +280,13 @@ getLocation();
                 console.log(data);
                 for (var i = 0; i < data.length; i++) {
                     var lastindex = data[i].videourl.lastIndexOf("-merged.webm")
-                    var imagename = "http://localhost/reviu-api/thumbnails/" + data[i].videourl.slice(0, lastindex) + ".png";
+                    var imagename = "thumbnails/" + data[i].videourl.slice(0, lastindex) + ".png";
 
                     $(".addvideos").append("<img src='" + imagename + "' style='height: 65px;vertical-align: top;' data-video=" + data[i].videourl + ">");
                 }
                 $(".addvideos img").click(function () {
                     //                            console.log($(this).attr("data-video")); 
-                    preview.src = "http://localhost/reviu-api/uploads/" + $(this).attr("data-video");
+                    preview.src = "uploads/" + $(this).attr("data-video");
                     preview.play();
                     preview.muted = false;
                 });
@@ -357,7 +357,7 @@ getLocation();
                 var siteuser = 10;
                 console.log(siteuser);
                 $.getJSON(
-                    "http://localhost/reviu-api/ReviuBackend/index.php/json/postVideoforapi?title=" + $(".titleclass").val() + "&lat=" + $(".latclass").val() + "&tag=" + $(".tagsclass").val() + "&long=" + $(".longclass").val() + "&useremail=wohlig@wohlig.com&location=" + $(".locationclass").val() + "&rating=" + $(".ratingclass").val() + "&siteuser=" + siteuser + "&category=" + $(".categoryclass option:selected").attr("value") + "&video=" + video + "&image=" + image + "&siteurl=" + siteurl + "", {
+                    "ReviuBackend/index.php/json/postVideoforapi?title=" + $(".titleclass").val() + "&lat=" + $(".latclass").val() + "&tag=" + $(".tagsclass").val() + "&long=" + $(".longclass").val() + "&useremail=wohlig@wohlig.com&location=" + $(".locationclass").val() + "&rating=" + $(".ratingclass").val() + "&siteuser=" + siteuser + "&category=" + $(".categoryclass option:selected").attr("value") + "&video=" + video + "&image=" + image + "&siteurl=" + siteurl + "", {
                         //                id:1234
                     },
                     function (data) {
