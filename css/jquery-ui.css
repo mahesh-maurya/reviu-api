@@ -1226,3 +1226,11 @@ body .ui-tooltip {
 	filter: Alpha(Opacity=30); /* support: IE8 */
 	border-radius: 8px;
 }
+    .slider.scroll p {
+    color: #F3334F;
+    text-transform: capitalize;
+}
+    .slider p {
+    color: #F3334F;
+    text-transform: capitalize;
+}

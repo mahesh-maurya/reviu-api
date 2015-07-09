@@ -113,6 +113,7 @@
                                     </div>
                                 </div>
                                 <div class="slider scroll">
+                                   <p> set as thumbnail</p>
                                     <div class="img-content addvideos">
 
                                     </div>
@@ -281,7 +282,7 @@ getLocation();
                     var lastindex = data[i].videourl.lastIndexOf("-merged.webm")
                     var imagename = "http://localhost/reviu-api/thumbnails/" + data[i].videourl.slice(0, lastindex) + ".png";
 
-                    $(".addvideos").append("<img src='" + imagename + "' style='height: 85px;vertical-align: top;' data-video=" + data[i].videourl + ">");
+                    $(".addvideos").append("<img src='" + imagename + "' style='height: 65px;vertical-align: top;' data-video=" + data[i].videourl + ">");
                 }
                 $(".addvideos img").click(function () {
                     //                            console.log($(this).attr("data-video")); 
