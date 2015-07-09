@@ -571,3 +571,7 @@ top: 5px;
 width: 100%;
 display: block;
 }
+    .ui-widget {
+  font-family: 'Lato' !important;
+  font-size: 0.8em !important;
+}
