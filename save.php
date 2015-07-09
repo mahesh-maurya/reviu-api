@@ -83,7 +83,7 @@
                     }
                     
                     exec('ffmpeg '.$cmd.' 2>&1', $out, $ret);
-                    if ($ret){
+                    if (false){
                         echo "There was a problem!\n";
                         print_r($cmd.'\n');
                         print_r($out);
