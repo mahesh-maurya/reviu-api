@@ -39,6 +39,17 @@
                 width: 499px !important;
                 height: 310px !important;
             }
+
+            @media only screen and (max-device-width: 480px) {
+		            .main-box {
+  max-width: 780px;
+  height: auto;
+  /* border: 2px solid #255e83; */
+  margin: 2% 2%;
+  background: #393e49;
+  border-radius: 1px;
+}
+            }
         </style>
 
         <script src="https://www.webrtc-experiment.com/RecordRTC.js">
@@ -430,7 +441,8 @@ getLocation();
                         if(curtime>=29)
                         {
                             console.log(submitonce);
-                            submitonce++;
+                            submitonce+
+                                +;
                             if(submitonce==1)
                             {
                                 $("#stop").click();
