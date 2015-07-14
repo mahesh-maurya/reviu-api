@@ -170,8 +170,8 @@ text-decoration: none;
     background: transparent;
     border-radius: 20px;
     border: 1px solid #7c7c7c;
-    height: 37px;
-    padding: 5px;
+    height: 42px;
+    padding: 8px;
     /* margin-top: 56px; */
     /* width: 100%; */
     
@@ -542,7 +542,17 @@ position: relative;
 /* transform: translateX(-50%); */
 /* left: 50%; */
 }
-
+.pops {
+    background: rgb(181, 96, 96);
+    width: 30%;
+    text-align: center;
+    padding: 16px;
+    position: absolute;
+    z-index: 9;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
     
 }
 @media only screen and (min-width: 1224px) {}

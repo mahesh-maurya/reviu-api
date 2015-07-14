@@ -3,6 +3,8 @@
 <html>
 
 <head>
+         <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/jquery.remodal.css" rel="stylesheet" type="text/css">
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -14,7 +16,9 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    </script>
+    
+
+
     <!--    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>-->
 
 
@@ -24,7 +28,10 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+<!--
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "17c77c69-67a4-44ac-84df-96581a0b17c6", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+-->
 <style>
        .link-act{
   color: #ededed !important;
@@ -42,10 +49,43 @@
   text-align: center!important;
   margin: 0px 15px!important;
 } 
+    .pops {
+    background:rgb(255, 255, 255);
+    width: 30%;
+    text-align: center;
+    padding: 16px;
+    position: absolute;
+    z-index: 9;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+          border: 4px;
+}
+    .over {
+    background: rgba(0, 0, 0, 0.45);
+    min-height: 445px;
+    position: absolute;
+     width: 96.5%;
+    z-index: 1;
+}
+    .pops i.fa.fa-times {
+  float: right;
+  position: relative;
+  z-index: 9;
+  bottom: 17px;
+  right: -13px;
+  font-size: 18px;
+          cursor: pointer;
+}
     </style>
 
     <title>Reviu API</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    
+<!--
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "17c77c69-67a4-44ac-84df-96581a0b17c6", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+-->
 </head>
 <?php
 //print_r($message);
@@ -60,10 +100,19 @@ if($roundvalue==$message->rating)
 }
 //echo $rating;
 ?>
+
 <body>
     <div class="container2" style="max-width:840px;">
 
         <div class="vide-box">
+          <div class="over" style="display:none">
+           <div class="pops">
+           <i id="close" class="fa fa-times"></i>
+ <span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_googleplus_large' displayText='Google +'></span>
+            </div>
+           </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="video-descs">
@@ -92,20 +141,20 @@ if($roundvalue==$message->rating)
 <input type="hidden" name="video" class="videoclass" value="<?php echo $message->id;?>">
 <input type="hidden" name="user" class="userclass" value="<?php echo $message->user;?>">
                     <div class="icon-fon pull-left">
-                        <i class="fa fa-street-view"></i>
+                        <i class="fa fa-users"></i>
                         <a href="" class="heartclass"  onclick="userlikes()"><i class="fa fa-heart link-act" id="heartid"></i></a>
-                        <i class="fa fa-share"></i>
+                        <i id="show" class="fa fa-share"></i>
 
                     </div>
 
     <div class="det-share">
-       <span>View Map</span>
+       <span>Total View</span>
          <span style="padding-right:8px;">Like</span>
-          <span>Share</span>
+          <span >Share</span>
     </div>
 
                     <div class="pro-text">
-                        <p>SnapDeal.com<span>Rs.5999</span><a href="">Buy</a>
+                        <p>SnapDeal.com<span>Rs.5999</span>
                         </p>
 
                     </div>
@@ -130,7 +179,7 @@ if($roundvalue==$message->rating)
 -->
                     </div>
                     <div class="follow">
-                        <a href="#"><img src="images/Monali.jpg"><span>Shalini Mehta</span><i>+</i>Follow</a>
+                        <a href="#"><img src="images/Monali.jpg"><span>Shalini Mehta</span></a>
                     </div>
                 </div>
             </div>
@@ -150,6 +199,13 @@ if($roundvalue==$message->rating)
         {
             $( "#heartid" ).removeClass( "link-act" ).addClass( "" );
         }
+        
+        $("#show").click(function(){
+    $(".over").show(300);
+});
+        $("#close").click(function(){
+    $(".over").hide(300);
+});
 });
     function userlikes() {
         var user=$('.userclass').val();
@@ -178,4 +234,5 @@ if($roundvalue==$message->rating)
         );
     }
 </script>
+    
 </html>
