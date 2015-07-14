@@ -413,6 +413,7 @@ getLocation();
             videostate = "play";
             timetobe = 0;
             shouldstop = true;
+            submitonce=0;
             //            pausenum=1;
             $("#preview").get(0).ontimeupdate = function () {
 
@@ -424,7 +425,24 @@ getLocation();
                     if (timetobe > stopafter) {
                         $(".remainingsec").text(0);
                         shouldstop = true;
-                        $("#stop").click();
+//                        return;
+                        console.log(stopafter);
+                        if(curtime>=29)
+                        {
+                            console.log(submitonce);
+                            submitonce++;
+                            if(submitonce==1)
+                            {
+                                $("#stop").click();
+                            } 
+                            else
+                            {
+                                $('#pause').click();
+//                                var videostate = "pause";
+//                                shouldstop = false;
+//                                $("#pause").show();
+                            }
+                        }
                     }
                 }
             };
