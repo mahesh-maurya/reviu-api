@@ -441,8 +441,7 @@ getLocation();
                         if(curtime>=29)
                         {
                             console.log(submitonce);
-                            submitonce+
-                                +;
+                            submitonce++;
                             if(submitonce==1)
                             {
                                 $("#stop").click();
