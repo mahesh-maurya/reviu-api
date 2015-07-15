@@ -3,6 +3,8 @@
 <html>
 
 <head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/remodal.css" rel="stylesheet" type="text/css">
     <link href="css/owl.carousel.css" rel="stylesheet" type="text/css">
@@ -10,6 +12,7 @@
 
     <!--    <link href="css/style.css" rel="stylesheet" type="text/css">-->
     <link href="css/mobile.css" rel="stylesheet" type="text/css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
 
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -21,7 +24,7 @@
     <script src="fancy/jquery.fancybox.pack.js"></script>
     <script src="fancy/jquery.fancybox.js"></script>
 
-    <script src="js/owl.carousel.js"></script>
+    <!--    <script src="js/owl.carousel.js"></script>-->
     <link href="fancy/jquery.fancybox.css" rel="stylesheet" type="text/css">
 
     </script>
@@ -37,149 +40,181 @@
 
     <title>Reviu API</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <!--
     <script>
         $(document).ready(function () {
-//            $(".owl-carousel").owlCarousel();
+            $(".owl-carousel").owlCarousel();
         });
     </script>
+-->
 </head>
 
 <body>
     <div class="container">
 
-        <!--
-        <div class="remodal-bg">
-            <a href="#modal">click</a>
-
-        </div>
--->
-
         <div class="row clearfix">
-<!--           <div class="col-md-2"></div>-->
-       
-            <div class="col-md-9 clearfix">
-               
-                <div class="video-play owl-carousel allvideos">
-<!--                   <div class="allvideos">-->
-<!--
-                    <div class="">
-                        <a class="various1 " href="api1.html">
-                            <div class="feed-video text-center">
-                                <img class="feed-img img-responsive" src="images/video-img/first.png">
+            <div>
+                <div class="col-md-12">
+                    <div class="sli-set1">
+                        <div class="col-md-10">
+                            <div class="slider1 js_variablewlidth variablewidth">
+                                <div class="frame frame1 js_frame">
+                                    <ul class="slides js_slides allvideos" style="height: 278px;">
+                                        <!--
+                                        <li class="js_slide" style="text-align:center;width: 160px;height: 100px;">
+                                           
+                                                <div class="video-feed">
+                                                    <img class="img-responsive" src="images/video-img/first.png">
+                                                    <div class="plays"><img class="" src="images/video-img/play.png">
+                                                    </div>
+                                                    <div class="feed-dets">
+                                                        <p class="rating">4.5</p>
+                                                        <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                                    </div>
+                                                </div>
+                                            
+                                            <div class="map-feeds">
+                                                <i class="fa fa-heart"><span>400 likes</span></i>
 
-                                <div class="play"><img class="" src="images/video-img/play.png">
-                                </div>
-
-                                <div class="feed-det det">
-                                    <p class="rating">4.5</p>
-                                    <h5>disney's frozen <br><span> by shalini mehta</span></h5>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="map-feed">
-                            <i class="fa fa-heart"><span>400 likes</span></i>
-
-                        </div>
-                    </div>
-                    <div class="">
-                        <a class="various2 " href="api1.html">
-                            <div class="feed-video text-center">
-                                <img class="feed-img img-responsive" src="images/video-img/first.png">
-
-                                <div class="play"><img class="" src="images/video-img/play.png">
-                                </div>
-
-                                <div class="feed-det">
-                                    <p class="rating">4.5</p>
-                                    <h5>disney's frozen <br><span> by shalini mehta</span></h5>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="map-feed">
-                            <i class="fa fa-heart"><span>400 likes</span></i>
-
-                        </div>
-                    </div>
-                    <div class="">
-                        <a class="various3 " href="api2.html">
-                            <div class="feed-video text-center">
-                                <img class="feed-img img-responsive" src="images/video-img/first.png">
-
-
-                                <div class="play"><img class="" src="images/video-img/play.png">
-                                </div>
-
-                                <div class="feed-det">
-                                    <p class="rating">4.5</p>
-                                    <h5>disney's frozen <br><span> by shalini mehta</span></h5>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="map-feed">
-                            <i class="fa fa-heart"><span>400 likes</span></i>
-
-                        </div>
-                    </div>
-                    <div class="">
-                        <a class="various3 " href="api2.html">
-                            <div class="feed-video text-center">
-                                <img class="feed-img img-responsive" src="images/video-img/first.png">
-
-
-                                <div class="play"><img class="" src="images/video-img/play.png">
-                                </div>
-
-                                <div class="feed-det">
-                                    <p class="rating">4.5</p>
-                                    <h5>disney's frozen <br><span> by shalini mehta</span></h5>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="map-feed">
-                            <i class="fa fa-heart"><span>400 likes</span></i>
-
-                        </div>
-                    </div>
-                    <div class="">
-                        <a class="various3 " href="api2.html">
-                            <div class="feed-video text-center">
-                                <img class="feed-img img-responsive" src="images/video-img/first.png">
-
-
-                                <div class="play"><img class="" src="images/video-img/play.png">
-                                </div>
-
-                                <div class="feed-det">
-                                    <p class="rating">4.5</p>
-                                    <h5>disney's frozen <br><span> by shalini mehta</span></h5>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="map-feed">
-                            <i class="fa fa-heart"><span>400 likes</span></i>
-
-                        </div>
-                    </div>
+                                            </div>
+                                              <a class="various1 " href="api1.html"> <div class="name-set">
+                                               <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                                  </div></a>
+                                        </li>
 -->
-<!--                </div>-->
-                </div>
-            </div>
-            <div class="col-md-3">
-                <a href="index.php" class="various4 fancybox">
-                    <div class="feed-video text-center" style="background:rgb(237, 237, 237);height: 278px;
-border-radius: 7px;">
-                        <img src="images/video-img/video-p.png" style="margin-top: 46px;">
-                    </div>
-                </a>
-            </div>
-<!--                <div class="col-md-2"></div>-->
+                                        <!--
+                                        <li class="js_slide" style="text-align:center;width: 160px;height: 100px;">
+                                           
+                                                <div class="video-feed">
+                                                    <img class="img-responsive" src="images/video-img/first.png">
+                                                    <div class="plays"><img class="" src="images/video-img/play.png">
+                                                    </div>
+                                                    <div class="feed-dets">
+                                                        <p class="rating">4.5</p>
+                                                        <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                                    </div>
+                                                </div>
+                                         
+                                            <div class="map-feeds">
+                                                <i class="fa fa-heart"><span>400 likes</span></i>
 
+                                            </div>
+                                            <a class="various2 " href="api2.html"> <div class="name-set">
+                                               <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                                </div></a>
+                                        </li>
+-->
+                                        <!--
+                                        <li class="js_slide" style="text-align:center;width: 160px;height: 100px;">
+                                            <a class="various2 " href="api3.html">
+                                                <div class="video-feed">
+                                                    <img class="img-responsive" src="images/video-img/first.png">
+                                                    <div class="plays"><img class="" src="images/video-img/play.png">
+                                                    </div>
+                                                    <div class="feed-dets">
+                                                        <p class="rating">4.5</p>
+                                                        <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="map-feeds">
+                                                <i class="fa fa-heart"><span>400 likes</span></i>
+
+                                            </div>
+                                            <div class="name-set">
+                                               <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                            </div>
+                                        </li>
+-->
+                                        <!--
+                                        <li class="js_slide" style="text-align:center;width: 160px;height: 100px;">
+                                            <a class="various2 " href="api1.html">
+                                                <div class="video-feed">
+                                                    <img class="img-responsive" src="images/video-img/first.png">
+                                                    <div class="plays"><img class="" src="images/video-img/play.png">
+                                                    </div>
+                                                    <div class="feed-dets">
+                                                        <p class="rating">4.5</p>
+                                                        <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="map-feeds">
+                                                <i class="fa fa-heart"><span>400 likes</span></i>
+
+                                            </div>
+                                            <div class="name-set">
+                                               <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                            </div>
+                                        </li>
+-->
+                                        <!--
+                                        <li class="js_slide" style="text-align:center;width: 160px;height: 100px;">
+                                            <a class="various2 " href="api1.html">
+                                                <div class="video-feed">
+                                                    <img class="img-responsive" src="images/video-img/first.png">
+                                                    <div class="plays"><img class="" src="images/video-img/play.png">
+                                                    </div>
+                                                    <div class="feed-dets">
+                                                        <p class="rating">4.5</p>
+                                                        <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="map-feeds">
+                                                <i class="fa fa-heart"><span>400 likes</span></i>
+
+                                            </div>
+                           
+                                                </div>
+                                            </a>
+                                            <div class="map-feeds">
+                                                <i class="fa fa-heart"><span>400 likes</span></i>
+
+                                            </div>
+                                            <div class="name-set">
+                                               <h5>disney's frozen <br><span> by shalini mehta</span></h5>
+                                            </div>
+                                        </li>
+-->
+                                    </ul>
+                                </div>
+
+                                <span class="js_prev prev prev1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5"><g><path fill="#2E435A" d="M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77 55.506L143.56 250.75z"/></g></svg>
+                </span>
+
+                                <span class="js_next next next1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5"><g><path fill="#2E435A" d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56 146.384l55.77-55.507L358.44 250.75z"/></g></svg>
+                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="index.php" class="various4 fancybox"> <img src="images/video-img/video-p.png" style="  margin-top: 46px;">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
     </div>
 
 
 
-    <script type="text/javascript">
+
+    <script>
+        //        'use strict';
+        //
+        //        document.addEventListener('DOMContentLoaded', function () {
+        //            var variableWidth = document.querySelector('.js_variablewlidth');
+        //
+        //            lory(variableWidth, {
+        //                rewind: true
+        //            });
+        //        });
+    </script>
     </script>
     <script>
         $(document).ready(function () {
@@ -192,7 +227,7 @@ border-radius: 7px;">
                 fitToView: false,
                 width: '100%',
                 autoSize: false,
-                closeClick: true,
+                closeClick: false,
                 openEffect: 'elastic',
                 closeEffect: 'elastic',
                 type: "ajax"
@@ -208,7 +243,7 @@ border-radius: 7px;">
                 fitToView: false,
                 width: '100%',
                 autoSize: false,
-                closeClick: true,
+                closeClick: false,
                 openEffect: 'elastic',
                 closeEffect: 'elastic',
                 type: "ajax"
@@ -243,14 +278,14 @@ border-radius: 7px;">
                 closeEffect: 'elastic',
                 type: "ajax"
             });
-            
-            
-            var siteurl=window.location.href;
-//            var siteurl=encodeURI(siteurl);
+
+
+            var siteurl = window.location.href;
+            //            var siteurl=encodeURI(siteurl);
             console.log(siteurl);
-            var siteurl="http://localhost/demo";
+            var siteurl = "http://localhost/demo";
             $.getJSON(
-                "http://localhost/reviu-api/ReviuBackend/index.php/json/getvideosbysiteurl?siteurl="+siteurl, {
+                "http://localhost/reviu-api/ReviuBackend/index.php/json/getvideosbysiteurl?siteurl=" + siteurl, {
                     //                id: "123"
                 },
                 function (data) {
@@ -260,30 +295,65 @@ border-radius: 7px;">
                 }
 
 
-            );    
+            );
+
             function allvideos(data) {
-//                $(".allvideos").html("");
+                $(".allvideos").html("");
                 console.log(data);
                 for (var i = 0; i < data.length; i++) {
                     console.log(data[i]);
-                    var details=data[i];
-                    var name=data[i].firstname+" "+data[i].lastname;
-                    var lastindex=data[i].videourl.lastIndexOf("-merged.webm")
-                    var imagename="http://localhost/reviu-api/thumbnails/"+data[i].videourl.slice(0,lastindex)+".png";
-//                    console.log(data[i].id);
-                    var valueofvarious=i+1;
-                    $(".allvideos").append("<div class=''><a class='various"+valueofvarious+" ' href='http://localhost/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id="+data[i].id+"'><div class='feed-video text-center'><img class='feed-img img-responsive' src='"+imagename+"'><div class='play'><img class='' src='images/video-img/play.png'></div><div class='feed-det det'><p class='rating'>"+data[i].rating+"</p><h5>"+data[i].title+"<br><span> by "+name+"</span></h5></div></div></a><div class='map-feed'><i class='fa fa-heart'><span>"+data[i].likes+" likes</span></i></div></div>");
-//                                           <img src='"+imagename+"' style='height: 85px;vertical-align: top;' data-video=" + data[i].videourl + ">");
+                    var details = data[i];
+                    var name = data[i].firstname + " " + data[i].lastname;
+                    var lastindex = data[i].videourl.lastIndexOf("-merged.webm")
+                    var imagename = "http://localhost/reviu-api/thumbnails/" + data[i].videourl.slice(0, lastindex) + ".png";
+                    //                    console.log(data[i].id);
+                    var valueofvarious = i + 1;
+                    var rating=data[i].rating;
+                    var roundvalue=Math.round(data[i].rating);
+                    if(roundvalue == data[i].rating)
+                    {
+                        var rating=roundvalue+".0";
+                    }
+
+
+
+                    //                    $(".allvideos").append("<div class=''><a class='various"+valueofvarious+" ' href='http://localhost/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id="+data[i].id+"'><div class='feed-video text-center'><img class='feed-img img-responsive' src='"+imagename+"'><div class='play'><img class='' src='images/video-img/play.png'></div><div class='feed-det det'><p class='rating'>"+data[i].rating+"</p><h5>"+data[i].title+"<br><span> by "+name+"</span></h5></div></div></a><div class='map-feed'><i class='fa fa-heart'><span>"+data[i].likes+" likes</span></i></div></div>");
+
+                    $(".allvideos").append("<li class='js_slide' style='text-align:center;width: 270px;height: 195px;'><div class='video-feed'><img class='img-responsive slide2img1' src='" + imagename + "'><div class='plays'><img class='' src='images/video-img/play.png'></div><div class='feed-dets'><p class='rating'>" + rating + "</p><h5>"+data[i].title+" <br><span> by " + name + "</span></h5></div></div><div class='map-feeds'><i class='fa fa-heart'><span>" + data[i].likes + " likes</span></i></div><a class='various1 ' href='http://localhost/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id=" + data[i].id + "'><div class='name-set name-set1'><h5>" + data[i].title + " <br><span> by " + name + "</span></h5></div></a></li>");
+                    var imagecount = 0;
+                    var imageslength = $(".allvideos li").length;
+//                    console.log(imageslength);
+                    $(".allvideos li img").load(function () {
+                        imagecount++;
+                        if (imagecount == imageslength) {
+                            $elements.lory({
+                                infinite: 0
+                            });
+
+                            $elements.data().lory.slideTo(-1);
+                        }
+                    });
+
+                    //                                           <img src='"+imagename+"' style='height: 85px;vertical-align: top;' data-video=" + data[i].videourl + ">");
                 }
-                $(".owl-carousel").owlCarousel();
-//                var mvar = $('.allvideos').html();
-//                console.log(mvar);
-//document.write(mvar);
+
+                //                $(".owl-carousel").owlCarousel();
+                //                var mvar = $('.allvideos').html();
+                //                console.log(mvar);
+                //document.write(mvar);
 
             };
+
         });
     </script>
-    <script src="js/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+    </script>
+    <script src="js/lory.min.js"></script>
+    <script src="js/jquery.lory.min.js"></script>
+    <script>
+        var $elements = $('.js_variablewlidth');
+    </script>
+    <!--    <script src="js/owl.carousel.min.js"></script>-->
 </body>
 
 </html>
