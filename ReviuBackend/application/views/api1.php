@@ -82,8 +82,10 @@
     <title>Reviu API</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     
+<!--
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "17c77c69-67a4-44ac-84df-96581a0b17c6", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+-->
 </head>
 <?php
 //print_r($message);
@@ -147,6 +149,7 @@ if($roundvalue==$message->rating)
 
     <div class="det-share">
        <span>Total View</span>
+       
          <span style="padding-right:8px;">Like</span>
           <span >Share</span>
     </div>

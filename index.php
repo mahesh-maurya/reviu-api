@@ -24,6 +24,7 @@
     <scirpt src="https://cdn.webrtc-experiment.com/ffmpeg_asm.js">
         </script>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Orbitron:400,500,700,900' rel='stylesheet' type='text/css'>
 
         <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -38,6 +39,11 @@
             canvas {
                 width: 499px !important;
                 height: 310px !important;
+            }
+            .digi-font{
+                font-family: 'Orbitron';
+                color:#F3334F!important;
+                margin-top:8px;
             }
 
             @media only screen and (max-device-width: 480px) {
@@ -89,7 +95,7 @@
                             <div class="vid-box">
                                 <div class="image-box">
                                     <div class="number">
-                                        <p><span class="remainingsec">30</span> sec</p>
+                                        <p class="remainingsec digi-font">30</p>
                                     </div>
                                     <h1 style="display:none;">
 <!--

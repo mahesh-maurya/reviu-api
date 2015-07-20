@@ -95,7 +95,7 @@ code {
 
 .sli-sets {
     background: rgb(237, 237, 237);
-    height: 86px;
+    height: 100px;
     text-align: center;
     border-radius: 6px;
     padding-right: 40px;
@@ -104,7 +104,7 @@ code {
 
 .slides {
     display: inline-block;
-    height: 78px;
+    height: 100px;
     background: rgb(237, 237, 237);
     padding: 15px;
     margin-left: -7px;
@@ -145,11 +145,18 @@ code {
 }
 
 .next {
+    right: -5px;
+    z-index: 999;
+}
+.next1 {
     right: 0;
     z-index: 999;
 }
 
 .prev {
+    left: -5px;
+}
+.prev1 {
     left: 0;
 }
 
@@ -213,8 +220,17 @@ code {
         width: 570px;
         margin: 0 auto 0px;
     }
+    
+    .slider1 {
+        width: 90%;
+        margin: 0 auto 0px;
+    }
+    
     .frame {
         width: 525px;
+    }
+    .frame1 {
+        width: 100%;
     }
     .simple li {
         width: 880px;
@@ -330,9 +346,9 @@ a.various4.popup3-fancybtn img {
   text-transform: capitalize;
   position: absolute;
   bottom: 0px;
-  padding: 28px 10px 8px 2px;
+  padding:12px 7px;
   top: 0px;
-  height: 76px;
+  height:65px;
   opacity: 0;
   transition: all 1s ease;
   -webkit-transition: all 1s ease;
@@ -349,14 +365,12 @@ a.various4.popup3-fancybtn img {
   color: rgb(240, 81, 86);
   font-size: 5px;
 }
-/*
 .js_slide:hover .name-set4 {
     opacity: 1;
 }
-*/
 .plays4 {
   position: absolute;
-  top: 9px;
+  top: 18px;
   left: 0px;
   width: 100%;
 }
@@ -413,6 +427,11 @@ img.box {
 
 img.img-responsive.slide2img {
     height: 90px;
+    width: 100%;
+}
+
+img.img-responsive.slide2img1 {
+    height: 200px;
     width: 100%;
 }
 .fancybox-inner {
