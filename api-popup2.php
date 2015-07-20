@@ -283,9 +283,9 @@
             var siteurl = window.location.href;
             //            var siteurl=encodeURI(siteurl);
             console.log(siteurl);
-            var siteurl = "http://localhost/demo";
+            var siteurl = "http://146.148.93.13/reviu-api/index.php";
             $.getJSON(
-                "http://localhost/reviu-api/ReviuBackend/index.php/json/getvideosbysiteurl?siteurl=" + siteurl, {
+                "http://146.148.93.13/reviu-api/ReviuBackend/index.php/json/getvideosbysiteurl?siteurl=" + siteurl, {
                     //                id: "123"
                 },
                 function (data) {
@@ -305,7 +305,7 @@
                     var details = data[i];
                     var name = data[i].firstname + " " + data[i].lastname;
                     var lastindex = data[i].videourl.lastIndexOf("-merged.webm")
-                    var imagename = "http://localhost/reviu-api/thumbnails/" + data[i].videourl.slice(0, lastindex) + ".png";
+                    var imagename = "http://146.148.93.13/reviu-api/thumbnails/" + data[i].videourl.slice(0, lastindex) + ".png";
                     //                    console.log(data[i].id);
                     var valueofvarious = i + 1;
                     var rating=data[i].rating;
@@ -319,7 +319,7 @@
 
                     //                    $(".allvideos").append("<div class=''><a class='various"+valueofvarious+" ' href='http://localhost/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id="+data[i].id+"'><div class='feed-video text-center'><img class='feed-img img-responsive' src='"+imagename+"'><div class='play'><img class='' src='images/video-img/play.png'></div><div class='feed-det det'><p class='rating'>"+data[i].rating+"</p><h5>"+data[i].title+"<br><span> by "+name+"</span></h5></div></div></a><div class='map-feed'><i class='fa fa-heart'><span>"+data[i].likes+" likes</span></i></div></div>");
 
-                    $(".allvideos").append("<li class='js_slide' style='text-align:center;width: 160px;height: 100px;'><div class='video-feed'><img class='img-responsive slide2img' src='" + imagename + "'><div class='plays'><img class='' src='images/video-img/play.png'></div><div class='feed-dets'><p class='rating'>" + rating + "</p><h5>"+data[i].title+" <br><span> by " + name + "</span></h5></div></div><div class='map-feeds'><i class='fa fa-heart'><span>" + data[i].likes + " likes</span></i></div><a class='various1 ' href='http://localhost/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id=" + data[i].id + "'><div class='name-set'><h5>" + data[i].title + " <br><span> by " + name + "</span></h5></div></a></li>");
+                    $(".allvideos").append("<li class='js_slide' style='text-align:center;width: 160px;height: 100px;'><div class='video-feed'><img class='img-responsive slide2img' src='" + imagename + "'><div class='plays'><img class='' src='images/video-img/play.png'></div><div class='feed-dets'><p class='rating'>" + rating + "</p><h5>"+data[i].title+" <br><span> by " + name + "</span></h5></div></div><div class='map-feeds'><i class='fa fa-heart'><span>" + data[i].likes + " likes</span></i></div><a class='various1 ' href='http://146.148.93.13/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id=" + data[i].id + "'><div class='name-set'><h5>" + data[i].title + " <br><span> by " + name + "</span></h5></div></a></li>");
                     var imagecount = 0;
                     var imageslength = $(".allvideos li").length;
 //                    console.log(imageslength);
