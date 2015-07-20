@@ -526,7 +526,7 @@ getLocation();
                 record.disabled = false;
                 stop.disabled = true;
                 preview.src = '';
-                preview.poster = 'load.gif';
+                preview.poster = 'loading.gif';
                 fileName = "videofile";
                 if (!isFirefox) {
                     recordAudio.stopRecording(function () {
