@@ -449,7 +449,7 @@ input.textbox {
     font-family: lato;
     border-radius: 5px;
     position: relative;
-    top: 60px;
+    top: 12px;
     border: 1px solid #f3334f;
     -webkit-transition: ease 1s;
     -moz-transition: ease 1s;
