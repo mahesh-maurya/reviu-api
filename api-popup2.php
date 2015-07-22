@@ -190,7 +190,7 @@
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <a href="index.php" class="various4 fancybox"> <img src="images/video-img/video-p2.png" style="  margin-top: 13px;">
+                            <a href="index.php" class="various4 fancybox"> <img src="images/video-img/video-p2.png" style="  margin-top: 23px;">
                             </a>
                         </div>
                     </div>
