@@ -55,7 +55,7 @@
 .det-share ul li {
     display: inline-block;
     text-align: center;
-    margin: 0px 25px 0px 12px;
+/*    margin: 0px 25px 0px 12px;*/
 }
     .pops {
     background:rgb(255, 255, 255);
@@ -158,8 +158,8 @@ if($roundvalue==$message->rating)
     <div class="det-share">
     <ul>
         <li style="  margin: 0px 50px 0px 0px;"><?php echo $message->views;?></li>
-        <li>Like</li>
-        <li>Share</li>
+        <li style="  margin: 0px 50px 0px 0px;">Like</li>
+        <li style="  margin: 0px 50px 0px 0px;">Share</li>
     </ul>
 <!--
        <span><?php echo $message->views;?></span>
