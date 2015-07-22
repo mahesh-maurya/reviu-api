@@ -146,13 +146,11 @@ if($roundvalue==$message->rating)
                     </div>
 
     <div class="det-share">
-<!--
     <ul>
         <li><?php echo $message->views;?></li>
         <li>Like</li>
         <li>Share</li>
     </ul>
--->
 <!--
        <span><?php echo $message->views;?></span>
        
