@@ -124,6 +124,15 @@ INNER JOIN `user` ON `video`.`user`=`user`.`id` ")->row();
         }
 	}
     
+    function addviewcount($videoid)
+	{
+        $query=$this->db->query("SELECT  * FROM `video` WHERE `id`='$videoid'")->row();
+        $view=$query->views;
+        $newviews=$view+1;
+        $this->db->query("UPDATE `video` SET `views`='$newviews' WHERE `id`='$videoid'");
+        
+	}
+    
     function getvideosforuser($userid,$category)
 	{
         if($category=="")

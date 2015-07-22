@@ -156,5 +156,13 @@ $video=substr($video, 8);
 		$this->load->view('api1',$data);
     }
     
+    public function addviewcount()
+    {
+        $videoid=$this->input->get_post('videoid');
+        $data['message']=$this->video_model->addviewcount($videoid);
+//        $data['message']=$this->video_model->getvideobyidforpopup($videoid);
+//		$this->load->view('api1',$data);
+    }
+    
 }
 ?>

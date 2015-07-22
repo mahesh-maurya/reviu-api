@@ -160,6 +160,7 @@
                                         
                                         <input class="textbox latclass" type="hidden" value="" placeholder="lat">
                                         <input class="textbox longclass" type="hidden" value="" placeholder="long">
+                                        <input class="textbox urlclass" type="text" value="" placeholder="url">
                                         <input class="textbox productlinkclass" style="display:none;" type="text" value="" placeholder="Product Link" required>
                                         <p>Powered by Foursquar</p>
                                         <input class="textbox tagsclass" type="text" value="" placeholder="Tag" required>
@@ -372,7 +373,8 @@ getLocation();
                 var value = value - 8;
                 var imagename = video2.substr(8, value);
                 var image = imagename + ".png";
-                var siteurl = window.location.href;
+                var siteurl = window.parent.location.href;
+                
                 var siteuser = 10;
                 console.log(siteuser);
                 $.getJSON(

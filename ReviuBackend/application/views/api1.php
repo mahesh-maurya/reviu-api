@@ -146,7 +146,7 @@ if($roundvalue==$message->rating)
                     </div>
 
     <div class="det-share">
-       <span>Total View</span>
+       <span>Total View<?php echo $message->id;?></span>
        
          <span style="padding-right:8px;">Like</span>
           <span >Share</span>
@@ -191,6 +191,35 @@ if($roundvalue==$message->rating)
 </body>
 <script>
     $( document ).ready(function() {
+    
+    viewcount();
+        
+    function viewcount() {
+        $.getJSON(
+            "<?php echo base_url(); ?>index.php/json/addviewcount?videoid="+$('.videoclass').val(), {
+            },
+            function (data) {
+                console.log(data);
+//                if(data == 1)
+//                {
+//                    $( "#heartid" ).addClass( "link-act" );
+//                }
+//                else if(data == -1)
+//                {
+//                    $( "#heartid" ).removeClass( "link-act" ).addClass( "" );
+//                }
+//                $('.latclass').val(data.results[0].geometry.location.lat);
+//                $('.longclass').val(data.results[0].geometry.location.lng);
+//                nodata=data;
+//                changeareadropdown(data);
+
+            }
+
+        );
+    }
+        
+        
+        
     console.log( "ready!" );
         var like=<?php echo $message->like;?>;
         console.log(like);
