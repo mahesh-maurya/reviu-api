@@ -48,8 +48,11 @@
   margin: 0px 15px!important;
 } 
     .det-share ul {
-    list-style: none;
-    display: block;
+   list-style: none;
+  display: block;
+  width: 100%;
+  margin: 0px;
+  padding: 0;
 }
 
 .det-share ul li {
@@ -157,7 +160,7 @@ if($roundvalue==$message->rating)
 
     <div class="det-share">
     <ul>
-        <li style="  margin: 0px 50px 0px 0px;"><?php echo $message->views;?></li>
+        <li><?php echo $message->views;?></li>
         <li>Like</li>
         <li >Share</li>
     </ul>
