@@ -149,21 +149,19 @@ if($roundvalue==$message->rating)
 <input type="hidden" name="video" class="videoclass" value="<?php echo $message->id;?>">
 <input type="hidden" name="user" class="userclass" value="<?php echo $message->user;?>">
                     <div class="icon-fon pull-left">
-                       <ul>
-                        <li><i class="fa fa-users"></i><?php echo $message->views;?></li>
-                        <a href="" class="heartclass"  onclick="userlikes()"><li><i class="fa fa-heart link-act" id="heartid">Like</i></a>
-                        <li><i id="show" class="fa fa-share"></i>Share</li>
-</ul>
+                       
+                        <i class="fa fa-users"></i>
+                        <a href="" class="heartclass"  onclick="userlikes()"><i class="fa fa-heart link-act" id="heartid"></i></a>
+                        <i id="show" class="fa fa-share"></i>
+
                     </div>
 
     <div class="det-share">
-<!--
     <ul>
         <li style="  margin: 0px 50px 0px 0px;"><?php echo $message->views;?></li>
-        <li style="  margin: 0px 50px 0px 0px;">Like</li>
-        <li style="  margin: 0px 50px 0px 0px;">Share</li>
+        <li>Like</li>
+        <li >Share</li>
     </ul>
--->
 <!--
        <span><?php echo $message->views;?></span>
        
