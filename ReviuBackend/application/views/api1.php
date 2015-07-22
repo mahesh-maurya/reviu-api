@@ -53,9 +53,8 @@
 }
 
 .det-share ul li {
-    display: inline-block;
-    text-align: center;
-/*    margin: 0px 25px 0px 12px;*/
+  display: inline-block;
+  margin: 0px 17px 0px 30px;
 }
     .pops {
     background:rgb(255, 255, 255);
