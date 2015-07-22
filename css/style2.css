@@ -275,7 +275,7 @@ output {
     line-height: 1.42857143;
     color: #F3334F;
     position: absolute;
-    top: 235px;
+    top: 298px;
     right: 82px;
 }
 
@@ -429,7 +429,7 @@ input.textbox {
     font-family: lato;
     border-radius: 5px;
     position: relative;
-    top: 60px;
+    top: 12px;
     border: 1px;
 }
 
