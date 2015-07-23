@@ -160,7 +160,7 @@
                                         
                                         <input class="textbox latclass" type="hidden" value="" placeholder="lat">
                                         <input class="textbox longclass" type="hidden" value="" placeholder="long">
-                                        <input class="textbox urlclass" type="text" value="" placeholder="url">
+                                        <input class="textbox urlclass" type="hidden" value="" placeholder="url">
                                         <input class="textbox productlinkclass" style="display:none;" type="text" value="" placeholder="Product Link" required>
                                         <p>Powered by Foursquar</p>
                                         <input class="textbox tagsclass" type="text" value="" placeholder="Tag" required>
