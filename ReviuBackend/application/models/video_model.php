@@ -339,5 +339,23 @@ INNER JOIN `video` ON `videotags`.`video`=`video`.`id` WHERE `videotags`.`video`
 		return $query;
 	}
 	
+    public function postvideofromapp($operator,$video)
+	{
+//        echo $video;
+//        echo $operator;
+		$data  = array(
+			'siteuser' => $operator,
+			'videourl' => $video
+		);
+		$query=$this->db->insert( 'video', $data );
+		$videoid=$this->db->insert_id();
+        $return = new stdClass;
+        $return->videoID=$videoid;
+        $return->videoURL="http://146.148.93.13/reviu-api/ReviuBackend/uploads/".$video;
+		if(!$query)
+			return  0;
+		else
+			return  $return;
+	}
 }
 ?>

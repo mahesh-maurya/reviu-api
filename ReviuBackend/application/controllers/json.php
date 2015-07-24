@@ -164,5 +164,27 @@ $video=substr($video, 8);
 //		$this->load->view('api1',$data);
     }
     
+	function postvideofromapp()
+	{
+//        print_r($_POST);
+		$operator=$this->input->get_post('operatorId');
+        
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'mp4|3gp|flv|mp3|png';
+        $config['max_size']	= '100000';
+		$this->load->library('upload', $config);
+		$filename="videoFile";
+		$video="";
+		if (  $this->upload->do_upload($filename))
+		{
+            $uploaddata = $this->upload->data();
+            $video=$uploaddata['file_name'];
+		}
+        
+//        $operator;
+		$data["message"]=$this->video_model->postvideofromapp($operator,$video);
+		$this->load->view("json",$data);
+	}
+    
 }
 ?>
