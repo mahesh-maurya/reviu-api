@@ -54,8 +54,8 @@ $myserver=$_SERVER['SERVER_NAME'];
 //if($myserver=="www.mafiawarloots.com" || $myserver=="www.wohlig.biz" || $myserver=="mafiawarloots.com" || $myserver=="wohlig.biz")
 //{
 //    $db['default']['hostname'] = 'localhost';
-//$db['default']['username'] = 'mafiawar_video';
-//$db['default']['password'] = 'chintan123';
+//$db['default']['username'] = 'root';
+//$db['default']['password'] = '';
 //$db['default']['database'] = 'mafiawar_video';
 //$db['default']['dbdriver'] = 'mysql';
 //$db['default']['dbprefix'] = '';
