@@ -171,7 +171,7 @@ $video=substr($video, 8);
         
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'mp4|3gp|flv|mp3|png|mov';
-        $config['max_size']	= '100000';
+        $config['max_size']	= '10000000000';
 		$this->load->library('upload', $config);
 		$filename="videoFile";
 		$video="";
