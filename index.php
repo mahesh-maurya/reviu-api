@@ -183,8 +183,10 @@
         </div>
     </div>
     <script>
-        $(document).ready(function () {
-            
+//        var siteuserhash = "MTRyZXZpdQ==";
+         
+            function callnext( ) {
+                
             var x = document.getElementById("demo");
 getLocation();
             function getLocation() {
@@ -220,6 +222,7 @@ getLocation();
                 },
                 function (data) {
                     console.log(data);
+                    console.log(siteuser);
                     nodata = data;
                     categorydropdown(data);
                 }
@@ -241,11 +244,11 @@ getLocation();
             };
 
             $.getJSON(
-                "ReviuBackend/index.php/json/getvideosbyuser/10", {
+                "ReviuBackend/index.php/json/getvideosbyuser?userid="+siteuser, {
                     //                id: "123"
                 },
                 function (data) {
-                    console.log(data);
+                    console.log(data+"getvideosbyuser"+siteuser);
                     nodata = data;
                     videosliders(data);
                 }
@@ -254,7 +257,7 @@ getLocation();
             );
             
             $.getJSON(
-                "ReviuBackend/index.php/json/getimageofuser/10", {
+                "ReviuBackend/index.php/json/getimageofuser?userid="+siteuser, {
                     //                id: "123"
                 },
                 function (data) {
@@ -283,7 +286,7 @@ getLocation();
             };
 
             $.getJSON(
-                "ReviuBackend/index.php/json/getvideosbyuser/10", {
+                "ReviuBackend/index.php/json/getvideosbyuser?userid="+siteuser, {
                     //                id: "123"
                 },
                 function (data) {
@@ -313,6 +316,31 @@ getLocation();
 
             };
 
+                
+                
+            }
+            
+            
+            
+            var siteuser="";
+        $(document).ready(function () {
+        var siteuserhash = "MTByZXZpdQ==";
+            
+            $.getJSON(
+                "ReviuBackend/index.php/json/getuseridfromhash?hashid="+siteuserhash, {
+                    //                id: "123"
+                },
+                function (data) {
+                    console.log(data);
+                    window.siteuser=data;
+//                    nodata = data;
+//                    categorydropdown(data);
+                    callnext();
+                }
+
+
+            );
+           
         });
 
         function changelatlong() {
@@ -375,7 +403,7 @@ getLocation();
                 var image = imagename + ".png";
                 var siteurl = window.parent.location.href;
                 
-                var siteuser = 10;
+//                var siteuser = 10;
                 console.log(siteuser);
                 $.getJSON(
                     "ReviuBackend/index.php/json/postVideoforapi?title=" + $(".titleclass").val() + "&lat=" + $(".latclass").val() + "&tag=" + $(".tagsclass").val() + "&long=" + $(".longclass").val() + "&useremail=wohlig@wohlig.com&location=" + $(".locationclass").val() + "&rating=" + $(".ratingclass").val() + "&siteuser=" + siteuser + "&category=" + $(".categoryclass option:selected").attr("value") + "&video=" + video + "&image=" + image + "&siteurl=" + siteurl + "", {

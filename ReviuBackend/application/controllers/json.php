@@ -114,15 +114,15 @@ $video=substr($video, 8);
 		$this->load->view('json',$data);
     }
     
-    public function getvideosbyuser($userid)
+    public function getvideosbyuser()
     {
-        //$userid=$this->input->get_post('userid');
+        $userid=$this->input->get_post('userid');
         $data['message']=$this->video_model->getvideosbyuser($userid);
 		$this->load->view('json',$data);
     }
-    public function getimageofuser($userid)
+    public function getimageofuser()
     {
-        //$userid=$this->input->get_post('userid');
+        $userid=$this->input->get_post('userid');
         $data['message']=$this->user_model->getuserimagebyid($userid);
 		$this->load->view('json',$data);
     }
@@ -185,6 +185,14 @@ $video=substr($video, 8);
 		$data["message"]=$this->video_model->postvideofromapp($operator,$video);
 		$this->load->view("json",$data);
 	}
+    
+    function getuseridfromhash()
+    {
+        $hashid=$this->input->get_post('hashid');
+        $data["message"]=$this->user_model->getuseridfromhash($hashid);
+		$this->load->view("json",$data);
+        
+    }
     
 }
 ?>

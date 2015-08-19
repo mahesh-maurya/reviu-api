@@ -189,7 +189,7 @@
                 </span>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 bck-grey">
                             <a href="index.php" class="various4 fancybox"> <img src="images/video-img/video-p2.png" style="  margin-top: 23px;">
                             </a>
                         </div>
@@ -281,7 +281,8 @@
 
 
             var siteurl = window.location.href;
-            //            var siteurl=encodeURI(siteurl);
+//            var siteurl = window.parent.location.href;
+                        var siteurl=encodeURI(siteurl);
             console.log(siteurl);
             var siteurl = "http://146.148.93.13/reviu-api/index.php";
             $.getJSON(
