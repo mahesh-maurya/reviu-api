@@ -190,7 +190,8 @@
                             </div>
                         </div>
                         <div class="col-md-2 bck-grey">
-                            <a href="index.php" class="various4 fancybox"> <img src="images/video-img/video-p2.png" style="  margin-top: 23px;">
+                           
+                            <a href="index.php" class="various4 fancybox fornewcreate"> <img src="images/video-img/video-p2.png" style="  margin-top: 23px;">
                             </a>
                         </div>
                     </div>
@@ -218,6 +219,10 @@
     </script>
     <script>
         $(document).ready(function () {
+            
+            var newcreatehref=$(".fornewcreate").attr("href");
+            $(".fornewcreate").attr("href",newcreatehref+window.location.search)
+            
             $(".various1").fancybox({
                 maxWidth: 840,
                 maxHeight: 381,
@@ -279,12 +284,16 @@
                 type: "ajax"
             });
 
-
-            var siteurl = window.location.href;
-//            var siteurl = window.parent.location.href;
+//            var siteurl = window.location.href;
+            var siteurl = window.parent.location.href;
                         var siteurl=encodeURI(siteurl);
             console.log(siteurl);
-            var siteurl = "http://146.148.93.13/reviu-api/index.php";
+//            var siteurl = "http://146.148.93.13/reviu-api/index.php";
+//            var siteurl = "http://146.148.93.13/reviu-api/index.php";
+//            var siteurl = "http://146.148.93.13/reviu-api/index.php?type=&productlink=sd.com&categoryid=6&siteuser=MTByZXZpdQ==#";
+//            var siteurl = "http://146.148.93.13/reviu-api/index.php?type=product&productlink=sd.com&categoryid=6&siteuser=MTByZXZpdQ==#";
+            var siteurl = "http://146.148.93.13/reviu-api/index.php?type=product&productlink=sd.com&categoryid=6&price=5000&siteuser=MTByZXZpdQ==#";
+            var siteurl=btoa(siteurl);
             $.getJSON(
                 "http://146.148.93.13/reviu-api/ReviuBackend/index.php/json/getvideosbysiteurl?siteurl=" + siteurl, {
                     //                id: "123"
@@ -318,7 +327,7 @@
 
 
 
-                    //                    $(".allvideos").append("<div class=''><a class='various"+valueofvarious+" ' href='http://localhost/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id="+data[i].id+"'><div class='feed-video text-center'><img class='feed-img img-responsive' src='"+imagename+"'><div class='play'><img class='' src='images/video-img/play.png'></div><div class='feed-det det'><p class='rating'>"+data[i].rating+"</p><h5>"+data[i].title+"<br><span> by "+name+"</span></h5></div></div></a><div class='map-feed'><i class='fa fa-heart'><span>"+data[i].likes+" likes</span></i></div></div>");
+                    //                    $(".allvideos").append("<div class=''><a class='various"+valueofvarious+" ' href='http://146.148.93.13/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id="+data[i].id+"'><div class='feed-video text-center'><img class='feed-img img-responsive' src='"+imagename+"'><div class='play'><img class='' src='images/video-img/play.png'></div><div class='feed-det det'><p class='rating'>"+data[i].rating+"</p><h5>"+data[i].title+"<br><span> by "+name+"</span></h5></div></div></a><div class='map-feed'><i class='fa fa-heart'><span>"+data[i].likes+" likes</span></i></div></div>");
 
                     $(".allvideos").append("<li class='js_slide' style='text-align:center;width: 160px;height: 100px;'><div class='video-feed'><img class='img-responsive slide2img' src='" + imagename + "'><div class='plays'><img class='' src='images/video-img/play.png'></div><div class='feed-dets'><p class='rating'>" + rating + "</p><h5>"+data[i].title+" <br><span> by " + name + "</span></h5></div></div><div class='map-feeds'><i class='fa fa-heart'><span>" + data[i].likes + " likes</span></i></div><a class='various1 ' href='http://146.148.93.13/reviu-api/ReviuBackend/index.php/json/getvideobyidforpopup?id=" + data[i].id + "'><div class='name-set'><h5>" + data[i].title + " <br><span> by " + name + "</span></h5></div></a></li>");
                     var imagecount = 0;

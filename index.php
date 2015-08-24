@@ -145,23 +145,49 @@
                         <div class="left-box pull-right">
                             <div class="left-back">
 
+<!--
                                 <div class="drop-down categorydropdown">
 
                                     <select name="Icecream Flavours" placeholder="Category" class="categoryclass">
                                     </select>
                                 </div>
+-->
                                 <div class="content-box">
                                     <div class="content-text">
-
+                                        <?php 
+                                             $type=$_REQUEST['type'];
+                                             $category=$_REQUEST['categoryid'];
+                                            if($type=="product")
+                                                {
+                                                $category="product";
+                                            }
+                                             $productlink=$_REQUEST['productlink'];
+                                             $price=$_REQUEST['price'];
+                                        ?>
                                         <input class="textbox titleclass" type="text" value="" placeholder="Title" required>
+                                        <input class="textbox categoryclass" style="display:none;" type="text" value="<?php echo $category;?>" placeholder="Category" required>
+                                        <?php
+                                        if($type=="" || $type=="category")
+                                        {
+                                        ?>
                                         <input class="textbox locationclass" type="text" value="" placeholder="Location" onkeydown="changelatlong()" id="location">
-
+                                        <?php
+                                        }
+                                        ?>
                                         <p id="demo"></p>
                                         
                                         <input class="textbox latclass" type="hidden" value="" placeholder="lat">
                                         <input class="textbox longclass" type="hidden" value="" placeholder="long">
                                         <input class="textbox urlclass" type="hidden" value="" placeholder="url">
-                                        <input class="textbox productlinkclass" style="display:none;" type="text" value="" placeholder="Product Link" required>
+                                        <?php
+                                        if($type=="product")
+                                        {
+                                        ?>
+                                        <input class="textbox productlinkclass" type="text" value="<?php echo $productlink;?>" placeholder="Product Link" required>
+                                        <input class="textbox priceclass" type="text" value="<?php echo $price;?>" placeholder="Price" required>
+                                        <?php
+                                        }
+                                        ?>
                                         <p>Powered by Foursquar</p>
                                         <input class="textbox tagsclass" type="text" value="" placeholder="Tag" required>
                                         <h5>ratings</h5>
@@ -324,8 +350,10 @@ getLocation();
             
             var siteuser="";
         $(document).ready(function () {
-        var siteuserhash = "MTByZXZpdQ==";
-            
+            var siteuserhash="<?php echo $_REQUEST['siteuser'];?>";
+//        var siteuserhash = "MTByZXZpdQ==";
+//            console.log("hello");
+//            alert("hello"+siteuserhash);
             $.getJSON(
                 "ReviuBackend/index.php/json/getuseridfromhash?hashid="+siteuserhash, {
                     //                id: "123"
@@ -386,11 +414,15 @@ getLocation();
             formData.append('video-blob', videoBlob);
             xhr('save.php', formData, function (ffmpeg_output) {
                 console.log(ffmpeg_output);
-                var category = $(".categoryclass option:selected").attr("value");
+//                var category = $(".categoryclass option:selected").attr("value");
                 //                console.log(category);
                 var title = $(".titleclass").val();
+                var category = $(".categoryclass").val();
                 //                console.log(title);
                 var location = $(".locationclass").val();
+                var productlink = $(".productlinkclass").val();
+                var price = $(".priceclass").val();
+                var type="<?php echo $_REQUEST['type'];?>";
                 var tags = $(".tagsclass").val();
                 var ratingclass = $(".ratingclass").val();
                 //                console.log(ratingclass);
@@ -402,11 +434,12 @@ getLocation();
                 var imagename = video2.substr(8, value);
                 var image = imagename + ".png";
                 var siteurl = window.parent.location.href;
-                
+                var siteurl=btoa(siteurl);
+//                var siteurl=encodeURI(siteurl);
 //                var siteuser = 10;
                 console.log(siteuser);
                 $.getJSON(
-                    "ReviuBackend/index.php/json/postVideoforapi?title=" + $(".titleclass").val() + "&lat=" + $(".latclass").val() + "&tag=" + $(".tagsclass").val() + "&long=" + $(".longclass").val() + "&useremail=wohlig@wohlig.com&location=" + $(".locationclass").val() + "&rating=" + $(".ratingclass").val() + "&siteuser=" + siteuser + "&category=" + $(".categoryclass option:selected").attr("value") + "&video=" + video + "&image=" + image + "&siteurl=" + siteurl + "", {
+                    "ReviuBackend/index.php/json/postVideoforapi?title=" + $(".titleclass").val() + "&siteusernew=" + siteuser + "&type=" + type + "&price=" + price + "&productlink=" + $(".productlinkclass").val() + "&lat=" + $(".latclass").val() + "&tag=" + $(".tagsclass").val() + "&long=" + $(".longclass").val() + "&useremail=wohlig@wohlig.com&location=" + $(".locationclass").val() + "&rating=" + $(".ratingclass").val() + "&category=" + $(".categoryclass option:selected").attr("value") + "&video=" + video + "&image=" + image + "&siteurl=" + siteurl + "", {
                         //                id:1234
                     },
                     function (data) {
@@ -536,6 +569,8 @@ getLocation();
         stop.onclick = function () {
             var title = $(".titleclass").val();
             var location = $(".locationclass").val();
+            var productlink = $(".productlinkclass").val();
+            
             var tag = $(".tagsclass").val();
             var rating = $(".ratingclass").val();
             if(rating==0 || rating=="")
@@ -544,8 +579,8 @@ getLocation();
             }
             else if (title == "") {
                 alert("Please Enter Title");
-            } else if (location == "") {
-                alert("Please Enter Location");
+            } else if (location == "" && productlink=="") {
+                alert("Please Enter Location or Product Link");
             } else if (tag == "") {
                 alert("Please Enter Tags With Comma Seperated Values");
             } else {

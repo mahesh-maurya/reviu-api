@@ -55,15 +55,19 @@ class Json extends CI_Controller
 		$latitude=$this->input->get_post('lat');
 		$longitude=$this->input->get_post('long');
 		$location=$this->input->get_post('location');
+		$productlink=$this->input->get_post('productlink');
+		$price=$this->input->get_post('price');
+		$type=$this->input->get_post('type');
 		$rating=$this->input->get_post('rating');
 		$category=$this->input->get_post('category');
 		$image=$this->input->get_post('image');
 		$video=$this->input->get_post('video');
 		$siteurl=$this->input->get_post('siteurl');
-		$siteuser=$this->input->get_post('siteuser');
+		$siteuser=$this->input->get_post('siteusernew');
 		$tag=$this->input->get_post('tag');
 $video=substr($video, 8);
-		$data["message"]=$this->video_model->postvideoforapi($title,$userid,$latitude,$longitude,$location,$rating,$video,$category,$image,$siteurl,$siteuser,$tag);
+        $siteurl=base64_decode($siteurl);
+		$data["message"]=$this->video_model->postvideoforapi($title,$userid,$latitude,$longitude,$location,$rating,$video,$category,$image,$siteurl,$siteuser,$tag,$type,$productlink,$price);
 		$this->load->view("json",$data);
 	}
     
@@ -135,6 +139,7 @@ $video=substr($video, 8);
     public function getvideosbysiteurl()
     {
         $siteurl=$this->input->get_post('siteurl');
+        $siteurl=base64_decode($siteurl);
 //        echo $siteurl;
         $data['message']=$this->video_model->getvideosbysiteurl($siteurl);
 		$this->load->view('json',$data);

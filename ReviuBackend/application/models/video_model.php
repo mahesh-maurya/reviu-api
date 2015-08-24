@@ -49,8 +49,16 @@ class Video_model extends CI_Model
 		else
 			return  $videoid;
 	}
-	public function postvideoforapi($title,$userid,$latitude,$longitude,$location,$rating,$video,$category,$image,$siteurl,$siteuser,$tag)
+	public function postvideoforapi($title,$userid,$latitude,$longitude,$location,$rating,$video,$category,$image,$siteurl,$siteuser,$tag,$type,$productlink,$price)
 	{
+        if($type=="product")
+            {
+            $type=1;
+        }
+        else
+            {
+            $type=0;
+        }
 		$data  = array(
 			'user' => $userid,
 			'title' => $title,
@@ -63,6 +71,9 @@ class Video_model extends CI_Model
 			'image' => $image,
 			'siteurl' => $siteurl,
 			'siteuser' => $siteuser,
+			'type' => $type,
+			'productlink' => $productlink,
+			'price' => $price,
 			'videourl' => $video
 		);
 		$query=$this->db->insert( 'video', $data );
@@ -311,7 +322,7 @@ ORDER BY `video`.`id`")->result();
 	}
     function getvideobyidforpopup($id)
 	{
-		$query=$this->db->query("SELECT `video`.`id`,`video`. `user`,`video`. `title`,`video`. `description`,`video`. `location`,`video`. `lat`,`video`. `long`,`video`. `timestamp`,`video`. `rating`,`video`. `videourl`,`video`. `status`,`video`. `category`,`video`. `image`,`video`. `likes`,`video`. `views`,`video`. `siteuser`,`video`. `id` ,`user`.`firstname`,`user`.`lastname`
+		$query=$this->db->query("SELECT `video`.`id`,`video`. `user`,`video`. `title`,`video`. `description`,`video`. `location`,`video`. `lat`,`video`. `long`,`video`. `timestamp`,`video`. `rating`,`video`. `videourl`,`video`. `status`,`video`. `category`,`video`. `image`,`video`. `likes`,`video`. `views`,`video`. `siteuser`,`video`. `id` ,`user`.`firstname`,`user`.`lastname`,`video`.`type` AS `type`,`video`.`productlink` AS `productlink`,`video`.`price` AS `price`
 FROM `video`  LEFT OUTER JOIN `user` ON `video`.`user`=`user`.`id` 
 WHERE `video`.`id`='$id'
 ORDER BY `video`.`id`")->row();
