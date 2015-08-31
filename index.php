@@ -350,10 +350,15 @@ getLocation();
             
             var siteuser="";
         $(document).ready(function () {
+//            var siteuserhash1="<?php echo $_REQUEST['parenturl'];?>";
+//                var parenturl=atob(siteuserhash1);
+//            alert(parenturl);
             var siteuserhash="<?php echo $_REQUEST['siteuser'];?>";
 //        var siteuserhash = "MTByZXZpdQ==";
 //            console.log("hello");
 //            alert("hello"+siteuserhash);
+            var siteurlcheck = window.parent.location.href;
+             alert("hello"+siteurlcheck);
             $.getJSON(
                 "ReviuBackend/index.php/json/getuseridfromhash?hashid="+siteuserhash, {
                     //                id: "123"
@@ -434,6 +439,9 @@ getLocation();
                 var imagename = video2.substr(8, value);
                 var image = imagename + ".png";
                 var siteurl = window.parent.location.href;
+//                var siteurl = window.parent.location.href;
+                var siteuserhash="<?php echo $_REQUEST['parenturl'];?>";
+                var parenturl=atob(siteuserhash);
                 var siteurl=btoa(siteurl);
 //                var siteurl=encodeURI(siteurl);
 //                var siteuser = 10;

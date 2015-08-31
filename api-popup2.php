@@ -107,8 +107,11 @@
         $(document).ready(function () {
 
 //            $(".fornewcreate").attr("href", newcreatehref + window.location.search);
+            var parenturlvalue=window.parent.location.href;
+            var parenturlvalue=btoa(parenturlvalue);
+//            alert(ccc);
             $(".fornewcreate").click(function () {
-                MyWindow = window.open("index.php" + window.location.search, 'MyWindow', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=780,height=840');
+                MyWindow = window.open("index.php" + window.location.search + "&parenturl=" + parenturlvalue , 'MyWindow', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=780,height=840');
                 return false;
             });
 
@@ -184,7 +187,7 @@
             //            var siteurl = "http://146.148.93.13/reviu-api/index.php?type=&productlink=sd.com&categoryid=6&siteuser=MTByZXZpdQ==#";
             //            var siteurl = "http://146.148.93.13/reviu-api/index.php?type=product&productlink=sd.com&categoryid=6&siteuser=MTByZXZpdQ==#";
 //            var siteurl = "http://146.148.93.13/reviu-api/index.php?type=product&productlink=sd.com&categoryid=6&price=5000&siteuser=MTByZXZpdQ==#";
-            var siteurl = "http://146.148.93.13/reviu-api/index.php?type=product&categoryid=6&productlink=sd.com&price=100&siteuser=MTByZXZpdQ==#";
+//            var siteurl = "http://146.148.93.13/reviu-api/index.php?type=product&categoryid=6&productlink=sd.com&price=100&siteuser=MTByZXZpdQ==#";
             var siteurl = btoa(siteurl);
             $.getJSON(
                 "http://146.148.93.13/reviu-api/ReviuBackend/index.php/json/getvideosbysiteurl?siteurl=" + siteurl, {
