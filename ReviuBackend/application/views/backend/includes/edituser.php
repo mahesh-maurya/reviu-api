@@ -158,6 +158,13 @@
 				</div>
 				
 				<div class=" form-group">
+				  <label class="col-sm-2 control-label" for="normal-field">iframecode</label>
+				  <div class="col-sm-4">
+				  <textarea name="iframecode" id="" cols="20" rows="10" class="form-control tinymce"><?php echo set_value('iframecode',$before->iframecode);?></textarea>
+<!--					<input type="text" id="normal-field" class="form-control" name="lastname" value="<?php echo set_value('lastname');?>">-->
+				  </div>
+				</div>
+				<div class=" form-group">
                     <label class="col-sm-2 control-label" for="normal-field">image/Logo</label>
                     <div class="col-sm-4">
                     <input type="file" id="normal-field" class="form-control" name="image" value="<?php echo set_value('image');?>">

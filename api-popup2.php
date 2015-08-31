@@ -89,20 +89,6 @@
     </div>
 
 
-
-
-    <script>
-        //        'use strict';
-        //
-        //        document.addEventListener('DOMContentLoaded', function () {
-        //            var variableWidth = document.querySelector('.js_variablewlidth');
-        //
-        //            lory(variableWidth, {
-        //                rewind: true
-        //            });
-        //        });
-    </script>
-    </script>
     <script>
         $(document).ready(function () {
 
@@ -111,7 +97,7 @@
             var parenturlvalue=btoa(parenturlvalue);
 //            alert(ccc);
             $(".fornewcreate").click(function () {
-                MyWindow = window.open("index.php" + window.location.search + "&parenturl=" + parenturlvalue , 'MyWindow', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=780,height=840');
+                MyWindow = window.open("index.php" + window.parent.location.search + "&parenturl=" + parenturlvalue , 'MyWindow', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=780,height=840');
                 return false;
             });
 

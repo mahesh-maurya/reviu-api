@@ -98,12 +98,14 @@ class User_model extends CI_Model
                 {
             $src="http://146.148.93.13/reviu-api/api-popup2.php?type=product&categoryid=0&productlink=".$productlink."&price=".$price."&siteuser=".$hashofid;
             $iframecode="<p>&lt;iframe src='$src' style='width: 90%; height: 200px' name='internal'&gt;&lt;/iframe&gt;</p>";
+            $updateuser=$this->db->query("UPDATE `user` SET `iframecode`='$iframecode' WHERE `id`='$id'");
 //            $iframecode="<iframe src='$src' style='width: 90%; height: 200px' name='internal'></iframe>";
             }
             else
                 {
             $src="http://146.148.93.13/reviu-api/api-popup2.php?type=category&categoryid=".$category."&productlink=".$productlink."&price=".$price."&siteuser=".$hashofid;
             $iframecode="<p>&lt;iframe src='$src' style='width: 90%; height: 200px' name='internal'&gt;&lt;/iframe&gt;</p>";
+            $updateuser=$this->db->query("UPDATE `user` SET `iframecode`='$iframecode' WHERE `id`='$id'");
             }
 //            $src="http://146.148.93.13/reviu-api/api-popup2.php?";
 //            $iframecode="<iframe src='http://146.148.93.13/reviu-api/api-popup2.php?type=product&categoryid=6&productlink=sd.com&price=100&siteuser=MTByZXZpdQ==' style='width: 90%; height: 200px' name='internal'></iframe>";
