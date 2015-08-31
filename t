@@ -1,0 +1,391 @@
+[1mdiff --git a/index.html b/index.html[m
+[1mdeleted file mode 100644[m
+[1mindex d677e64..0000000[m
+[1m--- a/index.html[m
+[1m+++ /dev/null[m
+[36m@@ -1,384 +0,0 @@[m
+[31m-<!DOCTYPE html>[m
+[31m-[m
+[31m-<html>[m
+[31m-[m
+[31m-<head>[m
+[31m-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">[m
+[31m-    <link href="css/style.css" rel="stylesheet" type="text/css">[m
+[31m-    <link href="css/mobile.css" rel="stylesheet" type="text/css">[m
+[31m-    [m
+[31m-    <link href="css/font-awesome.css" rel="stylesheet">[m
+[31m-    <link href="css/font-awesome.min.css" rel="stylesheet">[m
+[31m-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">[m
+[31m-[m
+[31m-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>[m
+[31m-[m
+[31m-    <scirpt src="https://cdn.webrtc-experiment.com/ffmpeg_asm.js">[m
+[31m-        </script>[m
+[31m-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>[m
+[31m-[m
+[31m-[m
+[31m-        <style>[m
+[31m-            video {[m
+[31m-                width: 499px;[m
+[31m-                height: 310px;[m
+[31m-            }[m
+[31m-            canvas {[m
+[31m-                width: 499px;[m
+[31m-                height: 310px;[m
+[31m-            }[m
+[31m-        </style>[m
+[31m-[m
+[31m-        <script src="https://www.webrtc-experiment.com/RecordRTC.js">[m
+[31m-        </script>[m
+[31m-        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>[m
+[31m-</head>[m
+[31m-[m
+[31m-<body>[m
+[31m-[m
+[31m-    <section class="hidden-xs hidden-sm">[m
+[31m-        <div class="main-box">[m
+[31m-            <div class="head-top">[m
+[31m-                <img src="images/redbtn.png">[m
+[31m-                <img src="images/yellowbtn.png">[m
+[31m-                <img src="images/greenbtn.png">[m
+[31m-            </div>[m
+[31m-            <div class="pro-logo">[m
+[31m-                <div class="row">[m
+[31m-                    <div class="col-md-6">[m
+[31m-                        <img src="images/snap.png">[m
+[31m-                    </div>[m
+[31m-                    <div class="col-md-6">[m
+[31m-[m
+[31m-                        <p class="name-tx">Powered by Reviu</p>[m
+[31m-                    </div>[m
+[31m-                </div>[m
+[31m-            </div>[m
+[31m-            <div class="right-box">[m
+[31m-                <div class="vid-box">[m
+[31m-                    <div class="image-box">[m
+[31m-                        <h1 style="display:none;">[m
+[31m-<!--[m
+[31m-        <a href="https://github.com/muaz-khan/WebRTC-Experiment/tree/master/RecordRTC">RecordRTC</a>[m
+[31m-        <a href="https://github.com/muaz-khan/WebRTC-Experiment/tree/master/RecordRTC-to-PHP">PHP</a>[m
+[31m-        <a href="https://github.com/muaz-khan/WebRTC-Experiment/tree/master/ffmpeg">FFmpeg</a>[m
+[31m--->[m
+[31m-    </h1>[m
+[31m-                        <video id="preview" controls style=" height: 300px; max-width: 100%; vertical-align: top; width: 498px;"></video>[m
+[31m-[m
+[31m-[m
+[31m-<!--                        <button id="" class="record-button" ></button>-->[m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-                    </div>[m
+[31m-                    <div class="buttons">[m
+[31m-                        <a href="#">[m
+[31m-                            <button type="button" class="btn-defaults">Edit</button>[m
+[31m-                        </a>[m
+[31m-[m
+[31m-                        <span class="position"><img src="images/camera.png" id="record"></span>[m
+[31m-                        </a>[m
+[31m-[m
+[31m-                        <a href="#">[m
+[31m-                            <button type="button" class="btn-defaultp">Preview</button>[m
+[31m-                        </a>[m
+[31m-                    </div>[m
+[31m-                    <div class="slider scroll">[m
+[31m-                        <div class="img-content addvideos">[m
+[31m-<!--[m
+[31m-                            <img src="images/dp.jpg">[m
+[31m-                            <img src="images/dp.jpg">[m
+[31m-                            <img src="images/dp.jpg">[m
+[31m-                            <img src="images/dp.jpg">[m
+[31m-                            <img src="images/dp.jpg">[m
+[31m-                            <img src="images/dp.jpg">[m
+[31m-                            <img src="images/dp.jpg">[m
+[31m--->[m
+[31m-                            <!--            <i class="fa fa-th"></i>-->[m
+[31m-                        </div>[m
+[31m-                    </div>[m
+[31m-                </div>[m
+[31m-[m
+[31m-            </div>[m
+[31m-            <div class="left-box pull-right">[m
+[31m-                <div class="left-back">[m
+[31m-[m
+[31m-                    <div class="drop-down">[m
+[31m-[m
+[31m-                        <select name="Icecream Flavours" placeholder="Category" class="categoryclass">[m
+[31m-                            <option value="">Category</option>[m
+[31m-                            <option value="5">Vanilla</option>[m
+[31m-                            <option value="6">Strawberry</option>[m
+[31m-                            <option value="8">Caramel</option>[m
+[31m-                        </select>[m
+[31m-                    </div>[m
+[31m-                    <div class="content-box">[m
+[31m-                        <div class="content-text">[m
+[31m-[m
+[31m-                            <input class="textbox titleclass" type="text" value="" placeholder="Title">[m
+[31m-                            <input class="textbox locationclass" type="text" value="" placeholder="Location">[m
+[31m-                            <p>Powered by Foursquar</p>[m
+[31m-                            <input class="textbox tagsclass" type="text" value="" placeholder="Tag">[m
+[31m-                            <h5>ratings</h5>[m
+[31m-                            [m
+[31m-                            <input class="ratingclass" type="range" min="0" max="5" value="0" step="0.1" onchange="rangevalue1.value=value" />[m
+[31m-                            <output id="rangevalue1"></output>[m
+[31m-                            <div class="bottom">[m
+[31m- <h3>Share</h3>[m
+[31m-                                <i class="fa fa-facebook"></i>[m
+[31m-[m
+[31m-                                <i class="fa fa-google-plus"></i>[m
+[31m-                                <i class="fa fa-linkedin"></i>[m
+[31m-                                <i class="fa fa-instagram"></i>[m
+[31m-                               [m
+[31m-                                <a class="stop" id="stop" href="#" disabled>publish</a>[m
+[31m-                            </div>[m
+[31m-[m
+[31m-                        </div>[m
+[31m-                    </div>[m
+[31m-                </div>[m
+[31m-            </div>[m
+[31m-[m
+[31m-        </div>[m
+[31m-    </section>[m
+[31m-    <headers class="hidden-md hidden-lg">[m
+[31m-        <div class="sections ">[m
+[31m-            <div class="head-tops">[m
+[31m-                <div class="container">[m
+[31m-                    <div class="row">[m
+[31m-                        <div class="col-xs-4 col-md-2 mob-img">[m
+[31m-[m
+[31m-                            <p class="visible-xs visible-sm pos-img"><a href="#" class="col"> login </a><i class="fa fa-caret-right"></i>[m
+[31m-                        </div>[m
+[31m-                        <div class="col-xs-5 col-md-4 text-center">[m
+[31m-                            <a href="index.html" class="hidden-md hidden-lg text-center ">[m
+[31m-                                <img class="text-center img-log" src="images/logo.png">[m
+[31m-                            </a>[m
+[31m-[m
+[31m-                        </div>[m
+[31m-                        <div class="col-xs-2 col-md-2 hidden-xs hidden-sm"></div>[m
+[31m-[m
+[31m-                        <div class="col-xs-3 col-md-1">[m
+[31m-[m
+[31m-[m
+[31m-                            <form class="mob-search hidden-md hidden-lg" id="demo-2">[m
+[31m-                                <input type="search" placeholder="">[m
+[31m-                            </form>[m
+[31m-[m
+[31m-                        </div>[m
+[31m-                        <div class="col-xs-4 col-md-3">[m
+[31m-[m
+[31m-[m
+[31m-                        </div>[m
+[31m-                    </div>[m
+[31m-[m
+[31m-                </div>[m
+[31m-            </div>[m
+[31m-            <div class="bg-mob hidden-md hidden-lg">[m
+[31m-                <div class="container">[m
+[31m-                    <div class="row">[m
+[31m-                        <div class="col-xs-12" style="text-align: center;[m
+[31m-margin: auto;">[m
+[31m-[m
+[31m-                            <ul>[m
+[31m-                                <a href="main.html">[m
+[31m-                                    <li style="list-style:none;padding-left:0px">feed</li>[m
+[31m-                                </a>[m
+[31m-                                <a href="#">[m
+[31m-                                    <li>Preview</li>[m
+[31m-                                </a>[m
+[31m-                                <a href="category.html">[m
+[31m-                                    <li>Explore</li>[m
+[31m-                                </a>[m
+[31m-                                <a href="#">[m
+[31m-                                    <li>Blog</li>[m
+[31m-                                </a>[m
+[31m-                            </ul>[m
+[31m-                        </div>[m
+[31m-                    </div>[m
+[31m-                </div>[m
+[31m-            </div>[m
+[31m-            <div class="feed-head">[m
+[31m-                              <div class="drop-down">[m
+[31m-[m
+[31m-                        <select name="Icecream Flavours">[m
+[31m-                            <option value="double chocolate">category</option>[m
+[31m-                            <option value="vanilla">Vanilla</option>[m
+[31m-                            <option value="strawberry">Strawberry</option>[m
+[31m-                            <option value="caramel">Caramel</option>[m
+[31m-                        </select>[m
+[31m-                    </div>[m
+[31m-                    <div class="content-box">[m
+[31m-                        <div class="content-text">[m
+[31m-[m
+[31m-                            <input class="textbox" type="text" value="title/product">[m
+[31m-                            <input class="textbox" type="text" value="location">[m
+[31m-                            <p>Powered by Foursquar</p>[m
+[31m-                            <input class="textbox" type="text" value="tags">[m
+[31m-                            <h5>ratings</h5>[m
+[31m-                            <input type="range" min="0" max="5" value="2.5" step="0.1" onchange="rangevalue.value=value" />[m
+[31m-                            <output id="rangevalue"></output>[m
+[31m-                            [m
+[31m-[m
+[31m-                        </div>[m
+[31m-                    </div>[m
+[31m-            </div>[m
+[31m-        </div>[m
+[31m-    </headers>[m
+[31m-[m
+[31m-    <script>[m
+[31m-        $( document ).ready(function() {[m
+[31m-//        console.log('hiiiii');[m
+[31m-//        alert("hiii");[m
+[31m-[m
+[31m-        $.getJSON([m
+[31m-            "http://wohlig.biz/ReviuBackend/index.php/json/getvideosbyuser/1", {[m
+[31m-//                id: "123"[m
+[31m-            },[m
+[31m-            function (data) {[m
+[31m-                console.log(data);[m
+[31m-                nodata=data;[m
+[31m-                videosliders(data);[m
+[31m-                    }[m
+[31m-[m
+[31m-            [m
+[31m-                );[m
+[31m-            function videosliders(data) {[m
+[31m-                        $(".addvideos").html("");[m
+[31m-                        for(var i=0;i<data.length;i++)[m
+[31m-                        {[m
+[31m-                            $(".addvideos").append("<img src='images/dp.jpg' data-video="+data[i].videourl+">");[m
+[31m-                        }[m
+[31m-                        $(".addvideos img").click(function() {[m
+[31m-//                            console.log($(this).attr("data-video")); [m
+[31m-                            preview.src = "http://mafiawarloots.com/reviu-api/uploads/"+$(this).attr("data-video");[m
+[31m-                            preview.play();[m
+[31m-                            preview.muted = false;[m
+[31m-                        });[m
+[31m-[m
+[31m-                    };[m
+[31m-            [m
+[31m-            });[m
+[31m-        [m
+[31m-        // todo: this demo need to be updated for Firefox.[m
+[31m-         // it currently focuses only chrome.[m
+[31m-        function PostBlob(audioBlob, videoBlob, fileName) {[m
+[31m-            var formData = new FormData();[m
+[31m-            formData.append('filename', fileName);[m
+[31m-            formData.append('audio-blob', audioBlob);[m
+[31m-            formData.append('video-blob', videoBlob);[m
+[31m-            xhr('save.php', formData, function (ffmpeg_output) {[m
+[31m-                console.log(ffmpeg_output);[m
+[31m-                var category=$(".categoryclass option:selected").attr("value");[m
+[31m-//                console.log(category);[m
+[31m-                var title=$(".titleclass").val();[m
+[31m-//                console.log(title);[m
+[31m-                var location=$(".locationclass").val();[m
+[31m-                var tags=$(".tagsclass").val();[m
+[31m-                var ratingclass=$(".ratingclass").val();[m
+[31m-//                console.log(ratingclass);[m
+[31m-                var video=ffmpeg_output;[m
+[31m-                [m
+[31m-                $.getJSON([m
+[31m-            "http://wohlig.biz/ReviuBackend/index.php/json/postVideo?title="+$(".titleclass").val()+"&useremail=wohlig@wohlig.com&location="+$(".locationclass").val()+"&rating="+$(".ratingclass").val()+"&category="+$(".categoryclass option:selected").attr("value")+"&video="+video+"", {[m
+[31m-//                id:1234[m
+[31m-            },[m
+[31m-            function (data) {[m
+[31m-                console.log(data);[m
+[31m-//                console.log(data.results[0].geometry.location.lat);[m
+[31m-//                console.log(data.results[0].geometry.location.lng);[m
+[31m-//                $('.latitudeclass').val(data.results[0].geometry.location.lat);[m
+[31m-//                $('.longitudeclass').val(data.results[0].geometry.location.lng);[m
+[31m-////                console.log(parsxed.results[0].geometry);[m
+[31m-//                nodata = data;[m
+[31m-                // $("#store").html(data);[m
+[31m-//                allenquiries(data);[m
+[31m-//                userdetails(data);[m
+[31m-[m
+[31m-            }[m
+[31m-        );[m
+[31m-                [m
+[31m-                [m
+[31m-//                console.log(tags);[m
+[31m-                document.querySelector('h1').innerHTML = ffmpeg_output.replace(/\\n/g, '<br />');[m
+[31m-                preview.src = ffmpeg_output;[m
+[31m-                preview.play();[m
+[31m-                preview.muted = false;[m
+[31m-            });[m
+[31m-        }[m
+[31m-        var record = document.getElementById('record');[m
+[31m-        var stop = document.getElementById('stop');[m
+[31m-        var audio = document.querySelector('audio');[m
+[31m-        var recordVideo = document.getElementById('record-video');[m
+[31m-        var preview = document.getElementById('preview');[m
+[31m-        var container = document.getElementById('container');[m
+[31m-        var isFirefox = !!navigator.mozGetUserMedia;[m
+[31m-        var recordAudio, recordVideo;[m
+[31m-        record.onclick = function () {[m
+[31m-            record.disabled = true;[m
+[31m-            !window.stream && navigator.getUserMedia({[m
+[31m-                audio: true,[m
+[31m-                video: true[m
+[31m-            }, function (stream) {[m
+[31m-                window.stream = stream;[m
+[31m-                onstream();[m
+[31m-            }, function (error) {[m
+[31m-                alert(JSON.stringify(error, null, '\t'));[m
+[31m-            });[m
+[31m-            window.stream && onstream();[m
+[31m-[m
+[31m-            function onstream() {[m
+[31m-                preview.src = window.URL.createObjectURL(stream);[m
+[31m-                preview.play();[m
+[31m-                preview.muted = true;[m
+[31m-                recordAudio = RecordRTC(stream, {[m
+[31m-                    // bufferSize: 16384,[m
+[31m-                    onAudioProcessStarted: function () {[m
+[31m-                        if (!isFirefox) {[m
+[31m-                            recordVideo.startRecording();[m
+[31m-                        }[m
+[31m-                    }[m
+[31m-                });[m
+[31m-                recordVideo = RecordRTC(stream, {[m
+[31m-                    type: 'video'[m
+[31m-                });[m
+[31m-                recordAudio.startRecording();[m
+[31m-                stop.disabled = false;[m
+[31m-            }[m
+[31m-        };[m
+[31m-        var fileName;[m
+[31m-//        $("publish").click[m
+[31m-        stop.onclick = function () {[m
+[31m-            document.querySelector('h1').innerHTML = 'Getting Blobs...';[m
+[31m-            record.disabled = false;[m
+[31m-            stop.disabled = true;[m
+[31m-            preview.src = '';[m
+[31m-            preview.poster = 'ajax-loader.gif';[m
+[31m-            fileName = "videofile";[m
+[31m-            if (!isFirefox) {[m
+[31m-                recordAudio.stopRecording(function () {[m
+[31m-                    document.querySelector('h1').innerHTML = 'Got audio-blob. Getting video-blob...';[m
+[31m-                    recordVideo.stopRecording(function () {[m
+[31m-                        document.querySelector('h1').innerHTML = 'Uploading to server...';[m
+[31m-                        PostBlob(recordAudio.getBlob(), recordVideo.getBlob(), fileName);[m
+[31m-                    });[m
+[31m-                });[m
+[31m-            }[m
+[31m-        };[m
+[31m-[m
+[31m-        function xhr(url, data, callback) {[m
+[31m-            var request = new XMLHttpRequest();[m
+[31m-            request.onreadystatechange = function (data) {[m
+[31m-                if (request.readyState == 4 && request.status == 200) {[m
+[31m-                    //console.log(data);[m
+[31m-                    callback(request.responseText);[m
+[31m-                }[m
+[31m-            };[m
+[31m-            request.open('POST', url);[m
+[31m-            request.send(data);[m
+[31m-        }[m
+[31m-    </script>[m
+[31m-</body>[m
+[31m-[m
+[31m-</html>[m
+\ No newline at end of file[m
