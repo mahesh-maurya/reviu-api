@@ -442,7 +442,7 @@ getLocation();
 //                var siteurl = window.parent.location.href;
                 var siteuserhash="<?php echo $_REQUEST['parenturl'];?>";
                 var parenturl=atob(siteuserhash);
-                var siteurl=btoa(siteurl);
+                var siteurl=btoa(parenturl);
 //                var siteurl=encodeURI(siteurl);
 //                var siteuser = 10;
                 console.log(siteuser);
