@@ -311,7 +311,7 @@ LEFT OUTER JOIN `category` ON `video`.`category`=`category`.`name` WHERE `video`
 FROM `video`
 LEFT OUTER JOIN `user` ON `video`.`user`=`user`.`id` 
 WHERE `video`. `siteurl`='$siteurl'
-		ORDER BY `video`.`id`";
+		ORDER BY `video`.`id` DESC";
 //        echo $q;
 		$query=$this->db->query("SELECT `video`.`id`,`video`. `user`,`video`. `title`,`video`. `description`,`video`. `location`,`video`. `lat`,`video`. `long`,`video`. `timestamp`,`video`. `rating`,`video`. `videourl`,`video`. `status`,`video`. `category`,`video`. `image`,`video`. `likes`,`video`. `views`,`video`. `siteuser`,`video`. `siteurl` ,`user`.`firstname`,`user`.`lastname`
 FROM `video`  LEFT OUTER JOIN `user` ON `video`.`user`=`user`.`id` 
