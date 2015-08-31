@@ -25,6 +25,7 @@
                         <th data-field="address">Address</th>
                         <th data-field="city">city</th>
                         <th data-field="accesslevel">accesslevel</th>
+                        <th data-field="Send Mail">Send Mail</th>
 <!--					<td><i class=" icon-edit"></i>Status</td>-->
 					    <th data-field="action"> Actions </th>
                     </tr>
@@ -43,6 +44,7 @@
                 {
                     resultrow.address="";
                 }
+//                var btnsendmail="<a href='<?php echo site_url('site/send?id='); ?>"+resultrow.id+"' class='label label-success label-mini'>Confirm</a>";
                 var deletestring="";
                 return "<tr><td>" + resultrow.id + "</td><td>" + resultrow.firstname + " " + resultrow.lastname + "</td><td>" + resultrow.email + "</td><td>" + resultrow.contact + "</td><td>" + resultrow.address + "</td><td>" + resultrow.city + "</td><td>" + resultrow.accesslevelname + "</td><td><a class='btn btn-primary btn-xs' href='<?php echo site_url('site/edituser?id=');?>"+resultrow.id +"'><i class='icon-pencil'></i></a><a class='btn btn-danger btn-xs'  onclick=\"return confirm('Are you sure you want to delete?')\" href='<?php echo site_url('site/deleteuser?id='); ?>"+resultrow.id +"'><i class='icon-trash '></i></a></td><tr>";
             }

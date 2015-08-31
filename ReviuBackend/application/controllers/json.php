@@ -55,15 +55,19 @@ class Json extends CI_Controller
 		$latitude=$this->input->get_post('lat');
 		$longitude=$this->input->get_post('long');
 		$location=$this->input->get_post('location');
+		$productlink=$this->input->get_post('productlink');
+		$price=$this->input->get_post('price');
+		$type=$this->input->get_post('type');
 		$rating=$this->input->get_post('rating');
 		$category=$this->input->get_post('category');
 		$image=$this->input->get_post('image');
 		$video=$this->input->get_post('video');
 		$siteurl=$this->input->get_post('siteurl');
-		$siteuser=$this->input->get_post('siteuser');
+		$siteuser=$this->input->get_post('siteusernew');
 		$tag=$this->input->get_post('tag');
 $video=substr($video, 8);
-		$data["message"]=$this->video_model->postvideoforapi($title,$userid,$latitude,$longitude,$location,$rating,$video,$category,$image,$siteurl,$siteuser,$tag);
+        $siteurl=base64_decode($siteurl);
+		$data["message"]=$this->video_model->postvideoforapi($title,$userid,$latitude,$longitude,$location,$rating,$video,$category,$image,$siteurl,$siteuser,$tag,$type,$productlink,$price);
 		$this->load->view("json",$data);
 	}
     
@@ -114,15 +118,15 @@ $video=substr($video, 8);
 		$this->load->view('json',$data);
     }
     
-    public function getvideosbyuser($userid)
+    public function getvideosbyuser()
     {
-        //$userid=$this->input->get_post('userid');
+        $userid=$this->input->get_post('userid');
         $data['message']=$this->video_model->getvideosbyuser($userid);
 		$this->load->view('json',$data);
     }
-    public function getimageofuser($userid)
+    public function getimageofuser()
     {
-        //$userid=$this->input->get_post('userid');
+        $userid=$this->input->get_post('userid');
         $data['message']=$this->user_model->getuserimagebyid($userid);
 		$this->load->view('json',$data);
     }
@@ -135,6 +139,7 @@ $video=substr($video, 8);
     public function getvideosbysiteurl()
     {
         $siteurl=$this->input->get_post('siteurl');
+        $siteurl=base64_decode($siteurl);
 //        echo $siteurl;
         $data['message']=$this->video_model->getvideosbysiteurl($siteurl);
 		$this->load->view('json',$data);
@@ -185,6 +190,14 @@ $video=substr($video, 8);
 		$data["message"]=$this->video_model->postvideofromapp($operator,$video);
 		$this->load->view("json",$data);
 	}
+    
+    function getuseridfromhash()
+    {
+        $hashid=$this->input->get_post('hashid');
+        $data["message"]=$this->user_model->getuseridfromhash($hashid);
+		$this->load->view("json",$data);
+        
+    }
     
 }
 ?>

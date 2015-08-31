@@ -37,6 +37,28 @@ class User_model extends CI_Model
 	
 	public function create($firstname,$lastname,$dob,$password,$accesslevel,$email,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image)
 	{
+        if($accesslevel==2)
+            {
+                 $chars_min=6;
+                 $chars_max=8;
+                 $include_numbers=false;
+                    $use_upper_case=false;
+                 $include_special_chars=false;
+                $length = rand($chars_min, $chars_max);
+                $selection = 'aeuoyibcdfghjklmnpqrstvwxz';
+                if($include_numbers) {
+                    $selection .= "1234567890";
+                }
+                if($include_special_chars) {
+                    $selection .= "!@\"#$%&[]{}?|";
+                }
+
+                $password = "";
+                for($i=0; $i<$length; $i++) {
+                    $current_letter = $use_upper_case ? (rand(0,1) ? strtoupper($selection[(rand() % strlen($selection))]) : $selection[(rand() % strlen($selection))]) : $selection[(rand() % strlen($selection))];
+                    $password .=  $current_letter;
+                }
+            }
 		$data  = array(
 			'firstname' => $firstname,
 			'lastname' => $lastname,
@@ -59,10 +81,24 @@ class User_model extends CI_Model
 		);
 		$query=$this->db->insert( 'user', $data );
 		$id=$this->db->insert_id();
+        $hashofid=base64_encode($id."reviu");
+        $updateuser=$this->db->query("UPDATE `user` SET `hashid`='$hashofid' WHERE `id`='$id'");
 		if($query)
 		{
 			$this->saveuserlog($id,'User Created');
 		}
+        if($accesslevel==2)
+            {
+            $link="<a href='http://146.148.93.13/reviu-api/ReviuBackend/'>Click here</a> To Login";
+            $msg="<h3>Your Emailid for backend Access is $email AND Password is: $password </h3><br>Your ID is:'$hashofid'<br>$link";
+            $this->load->library('email');
+            $this->email->from('avinash@wohlig.com', 'Reviu Backend Access');
+            $this->email->to($email);
+            $this->email->subject('Reviu Backend Access');
+            $this->email->message($msg);
+
+            $this->email->send();
+        }
 		if(!$query)
 			return  0;
 		else
@@ -497,5 +533,10 @@ $this->db->insert('user', $data);
 $query=$this->db->query("SELECT `image` FROM `user` WHERE `id`='$id'")->row();
 return $query;
 }
+    public function getuseridfromhash($hashid)
+    {
+        $query=$this->db->query("SELECT `id` FROM `user` WHERE `hashid`='$hashid'")->row();
+        return intval($query->id);
+    }
 }
 ?>
