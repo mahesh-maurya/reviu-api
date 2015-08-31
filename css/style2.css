@@ -5,9 +5,6 @@ body {
 .main-box {
     max-width: 780px;
     height: auto;
-    /* border: 2px solid #255e83; */
-    
-    margin: 2% auto;
     background: #393e49;
     border-radius: 1px;
 }

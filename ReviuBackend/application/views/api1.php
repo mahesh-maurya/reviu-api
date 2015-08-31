@@ -101,6 +101,7 @@
 </head>
 <?php
 //print_r($message);
+//$fullvideopath="http://localhost/reviu-api/uploads/".$message->videourl;
 $fullvideopath="http://146.148.93.13/reviu-api/uploads/".$message->videourl;
 $name=$message->firstname." ".$message->lastname;
 //$rating=(float)$message->rating;
