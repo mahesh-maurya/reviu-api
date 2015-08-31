@@ -164,6 +164,40 @@
 				  </div>
 				</div>
 				
+				<div class=" form-group">
+				  <label class="col-sm-2 control-label">Type</label>
+				  <div class="col-sm-4">
+					<?php
+						
+						echo form_dropdown('type',$type,set_value('type'),'class="chzn-select form-control" 	data-placeholder="Choose a Type..."');
+					?>
+				  </div>
+				</div>
+				
+				<div class=" form-group">
+				  <label class="col-sm-2 control-label">Category</label>
+				  <div class="col-sm-4">
+					<?php
+						
+						echo form_dropdown('category',$category,set_value('category'),'class="chzn-select form-control" 	data-placeholder="Choose a category..."');
+					?>
+				  </div>
+				</div>
+				
+				<div class=" form-group">
+				  <label class="col-sm-2 control-label" for="normal-field">Product Link</label>
+				  <div class="col-sm-4">
+					<input type="text" id="normal-field" class="form-control" name="productlink" value="<?php echo set_value('productlink');?>">
+				  </div>
+				</div>
+				
+				<div class=" form-group">
+				  <label class="col-sm-2 control-label" for="normal-field">Price</label>
+				  <div class="col-sm-4">
+					<input type="text" id="normal-field" class="form-control" name="price" value="<?php echo set_value('price');?>">
+				  </div>
+				</div>
+				
 					<div class=" form-group">
                       <label class="col-sm-2 control-label" for="normal-field">Image/Logo</label>
                       <div class="col-sm-4">

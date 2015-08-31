@@ -35,7 +35,7 @@ class User_model extends CI_Model
 		return $query;
 	}
 	
-	public function create($firstname,$lastname,$dob,$password,$accesslevel,$email,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image)
+	public function create($firstname,$lastname,$dob,$password,$accesslevel,$email,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image,$type,$category,$productlink,$price)
 	{
         if($accesslevel==2)
             {
@@ -77,6 +77,10 @@ class User_model extends CI_Model
             'google' => $google,
             'state' => $state,
             'image' => $image,
+            'type' => $type,
+            'categoryid' => $category,
+            'productlink' => $productlink,
+            'price' => $price,
             'country' => $country
 		);
 		$query=$this->db->insert( 'user', $data );
@@ -90,7 +94,21 @@ class User_model extends CI_Model
         if($accesslevel==2)
             {
             $link="<a href='http://146.148.93.13/reviu-api/ReviuBackend/'>Click here</a> To Login";
-            $msg="<h3>Your Emailid for backend Access is $email AND Password is: $password </h3><br>Your ID is:'$hashofid'<br>$link";
+            if($type==1)
+                {
+            $src="http://146.148.93.13/reviu-api/api-popup2.php?type=product&categoryid=0&productlink=".$productlink."&price=".$price."&siteuser=".$hashofid;
+            $iframecode="<p>&lt;iframe src='$src' style='width: 90%; height: 200px' name='internal'&gt;&lt;/iframe&gt;</p>";
+//            $iframecode="<iframe src='$src' style='width: 90%; height: 200px' name='internal'></iframe>";
+            }
+            else
+                {
+            $src="http://146.148.93.13/reviu-api/api-popup2.php?type=category&categoryid=".$category."&productlink=".$productlink."&price=".$price."&siteuser=".$hashofid;
+            $iframecode="<p>&lt;iframe src='$src' style='width: 90%; height: 200px' name='internal'&gt;&lt;/iframe&gt;</p>";
+            }
+//            $src="http://146.148.93.13/reviu-api/api-popup2.php?";
+//            $iframecode="<iframe src='http://146.148.93.13/reviu-api/api-popup2.php?type=product&categoryid=6&productlink=sd.com&price=100&siteuser=MTByZXZpdQ==' style='width: 90%; height: 200px' name='internal'></iframe>";
+            $msg="<h3>Your Emailid for backend Access is $email AND Password is: $password </h3><br>Your ID is:'$hashofid'<br>$link<br><br> And iframe code is-<br> $iframecode";
+            
             $this->load->library('email');
             $this->email->from('avinash@wohlig.com', 'Reviu Backend Access');
             $this->email->to($email);
@@ -137,7 +155,7 @@ class User_model extends CI_Model
 		return $query;
 	}
 	
-	public function edit($id,$fname,$lname,$dob,$password,$accesslevel,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image)
+	public function edit($id,$fname,$lname,$dob,$password,$accesslevel,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image,$type,$category,$productlink,$price)
 	{
 		$data  = array(
 			'firstname' => $fname,
@@ -155,6 +173,10 @@ class User_model extends CI_Model
             'google' => $google,
             'state' => $state,
             'image' => $image,
+            'type' => $type,
+            'categoryid' => $category,
+            'productlink' => $productlink,
+            'price' => $price,
             'country' => $country
 		);
 		if($password != "")
@@ -333,6 +355,16 @@ class User_model extends CI_Model
 			 "2" => "Disabled"
 			);
 		return $status;
+	}
+	
+	public function gettypedropdown()
+	{
+		$type= array(
+            ""=>"",
+			 "1" => "product",
+			 "0" => "Category"
+			);
+		return $type;
 	}
 	
 	function editaddress($id,$address,$city,$pincode)

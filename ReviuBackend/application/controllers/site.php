@@ -34,6 +34,8 @@ class Site extends CI_Controller
 		$this->checkaccess($access);
 		$data['accesslevel']=$this->user_model->getaccesslevels();
 		$data[ 'status' ] =$this->user_model->getstatusdropdown();
+		$data[ 'category' ] =$this->category_model->getcategorydropdown();
+		$data[ 'type' ] =$this->user_model->gettypedropdown();
 		$data[ 'page' ] = 'createuser';
 		$data[ 'title' ] = 'Create User';
 		$this->load->view( 'template', $data );	
@@ -97,6 +99,11 @@ class Site extends CI_Controller
 			$firstname=$this->input->post('firstname');
 			$lastname=$this->input->post('lastname');
             
+			$type=$this->input->post('type');
+			$category=$this->input->post('category');
+			$productlink=$this->input->post('productlink');
+			$price=$this->input->post('price');
+            
             $config['upload_path'] = './uploads/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $this->load->library('upload', $config);
@@ -108,7 +115,7 @@ class Site extends CI_Controller
             $image=$uploaddata['file_name'];
             }
             
-			if($this->user_model->create($firstname,$lastname,$dob,$password,$accesslevel,$email,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image)==0)
+			if($this->user_model->create($firstname,$lastname,$dob,$password,$accesslevel,$email,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image,$type,$category,$productlink,$price)==0)
 			$data['alerterror']="New user could not be created.";
 			else
 			$data['alertsuccess']="User created Successfully.";
@@ -326,6 +333,11 @@ class Site extends CI_Controller
 			$fname=$this->input->post('fname');
 			$lname=$this->input->post('lname');
             
+			$type=$this->input->post('type');
+			$category=$this->input->post('category');
+			$productlink=$this->input->post('productlink');
+			$price=$this->input->post('price');
+            
             $config['upload_path'] = './uploads/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $this->load->library('upload', $config);
@@ -345,7 +357,7 @@ class Site extends CI_Controller
             }
             
             
-			if($this->user_model->edit($id,$fname,$lname,$dob,$password,$accesslevel,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image)==0)
+			if($this->user_model->edit($id,$fname,$lname,$dob,$password,$accesslevel,$contact,$status,$facebookuserid,$website,$description,$address,$city,$pincode,$phoneno,$google,$state,$country,$image,$type,$category,$productlink,$price)==0)
 			$data['alerterror']="User Editing was unsuccesful";
 			else
 			$data['alertsuccess']="User edited Successfully.";

@@ -170,7 +170,7 @@
                                         if($type=="" || $type=="category")
                                         {
                                         ?>
-                                        <input class="textbox locationclass" type="text" value="" placeholder="Location" onkeydown="changelatlong()" id="location">
+                                        <input class="textbox locationclass" type="hidden" value="" placeholder="Location" onkeydown="changelatlong()" id="location">
                                         <?php
                                         }
                                         ?>
@@ -183,8 +183,8 @@
                                         if($type=="product")
                                         {
                                         ?>
-                                        <input class="textbox productlinkclass" type="text" value="<?php echo $productlink;?>" placeholder="Product Link" required>
-                                        <input class="textbox priceclass" type="text" value="<?php echo $price;?>" placeholder="Price" required>
+                                        <input class="textbox productlinkclass" type="hidden" value="<?php echo $productlink;?>" placeholder="Product Link" required>
+                                        <input class="textbox priceclass" type="hidden" value="<?php echo $price;?>" placeholder="Price" required>
                                         <?php
                                         }
                                         ?>
