@@ -121,9 +121,9 @@ class Site extends CI_Controller
 			$data['alertsuccess']="User created Successfully.";
 			
 //			$data['table']=$this->user_model->viewusers();
-			$data['redirect']="site/viewusers";
-			//$data['other']="template=$template";
-			$this->load->view("redirect",$data);
+//			$data['redirect']="site/viewusers";
+//			//$data['other']="template=$template";
+//			$this->load->view("redirect",$data);
 		}
 	}
 //	function viewusers()
