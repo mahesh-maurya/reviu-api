@@ -1,13 +1,16 @@
-<!--
-<div>
-<iframe src="http://localhost/reviu-api/index.php?type=product&categoryid=6&productlink=sd.com&price=100&siteuser=MTByZXZpdQ==" style="width: 90%; height: 300px" name="internal"></iframe>
-</div>
--->
-<!--
-<div>
-<iframe src="http://146.148.93.13/reviu-api/api-popup2.php?type=product&categoryid=6&productlink=sd.com&price=100&siteuser=MTByZXZpdQ==" style="width: 90%; height: 200px" name="internal"></iframe>
-</div>
--->
-<div>
-<iframe src="http://146.148.93.13/reviu-api/api-popup2.php?type=product&categoryid=5&productlink=demo.com&price=122&siteuser=MjByZXZpdQ==" style="width: 90%; height: 300px" name="internal"></iframe>
-</div>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+  
+    <div class="reviuclass" reviutype="product" categoryid="6" productlink="sd.com" price="100" siteuser="MTByZXZpdQ=="></div>
+    <script src="js/output.js"></script>
+
+</body>
+
+</html>

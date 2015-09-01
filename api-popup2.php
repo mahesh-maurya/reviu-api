@@ -5,31 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/remodal.css" rel="stylesheet" type="text/css">
-    <link href="css/owl.carousel.css" rel="stylesheet" type="text/css">
-    <!--    <link href="css/jquery.remodal.css" rel="stylesheet" type="text/css">-->
-
-    <!--    <link href="css/style.css" rel="stylesheet" type="text/css">-->
-    <link href="css/mobile.css" rel="stylesheet" type="text/css">
-    <link href="css/app.css" rel="stylesheet" type="text/css">
-
-    <link href="css/font-awesome.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="fancy/jquery.fancybox.pack.js"></script>
-    <script src="fancy/jquery.fancybox.js"></script>
-
-    <!--    <script src="js/owl.carousel.js"></script>-->
-    <link href="fancy/jquery.fancybox.css" rel="stylesheet" type="text/css">
-
-    </script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -39,7 +15,6 @@
 
 
     <title>Reviu API</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <!--
     <script>
         $(document).ready(function () {
@@ -88,6 +63,34 @@
         </div>
     </div>
 
+    
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/remodal.css" rel="stylesheet" type="text/css">
+    <link href="css/owl.carousel.css" rel="stylesheet" type="text/css">
+    <!--    <link href="css/jquery.remodal.css" rel="stylesheet" type="text/css">-->
+
+    <!--    <link href="css/style.css" rel="stylesheet" type="text/css">-->
+    <link href="css/mobile.css" rel="stylesheet" type="text/css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="fancy/jquery.fancybox.pack.js"></script>
+    <script src="fancy/jquery.fancybox.js"></script>
+
+    <!--    <script src="js/owl.carousel.js"></script>-->
+    <link href="fancy/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+    </script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    
 
     <script>
         $(document).ready(function () {
