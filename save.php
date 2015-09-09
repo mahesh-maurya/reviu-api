@@ -64,9 +64,11 @@
                     echo("Problem writing video file to disk!");
                 }
                 else {
-                    $audioFile = 'uploads/'.$filename.'.wav';
+                    $audioFile = 'uploads/'.$filename.'.mp3';
+//                    $audioFile = 'uploads/'.$filename.'.wav';
                     $videoFile = 'uploads/'.$filename.'.webm';
                     
+//                    exec('ffmpeg -i'.$audiofile.'-acodec libmp3lame '.$filename.'.mp3');
                     $mergedFile = 'uploads/'.$filename.'-merged.webm';
                     $mergedFilenameonly = 'uploads/'.$filename.'-merged.webm';
                     
