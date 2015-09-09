@@ -96,40 +96,21 @@ class User_model extends CI_Model
             $link="<a href='http://146.148.93.13/reviu-api/ReviuBackend/'>Click here</a> To Login";
             if($type==1)
                 {
-                $valueforsend="<!DOCTYPE html>
-
-<html>
-
-<head>
-    <meta charset='UTF-8'>
-</head>
-
-<body>
-  
-    <div class='reviuclass' reviutype='product' categoryid='6' productlink='sd.com' price='100' siteuser='MTByZXZpdQ=='></div>
-    <script src='js/output.js'></script>
-
-</body>
-
-</html>";
+                $valueforsend="<p>&lt;div class='reviuclass' reviutype='product' categoryid='0' productlink='".$productlink."' price='".$price."' siteuser='".$hashofid."'&gt;&lt;/div&gt;&lt;script src='http://146.148.93.13/reviu-api/js/output.js'&gt;&lt;/script&gt;</p>";
+                $valueforsendencode=base64_encode($valueforsend);
                 
-                
-                
-            $src="http://146.148.93.13/reviu-api/api-popup2.php?type=product&categoryid=0&productlink=".$productlink."&price=".$price."&siteuser=".$hashofid;
-            $iframecode="<p>&lt;iframe src='$src' style='width: 90%; height: 200px' name='internal'&gt;&lt;/iframe&gt;</p>";
-            $updateuser=$this->db->query("UPDATE `user` SET `iframecode`='$iframecode' WHERE `id`='$id'");
-//            $iframecode="<iframe src='$src' style='width: 90%; height: 200px' name='internal'></iframe>";
+            $updateuser=$this->db->query("UPDATE `user` SET `iframecode`='$valueforsendencode' WHERE `id`='$id'");
             }
             else
                 {
-            $src="http://146.148.93.13/reviu-api/api-popup2.php?type=category&categoryid=".$category."&productlink=".$productlink."&price=".$price."&siteuser=".$hashofid;
-            $iframecode="<p>&lt;iframe src='$src' style='width: 90%; height: 200px' name='internal'&gt;&lt;/iframe&gt;</p>";
-            $updateuser=$this->db->query("UPDATE `user` SET `iframecode`='$iframecode' WHERE `id`='$id'");
+                $valueforsend="<p>&lt;div class='reviuclass' reviutype='category' categoryid='".$category."' productlink='".$productlink."' price='".$price."' siteuser='".$hashofid."'&gt;&lt;/div&gt;&lt;script src='http://146.148.93.13/reviu-api/js/output.js'&gt;&lt;/script&gt;</p>";
+                $valueforsendencode=base64_encode($valueforsend);
+            $updateuser=$this->db->query("UPDATE `user` SET `iframecode`='$valueforsendencode' WHERE `id`='$id'");
             }
 //            $src="http://146.148.93.13/reviu-api/api-popup2.php?";
 //            $iframecode="<iframe src='http://146.148.93.13/reviu-api/api-popup2.php?type=product&categoryid=6&productlink=sd.com&price=100&siteuser=MTByZXZpdQ==' style='width: 90%; height: 200px' name='internal'></iframe>";
-            $msg="<h3>Your Emailid for backend Access is $email AND Password is: $password </h3><br>Your ID is:'$hashofid'<br>$link<br><br> And iframe code is-<br> $iframecode";
-            
+            $msg="<h3>Your Emailid for backend Access is $email AND Password is: $password </h3><br>Your ID is:'$hashofid'<br>$link<br><br> And code to be inserted is-<br> $valueforsendencode";
+//            echo $msg;
             $this->load->library('email');
             $this->email->from('avinash@wohlig.com', 'Reviu Backend Access');
             $this->email->to($email);
@@ -137,6 +118,7 @@ class User_model extends CI_Model
             $this->email->message($msg);
 
             $this->email->send();
+//            echo $this->email->print_debugger();
         }
 		if(!$query)
 			return  0;

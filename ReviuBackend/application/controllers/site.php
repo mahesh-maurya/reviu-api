@@ -24,8 +24,19 @@ class Site extends CI_Controller
 	{
 		$access = array("1","2");
 		$this->checkaccess($access);
-		$data[ 'page' ] = 'dashboard';
-		$data[ 'title' ] = 'Welcome';
+        $accesslevel=$this->session->userdata("accesslevel");
+        $id=$this->session->userdata("id");
+        if($accesslevel==1)
+        {
+            $data[ 'page' ] = 'dashboard';
+            $data[ 'title' ] = 'Welcome';
+        }
+        else if($accesslevel==2)
+        {
+            $data['user']=$this->user_model->beforeedit($id);
+            $data[ 'page' ] = 'operatordashboard';
+            $data[ 'title' ] = 'Welcome';
+        }
 		$this->load->view( 'template', $data );	
 	}
 	public function createuser()
