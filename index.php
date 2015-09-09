@@ -556,8 +556,9 @@ getLocation();
                 preview.src = window.URL.createObjectURL(stream);
                 preview.play();
                 preview.muted = true;
+//                    bufferSize: 16384,
                 recordAudio = RecordRTC(stream, {
-                    bufferSize: 16384,
+                    bufferSize: 10000,
                     onAudioProcessStarted: function () {
                         if (!isFirefox) {
                             recordVideo.startRecording();
