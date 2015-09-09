@@ -96,6 +96,25 @@ class User_model extends CI_Model
             $link="<a href='http://146.148.93.13/reviu-api/ReviuBackend/'>Click here</a> To Login";
             if($type==1)
                 {
+                $valueforsend="<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+</head>
+
+<body>
+  
+    <div class='reviuclass' reviutype='product' categoryid='6' productlink='sd.com' price='100' siteuser='MTByZXZpdQ=='></div>
+    <script src='js/output.js'></script>
+
+</body>
+
+</html>";
+                
+                
+                
             $src="http://146.148.93.13/reviu-api/api-popup2.php?type=product&categoryid=0&productlink=".$productlink."&price=".$price."&siteuser=".$hashofid;
             $iframecode="<p>&lt;iframe src='$src' style='width: 90%; height: 200px' name='internal'&gt;&lt;/iframe&gt;</p>";
             $updateuser=$this->db->query("UPDATE `user` SET `iframecode`='$iframecode' WHERE `id`='$id'");
