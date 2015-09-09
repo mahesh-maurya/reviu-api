@@ -358,7 +358,7 @@ getLocation();
 //            console.log("hello");
 //            alert("hello"+siteuserhash);
             var siteurlcheck = window.parent.location.href;
-             alert("hello"+siteurlcheck);
+//             alert("hello"+siteurlcheck);
             $.getJSON(
                 "ReviuBackend/index.php/json/getuseridfromhash?hashid="+siteuserhash, {
                     //                id: "123"
