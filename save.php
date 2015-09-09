@@ -52,7 +52,8 @@
 	$microtime=date("Y-m-d",$t)."-".microtime_float();
 	$filename=$_POST["filename"]."-".$microtime;
     if (isset($_FILES["audio-blob"])) {
-        $uploadDirectory = 'uploads/'.$filename.'.wav';
+        $uploadDirectory = 'uploads/'.$filename.'.mp3';
+//        $uploadDirectory = 'uploads/'.$filename.'.wav';
         if (!move_uploaded_file($_FILES["audio-blob"]["tmp_name"], $uploadDirectory)) {
             echo("Problem writing audio file to disk!");
         }
@@ -64,7 +65,8 @@
                     echo("Problem writing video file to disk!");
                 }
                 else {
-                    $audioFile = 'uploads/'.$filename.'.wav';
+                    $audioFile = 'uploads/'.$filename.'.mp3';
+//                    $audioFile = 'uploads/'.$filename.'.wav';
                     $videoFile = 'uploads/'.$filename.'.webm';
                     
 //                    exec('ffmpeg -i'.$audioFile.' -vn -ar 44100 -ac 2 -ab 32k -f mp3 '.$filename.'.mp3');
