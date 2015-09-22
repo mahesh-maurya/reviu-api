@@ -52,28 +52,10 @@ $active_record = TRUE;
 $myserver=$_SERVER['SERVER_NAME'];
 
 //if($myserver=="www.mafiawarloots.com" || $myserver=="www.wohlig.biz" || $myserver=="mafiawarloots.com" || $myserver=="wohlig.biz")
-//{
-//    $db['default']['hostname'] = 'localhost';
-//$db['default']['username'] = 'root';
-//$db['default']['password'] = '';
-//$db['default']['database'] = 'mafiawar_video';
-//$db['default']['dbdriver'] = 'mysql';
-//$db['default']['dbprefix'] = '';
-//$db['default']['pconnect'] = TRUE;
-//$db['default']['db_debug'] = TRUE;
-//$db['default']['cache_on'] = FALSE;
-//$db['default']['cachedir'] = '';
-//$db['default']['char_set'] = 'utf8';
-//$db['default']['dbcollat'] = 'utf8_general_ci';
-//$db['default']['swap_pre'] = '';
-//$db['default']['autoinit'] = TRUE;
-//$db['default']['stricton'] = FALSE;
-//}
-//else
 {
     $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = '6dL8+ph4H!LiCT';
+$db['default']['password'] = '';
 $db['default']['database'] = 'mafiawar_video';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
@@ -86,8 +68,26 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-    
 }
+//else
+//{
+//    $db['default']['hostname'] = 'localhost';
+//$db['default']['username'] = 'root';
+//$db['default']['password'] = '6dL8+ph4H!LiCT';
+//$db['default']['database'] = 'mafiawar_video';
+//$db['default']['dbdriver'] = 'mysql';
+//$db['default']['dbprefix'] = '';
+//$db['default']['pconnect'] = TRUE;
+//$db['default']['db_debug'] = TRUE;
+//$db['default']['cache_on'] = FALSE;
+//$db['default']['cachedir'] = '';
+//$db['default']['char_set'] = 'utf8';
+//$db['default']['dbcollat'] = 'utf8_general_ci';
+//$db['default']['swap_pre'] = '';
+//$db['default']['autoinit'] = TRUE;
+//$db['default']['stricton'] = FALSE;
+//    
+//}
 
 
 //$active_group = 'default';
