@@ -358,7 +358,7 @@ getLocation();
 //            console.log("hello");
 //            alert("hello"+siteuserhash);
             var siteurlcheck = window.parent.location.href;
-             alert("hello"+siteurlcheck);
+//             alert("hello"+siteurlcheck);
             $.getJSON(
                 "ReviuBackend/index.php/json/getuseridfromhash?hashid="+siteuserhash, {
                     //                id: "123"
@@ -556,8 +556,9 @@ getLocation();
                 preview.src = window.URL.createObjectURL(stream);
                 preview.play();
                 preview.muted = true;
+//                    bufferSize: 16384,
                 recordAudio = RecordRTC(stream, {
-                    bufferSize: 16384,
+                    bufferSize: 10000,
                     onAudioProcessStarted: function () {
                         if (!isFirefox) {
                             recordVideo.startRecording();

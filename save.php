@@ -52,7 +52,8 @@
 	$microtime=date("Y-m-d",$t)."-".microtime_float();
 	$filename=$_POST["filename"]."-".$microtime;
     if (isset($_FILES["audio-blob"])) {
-        $uploadDirectory = 'uploads/'.$filename.'.wav';
+        $uploadDirectory = 'uploads/'.$filename.'.mp3';
+//        $uploadDirectory = 'uploads/'.$filename.'.wav';
         if (!move_uploaded_file($_FILES["audio-blob"]["tmp_name"], $uploadDirectory)) {
             echo("Problem writing audio file to disk!");
         }
@@ -64,9 +65,13 @@
                     echo("Problem writing video file to disk!");
                 }
                 else {
-                    $audioFile = 'uploads/'.$filename.'.wav';
+                    $audioFile = 'uploads/'.$filename.'.mp3';
+//                    $audioFile = 'uploads/'.$filename.'.wav';
                     $videoFile = 'uploads/'.$filename.'.webm';
                     
+//                    exec('ffmpeg -i'.$audioFile.' -vn -ar 44100 -ac 2 -ab 32k -f mp3 '.$filename.'.mp3');
+//                    $audioFile='uploads/'.$filename.'.mp3';
+//                    exec('ffmpeg -i'.$audiofile.'-acodec libmp3lame '.$filename.'.mp3');
                     $mergedFile = 'uploads/'.$filename.'-merged.webm';
                     $mergedFilenameonly = 'uploads/'.$filename.'-merged.webm';
                     
@@ -79,6 +84,7 @@
                         $cmd = '-i '.$audioFile.' -i '.$videoFile.' -map 0:0 -map 1:0 '.$mergedFile;
                     }
                     else {
+//                        $cmd = ' -i '.$audioFile.' -i '.$videoFile.' -c:v mpeg4 -c:a vorbis -b:v 64k -b:a 2k -strict experimental '.$mergedFile;
                         $cmd = ' -i '.$audioFile.' -i '.$videoFile.' -c:v mpeg4 -c:a vorbis -b:v 64k -b:a 12k -strict experimental '.$mergedFile;
                     }
                     
